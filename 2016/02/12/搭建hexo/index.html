@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://easydo.work">
   <title>搭建hexo | string的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="windows前往 http://nodejs.cn/download/ 下载nodejs客户端,下载mis安装包,进行安装  切换npm 淘宝镜像源   123临时使用: npm --registry https://registry.npm.taobao.org install express持久使用:npm config set registry https://registry.npm.">
+  <meta name="description" content="前往 http://nodejs.cn/download/ 下载nodejs系统环境对应安装包,进行安装  切换npm 淘宝镜像源(Linux添加一下环境变量)   123临时使用: npm --registry https://registry.npm.taobao.org install express持久使用:npm config set registry https://registry">
 <meta name="keywords" content="node,npm,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建hexo">
 <meta property="og:url" content="http://easydo.work/2016/02/12/搭建hexo/index.html">
 <meta property="og:site_name" content="string的博客">
-<meta property="og:description" content="windows前往 http://nodejs.cn/download/ 下载nodejs客户端,下载mis安装包,进行安装  切换npm 淘宝镜像源   123临时使用: npm --registry https://registry.npm.taobao.org install express持久使用:npm config set registry https://registry.npm.">
+<meta property="og:description" content="前往 http://nodejs.cn/download/ 下载nodejs系统环境对应安装包,进行安装  切换npm 淘宝镜像源(Linux添加一下环境变量)   123临时使用: npm --registry https://registry.npm.taobao.org install express持久使用:npm config set registry https://registry">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-15T10:20:24.882Z">
+<meta property="og:updated_time" content="2017-09-15T13:10:28.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建hexo">
-<meta name="twitter:description" content="windows前往 http://nodejs.cn/download/ 下载nodejs客户端,下载mis安装包,进行安装  切换npm 淘宝镜像源   123临时使用: npm --registry https://registry.npm.taobao.org install express持久使用:npm config set registry https://registry.npm.">
+<meta name="twitter:description" content="前往 http://nodejs.cn/download/ 下载nodejs系统环境对应安装包,进行安装  切换npm 淘宝镜像源(Linux添加一下环境变量)   123临时使用: npm --registry https://registry.npm.taobao.org install express持久使用:npm config set registry https://registry">
   
     <link rel="alternative" href="/atom.xml" title="string的博客" type="application/atom+xml">
   
@@ -180,21 +180,21 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li><p>windows前往 <a href="http://nodejs.cn/download/" target="_blank" rel="external">http://nodejs.cn/download/</a> 下载nodejs客户端,下载mis安装包,进行安装</p>
+<li><p>前往 <a href="http://nodejs.cn/download/" target="_blank" rel="external">http://nodejs.cn/download/</a> 下载nodejs系统环境对应安装包,进行安装</p>
 </li>
-<li><p>切换npm 淘宝镜像源</p>
+<li><p>切换npm 淘宝镜像源(Linux添加一下环境变量)</p>
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">临时使用: npm --registry https://registry.npm.taobao.org install express</div><div class="line">持久使用:npm config set registry https://registry.npm.taobao.org</div><div class="line">查看:npm config get registry</div></pre></td></tr></table></figure>
 <ul>
-<li><p>安装hexo环境</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo</div></pre></td></tr></table></figure>
-</li>
-<li><p>新建文件夹 : blog 进入 </p>
+<li>安装hexo环境<a id="more"></a>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">heox init   #初始化</div><div class="line">heox g      # 生成</div><div class="line">heox s      # 启动服务</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm config set user 0   			#Linux执行此命令</div><div class="line">npm config set unsafe-perm true		#Linux执行此命令</div><div class="line"></div><div class="line">npm install -g hexo</div></pre></td></tr></table></figure>
+<ul>
+<li>新建文件夹 : blog 进入 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">heox init   #初始化</div><div class="line">npm install #安装模块</div><div class="line">heox g      # 生成</div><div class="line">heox s      # 启动服务</div></pre></td></tr></table></figure>
 <ul>
 <li><p>切换主题:在github选择好看的hexo主题,例:<a href="https://github.com/pinggod/hexo-theme-jekyll" target="_blank" rel="external">hexo-theme-jekyll</a>,<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">hexo-theme-yilia</a>.使用git clone 到 blog/themes文件下.</p>
 </li>
@@ -204,6 +204,10 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i hexo-generator-json-content --save</div></pre></td></tr></table></figure>
+<ul>
+<li>blog目录下_config.yml添加此配置项<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">jsonContent:</div><div class="line">  meta: false</div><div class="line">  pages: false</div><div class="line">  posts:</div><div class="line">    title: true</div><div class="line">    date: true</div><div class="line">    path: true</div><div class="line">    text: false</div><div class="line">    raw: false</div><div class="line">    content: false</div><div class="line">    slug: false</div><div class="line">    updated: false</div><div class="line">    comments: false</div><div class="line">    link: false</div><div class="line">    permalink: false</div><div class="line">    excerpt: false</div><div class="line">    categories: false</div><div class="line">    tags: true</div></pre></td></tr></table></figure></li>
+</ul>
+
       
 
       
