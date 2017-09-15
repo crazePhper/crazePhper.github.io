@@ -4,8 +4,8 @@
 
     
   <url>
-    <loc>http://easydo.work/2016/02/12/cj7m5n24v0000hguw9budk7bn.html</loc>
-    <lastmod>2017-09-15T17:33:37.667Z</lastmod>
+    <loc>http://easydo.work/2016/02/12/bulid-hexo.html</loc>
+    <lastmod>2017-09-15T17:43:15.370Z</lastmod>
     <data>
         <display>
         <title>搭建hexo</title>
@@ -25,63 +25,8 @@
 
     
   <url>
-    <loc>http://easydo.work/2016/04/17/cj7m2kvnd0000vsuw7xmwzuxa.html</loc>
-    <lastmod>2017-09-15T16:17:51.149Z</lastmod>
-    <data>
-        <display>
-        <title>SPL-MultipleIterator迭代器</title>
-        <pubTime>2016-04-17T14:47:00.000Z</pubTime>
-        
-        <tag>php</tag>
-         
-        <tag>SPL</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://easydo.work/2016/03/13/cj7lx6xt50001fouwfgn43r23.html</loc>
-    <lastmod>2017-09-15T16:13:13.323Z</lastmod>
-    <data>
-        <display>
-        <title>mysql自动备份数据库并上传到百度云</title>
-        <pubTime>2016-03-13T13:12:00.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://easydo.work/2016/02/20/cj7lx6xsz0000fouwzrtr3fd6.html</loc>
-    <lastmod>2017-09-15T16:12:47.014Z</lastmod>
-    <data>
-        <display>
-        <title>YII2 添加全局自定义函数</title>
-        <pubTime>2016-02-20T08:39:00.000Z</pubTime>
-        
-        <tag>php</tag>
-         
-        <tag>YII2</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://easydo.work/2016/03/27/cj7lx6xtc0004fouwhn5wlorq.html</loc>
-    <lastmod>2017-09-15T09:15:07.942Z</lastmod>
+    <loc>http://easydo.work/2016/03/27/YII2-shmilyzxt-yii2-queue.html</loc>
+    <lastmod>2017-09-15T17:43:03.085Z</lastmod>
     <data>
         <display>
         <title>YII2 队列 shmilyzxt-yii2-queue 简介</title>
@@ -99,8 +44,27 @@
 
     
   <url>
-    <loc>http://easydo.work/2016/02/28/cj7lx6xta0003fouw0zhq5jzc.html</loc>
-    <lastmod>2017-09-15T09:03:28.872Z</lastmod>
+    <loc>http://easydo.work/2016/02/20/YII2-customize-function.html</loc>
+    <lastmod>2017-09-15T17:42:43.656Z</lastmod>
+    <data>
+        <display>
+        <title>YII2 添加全局自定义函数</title>
+        <pubTime>2016-02-20T08:39:00.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+        <tag>YII2</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://easydo.work/2016/02/28/YII2-request.html</loc>
+    <lastmod>2017-09-15T17:42:21.242Z</lastmod>
     <data>
         <display>
         <title>YII2 request文件解析</title>
@@ -109,6 +73,42 @@
         <tag>php</tag>
          
         <tag>YII2</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://easydo.work/2016/04/17/SPL-MultipleIterator.html</loc>
+    <lastmod>2017-09-15T17:42:02.563Z</lastmod>
+    <data>
+        <display>
+        <title>SPL-MultipleIterator迭代器</title>
+        <pubTime>2016-04-17T14:47:00.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+        <tag>SPL</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://easydo.work/2016/03/13/mysql-backup-to-updalod-baidu.html</loc>
+    <lastmod>2017-09-15T17:41:32.924Z</lastmod>
+    <data>
+        <display>
+        <title>mysql自动备份数据库并上传到百度云</title>
+        <pubTime>2016-03-13T13:12:00.000Z</pubTime>
+        
+        <tag>mysql</tag>
          
          
            

@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://easydo.work">
-  <title>mysql自动备份数据库并上传到百度云 | string的博客</title>
+  <title>YII2 添加全局自定义函数 | string的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先写一个定时任务,每天凌晨执行:  12crontab -e 输入:2 1 * * * bash /root/mysqlBackup.sh  配置bypy(python版本大于2.6)  123456wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gztar zvxf 1.5.5.tar.gz &amp;">
-<meta name="keywords" content="mysql">
+  <meta name="description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
+<meta name="keywords" content="php,YII2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql自动备份数据库并上传到百度云">
-<meta property="og:url" content="http://easydo.work/2016/03/13/cj7lx6xt50001fouwfgn43r23.html">
+<meta property="og:title" content="YII2 添加全局自定义函数">
+<meta property="og:url" content="http://easydo.work/2016/02/20/YII2-customize-function.html">
 <meta property="og:site_name" content="string的博客">
-<meta property="og:description" content="先写一个定时任务,每天凌晨执行:  12crontab -e 输入:2 1 * * * bash /root/mysqlBackup.sh  配置bypy(python版本大于2.6)  123456wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gztar zvxf 1.5.5.tar.gz &amp;">
+<meta property="og:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-15T16:13:13.323Z">
+<meta property="og:updated_time" content="2017-09-15T17:42:43.656Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql自动备份数据库并上传到百度云">
-<meta name="twitter:description" content="先写一个定时任务,每天凌晨执行:  12crontab -e 输入:2 1 * * * bash /root/mysqlBackup.sh  配置bypy(python版本大于2.6)  123456wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gztar zvxf 1.5.5.tar.gz &amp;">
+<meta name="twitter:title" content="YII2 添加全局自定义函数">
+<meta name="twitter:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
   
     <link rel="alternative" href="/atom.xml" title="string的博客" type="application/atom+xml">
   
@@ -159,38 +159,36 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-mysql自动备份数据库并上传到百度云" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-YII2 添加全局自定义函数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      mysql自动备份数据库并上传到百度云
+      YII2 添加全局自定义函数
     </h1>
   
 
         
-        <a href="/2016/03/13/cj7lx6xt50001fouwfgn43r23.html" class="archive-article-date">
-  	<time datetime="2016-03-13T13:12:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-13</time>
+        <a href="/2016/02/20/YII2-customize-function.html" class="archive-article-date">
+  	<time datetime="2016-02-20T08:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>先写一个定时任务,每天凌晨执行:</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">crontab -e </div><div class="line">输入:2 1 * * * bash /root/mysqlBackup.sh</div></pre></td></tr></table></figure>
-<ul>
-<li>配置bypy(python版本大于2.6)</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gz</div><div class="line">tar zvxf 1.5.5.tar.gz &amp;&amp; <span class="built_in">cd</span> pip-1.5.5/</div><div class="line">/usr/<span class="built_in">local</span>/python27/bin/python2.7 setup.py install</div><div class="line">/usr/<span class="built_in">local</span>/python27/bin/pip install requests</div><div class="line">/usr/<span class="built_in">local</span>/python27/bin/pip install bypy</div><div class="line">/usr/<span class="built_in">local</span>/python27/bin/bypy info <span class="comment">#第一次运行会让你输入授权码对 pyby授权:访问提示的URL,获取授权码.pyby相关命令自行查找.</span></div></pre></td></tr></table></figure>
-<ul>
-<li>mysqlBackup.sh内容:<a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#! /bin/sh</span></div><div class="line"><span class="comment">#1.backup mysql data</span></div><div class="line"><span class="comment">#2.auto upload to baiduCloud</span></div><div class="line">filePath=<span class="string">'/root/mysqlBackup'</span></div><div class="line">fileName=$(date <span class="string">'+%Y%m%d'</span>)</div><div class="line">file=<span class="variable">$filePath</span><span class="string">"/"</span><span class="variable">$fileName</span><span class="string">".sql"</span></div><div class="line">/www/wdlinux/mysql-5.5.49/bin/mysqldump -uroot -p***** tableName &gt; <span class="variable">$file</span> &amp;&amp; /usr/<span class="built_in">local</span>/python27/bin/bypy upload <span class="variable">$file</span></div></pre></td></tr></table></figure></li>
-</ul>
+        <h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一:"></a>方法一:</h2><p>这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下：</p>
+<h5 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pr</span><span class="params">($var)</span></span>&#123;</div><div class="line">    <span class="comment">//do something</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">(<span class="keyword">new</span> yii\web\Application($config))-&gt;run();</div></pre></td></tr></table></figure>
+<p>也可以引入一个函数文件.</p>
+<hr>
+<h2 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）:"></a>方法二（推荐）:</h2><a id="more"></a>
+<p>这种方法主要是利用 composer 来实现，在 composer.json 文件里面添加如下代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">"autoload": &#123;</div><div class="line">    "files": [  </div><div class="line">        <span class="string">"common/components/GlobalFunctions.php"</span></div><div class="line">    ]</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>添加完之后,在common/components下添加文件GlobalFunctions.php,记得用终端在项目根目录下执行 composer update 命令</p>
+<p>备注:因为只添加一个文件,我用了方法二,但是只看到<code>vendor\composer\autoload_files.php</code>文件的修改;</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="keyword">array</span>(</div><div class="line">    <span class="string">'2cffec82183ee1cea088009cef9a6fc3'</span> =&gt; $vendorDir . <span class="string">'/ezyang/htmlpurifier/library/HTMLPurifier.composer.php'</span>,</div><div class="line">    <span class="string">'2f22d0f2d4e1d504c0f839c579818375'</span> =&gt; $baseDir . <span class="string">'/common/components/GlobalFunctions.php'</span>,</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>把composer update 更新的文件全部取消后手动更改 autoload_files 也是可以加载的</p>
 
       
 
@@ -225,7 +223,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YII2</a>
         		</li>
       		
 		</ul>
@@ -281,7 +283,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aSW7DMBAEwPz/084DHDndQyaAqNLJ8CKzdBjM9vUVX6+36/3Tq2++/yq/2+YLAwPjtoz2j6+OvvI48vev8BgYGE9gXP3l1Xc+h8v8cXy+Z3I2DAwMjHXq3ntiYGBgrBwxKWgTJAYGBsZKEfu5NG1Tvfz15locAwPjhoy8Tfb/r/9kvoGBgXErxqu88rbaStitT4WBgXE0Iw9wbVrWFsZtwMXAwHgOY9YyWwmRs6L3l1YdBgbGYxhtkjdrhO0dEvwQcDEwMI5mtL2sfEi5cuio9YaBgXE0I79Fnq7lKxp50y1aAcHAwDiU0TbOWuqGZa+kGYeBgXE0o129miWCbYrZhngMDIynMfK2Wl4Yz0Jt/cgwMDCOZrS9rDZctkVsO+bEwMA4m7Gr3T8Ll8MUMN9Zw8DAOIKx60azxDFPRqNzYmBgHMpoh47tnkOek84W1IazUwwMjFsxZkVsng7OGnN/0mjDwMC4OSMvZfPD7U0lozNgYGA8ktEmZHmC2KaSw50RDAyM4xizo+TDyJUVjQ1dQwwMjIMY+apEO6psS+I66GNgYBzKeJVXG17zXy3dAQMD42jGymCgjet5kG0fGQYGxhMYKytZs0HCesgezhAwMDBuzsgDX1votk29PPT/0m7DwMDA+JgstiXrhjIVAwMDIyhNE2qSYs6SVwwMjCcwkiK2DYLtmsXSmiwGBsbRjDbvahfFZuPJ9aQTAwPjCMY3biS8Kpczy7wAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3azU7EMAxF4Xn/ly4SKxCQnmtnkOqcrEbQSfOxMPHP64XX9bnWv/36zM/P5BnyrtaSIUPGYxnXcqXHIjv09/yFKkOGjAMY6yDLn1kfl4Ta9L0yZMiQsX4BWZxU+/PJkCFDRifJXO+cJrcyZMiQQbZOAbXw+vZcXIYMGQ9kpKHzPz+/sb8hQ4aMhzCuxuont7uWDBkyZjNq1740WU3blmmTQIYMGecweGmeBFn+lnSfP/eUIUPGUEY63JAORqSDYsVQLkOGjAMYpH7Ff95vG/D9vwVcGTJkDGXwHLD2JD80T3RvQrYMGTIOYNQSWhIueYktHcKQIUPGCYz0qpcenae4tSaoDBkyzmHUCnC10j9PfdffRX9dGTJkDGKk5S1yxBqPl+qK/zdkyJDxKAYpZnVSzf6YBXqXDBkyRjM6jYHaKBg/HC/MyZAh4xxGrfRWK/fvTW5lyJAxm5GK+SWSfDdtCQRzIjJkyBjE6DQU+6W6NHCjZ2TIkDGUURuY6ATZfhkuDrUyZMgYxCiW40vJcFqqKw5byJAhYwQj3ZRfIvsXQd5UkCFDxlTGFa5aezI9blxokyFDxmgGX+TiyFPTzthZekmVIUPGDEbaOORJLw/NGwKuDBkyDmCkQXZXupsG/ZsWpgwZMmRsCqk8iAdgGTJkyAgvi/zyx397Q5IhQ8YBDD6oWkt6edug1tqUIUPGbEZ/UiM9BGmOcrwMGTJGMz4AmxcZBiN893gAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -295,18 +297,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2016/03/27/cj7lx6xtc0004fouwhn5wlorq.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/02/28/YII2-request.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          YII2 队列 shmilyzxt-yii2-queue 简介
+          YII2 request文件解析
         
       </div>
     </a>
   
   
-    <a href="/2016/02/28/cj7lx6xta0003fouw0zhq5jzc.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">YII2 request文件解析</div>
+    <a href="/2016/02/12/bulid-hexo.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">搭建hexo</div>
       <i class="icon-circle-right"></i>
     </a>
   
