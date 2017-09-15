@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://easydo.work">
   <title>YII2 添加全局自定义函数 | string的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数function pr($var){     //do something }  (new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:这种方法主要是利用 composer 来实现，在 composer.json 文件里面">
+  <meta name="description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数function pr($var){     //do something }  (new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
 <meta name="keywords" content="php,YII2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YII2 添加全局自定义函数">
 <meta property="og:url" content="http://easydo.work/2016/02/20/YII2 添加全局自定义函数/index.html">
 <meta property="og:site_name" content="string的博客">
-<meta property="og:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数function pr($var){     //do something }  (new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:这种方法主要是利用 composer 来实现，在 composer.json 文件里面">
+<meta property="og:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数function pr($var){     //do something }  (new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-15T06:13:19.619Z">
+<meta property="og:updated_time" content="2017-09-15T09:04:08.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YII2 添加全局自定义函数">
-<meta name="twitter:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数function pr($var){     //do something }  (new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:这种方法主要是利用 composer 来实现，在 composer.json 文件里面">
+<meta name="twitter:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数function pr($var){     //do something }  (new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
   
     <link rel="alternative" href="/atom.xml" title="string的博客" type="application/atom+xml">
   
@@ -187,7 +187,8 @@ var _hmt = _hmt || [];
 (new yii\web\Application($config))-&gt;run();
 </code></pre><p>也可以引入一个函数文件.</p>
 <hr>
-<h2 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）:"></a>方法二（推荐）:</h2><p>这种方法主要是利用 composer 来实现，在 composer.json 文件里面添加如下代码：</p>
+<h2 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）:"></a>方法二（推荐）:</h2><a id="more"></a>
+<p>这种方法主要是利用 composer 来实现，在 composer.json 文件里面添加如下代码：</p>
 <pre><code>&quot;autoload&quot;: {
     &quot;files&quot;: [  
         &quot;common/components/GlobalFunctions.php&quot;
@@ -213,7 +214,7 @@ var _hmt = _hmt || [];
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>都是码农,别客气了.<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     
@@ -454,6 +455,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
             
             <div class="clearfix"></div>

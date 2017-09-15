@@ -159,6 +159,186 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-yii2 队列 shmilyzxt-yii2-queue 简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/27/yii2 队列 shmilyzxt-yii2-queue 简介/">YII2 队列 shmilyzxt-yii2-queue 简介</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/27/yii2 队列 shmilyzxt-yii2-queue 简介/" class="archive-article-date">
+  	<time datetime="2016-03-27T11:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>在yii2论坛中看到一个关于队列的帖子,感觉不错.<a href="http://www.yiichina.com/extension/1084" target="_blank" rel="external">http://www.yiichina.com/extension/1084</a><br>(注:SendMail 错写为 SendMial,粘贴时要注意了.)</p>
+</li>
+<li><p>在使用的过程中觉得挺好的,建议看一下关于队列的原理.</p>
+</li>
+<li><p><code>shmilyzxt/yii2-queue</code> 简单解释:</p>
+</li>
+</ul>
+<ol>
+<li><p>我用的yii2高级版,我们从配置开始看代码,这里我用的是mysql队列,首先配置文件,我把<code>queue</code>配置项写在根目录<code>common\config\main-local.php</code>下的 <code>components</code>数组下,更改一下数据库配置.复制<code>composer</code>安装后复制<br><code>vendor\shmilyzxt\yii2-queue\jobs\jobs.sql</code><br><code>vendor\shmilyzxt\yii2-queue\failed\failed.sql</code><br>2个sql文件到数据库中建立队列数据表和执行任务失败时的数据表.</p>
+</li>
+<li><p>推送任务开始语法:<code>\Yii::$app-&gt;queue-&gt;pushOn(new SendMial(),[&#39;email&#39;=&gt;&#39;49783121@qq.com&#39;,&#39;title&#39;=&gt;&#39;test&#39;,&#39;content&#39;=&gt;&#39;email test&#39;],&#39;email&#39;);</code> 我们到<code>vendor\shmilyzxt\queue\queues\DatabaseQueue.php</code>去看看代码,<code>pushOn()</code>方法写在了<code>DatabaseQueue</code>类的父类<code>vendor\shmilyzxt\queue\base\Queue.php</code>中:</p>
+</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//入队列</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">pushOn</span><span class="params">($job, $data = <span class="string">''</span>, $queue = null)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">		<span class="comment">//canPush 检查队列是否已达最大任务量</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;canPush()) &#123;  </div><div class="line">			<span class="comment">//beforePush 入队列前的事件</span></div><div class="line">            <span class="keyword">$this</span>-&gt;trigger(<span class="keyword">self</span>::EVENT_BEFORE_PUSH); </div><div class="line">			<span class="comment">//入队列</span></div><div class="line">            $ret = <span class="keyword">$this</span>-&gt;push($job, $data, $queue);</div><div class="line">			<span class="comment">//afterPush 入队列后的事件</span></div><div class="line">            <span class="keyword">$this</span>-&gt;trigger(<span class="keyword">self</span>::EVENT_AFTER_PUSH);</div><div class="line">            <span class="keyword">return</span> $ret;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> \<span class="keyword">Exception</span>(<span class="string">"max jobs number exceed! the max jobs number is &#123;$this-&gt;maxJob&#125;"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>注释:这里最好去看看yii2 event事件类,<a href="http://www.digpage.com/event.html" title="http://www.digpage.com/event.html" target="_blank" rel="external">http://www.digpage.com/event.html</a><br>
+        
+          <a class="article-more-a" href="/2016/03/27/yii2 队列 shmilyzxt-yii2-queue 简介/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YII2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/27/yii2 队列 shmilyzxt-yii2-queue 简介/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql自动备份数据库并上传到百度云" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/mysql自动备份数据库并上传到百度云/">mysql自动备份数据库并上传到百度云</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/13/mysql自动备份数据库并上传到百度云/" class="archive-article-date">
+  	<time datetime="2016-03-13T13:12:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>先写一个定时任务,每天凌晨执行:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">crontab -e </div><div class="line">输入:2 1 * * * bash /root/mysqlBackup.sh</div></pre></td></tr></table></figure>
+<ul>
+<li>配置bypy(python版本大于2.6)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gz</div><div class="line">tar zvxf 1.5.5.tar.gz &amp;&amp; cd pip-1.5.5/</div><div class="line">/usr/local/python27/bin/python2.7 setup.py install</div><div class="line">/usr/local/python27/bin/pip install requests</div><div class="line">/usr/local/python27/bin/pip install bypy</div><div class="line">/usr/local/python27/bin/bypy info</div><div class="line">//第一次运行会让你输入授权码对 pyby授权:访问提示的URL,获取授权码.pyby相关命令自行查找.</div></pre></td></tr></table></figure>
+<ul>
+<li>mysqlBackup.sh内容:
+        
+          <a class="article-more-a" href="/2016/03/13/mysql自动备份数据库并上传到百度云/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/13/mysql自动备份数据库并上传到百度云/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-yii2 request文件解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -210,16 +390,10 @@ var _hmt = _hmt || [];
 </tbody>
 </table>
 <p><a href="/img/2032996154.jpg"><img src="/img/2032996154.jpg" alt=""></a><br>这个就写三个例子吧,看了一下在<code>\vendor\yiisoft\yii2\web\Request.php</code>中,有很多方法是封装的不错的.</p>
-<h6 id="2-高级一点的方法"><a href="#2-高级一点的方法" class="headerlink" title="2.高级一点的方法"></a>2.高级一点的方法</h6><p>GET参数操作:</p>
-<pre><code>Yii::$app-&gt;request-&gt;getQueryParams()    //获取所有URL参数(GET)
-Yii::$app-&gt;request-&gt;setQueryParams()    //设置URL GET参数
-Yii::$app-&gt;request-&gt;getQueryParam()    //读取一个GET参数
-</code></pre><p>POST参数操作:</p>
-<pre><code>Yii::$app-&gt;request-&gt;getBodyParams()    //获取所有URL参数(POST)
-Yii::$app-&gt;request-&gt;setBodyParams()    //设置URL POST参数
-Yii::$app-&gt;request-&gt;getBodyParam()    //读取一个POST参数
-</code></pre><h6 id="3-核心验证"><a href="#3-核心验证" class="headerlink" title="3.核心验证"></a>3.核心验证</h6><p>csrfToken也是在这里设置,验证的. <code>getCsrfToken(),loadCsrfToken()</code>等等方法,可以自己查看测试一下<br>判断是不是ajax:<code>getIsAjax()</code>,<br>是不是pajx:<code>getIsPjax()</code>,<br>还有很多方法名称只要略懂英文就能知道什么意思.</p>
-
+<h6 id="2-高级一点的方法"><a href="#2-高级一点的方法" class="headerlink" title="2.高级一点的方法"></a>2.高级一点的方法</h6>
+        
+          <a class="article-more-a" href="/2016/02/28/yii2 request文件解析/#more">more >></a>
+        
       
 
       
@@ -304,20 +478,10 @@ Yii::$app-&gt;request-&gt;getBodyParam()    //读取一个POST参数
 (new yii\web\Application($config))-&gt;run();
 </code></pre><p>也可以引入一个函数文件.</p>
 <hr>
-<h2 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）:"></a>方法二（推荐）:</h2><p>这种方法主要是利用 composer 来实现，在 composer.json 文件里面添加如下代码：</p>
-<pre><code>&quot;autoload&quot;: {
-    &quot;files&quot;: [  
-        &quot;common/components/GlobalFunctions.php&quot;
-    ]
-},
-</code></pre><p>添加完之后,在common/components下添加文件GlobalFunctions.php,记得用终端在项目根目录下执行 composer update 命令</p>
-<p>备注:因为只添加一个文件,我用了方法二,但是只看到<code>vendor\composer\autoload_files.php</code>文件的修改;</p>
-<pre><code>return array(
-&apos;2cffec82183ee1cea088009cef9a6fc3&apos; =&gt; $vendorDir . &apos;/ezyang/htmlpurifier/library/HTMLPurifier.composer.php&apos;,
-&apos;2f22d0f2d4e1d504c0f839c579818375&apos; =&gt; $baseDir . &apos;/common/components/GlobalFunctions.php&apos;,
-);
-</code></pre><p>把composer update 更新的文件全部取消后手动更改 autoload_files 也是可以加载的</p>
-
+<h2 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）:"></a>方法二（推荐）:</h2>
+        
+          <a class="article-more-a" href="/2016/02/20/YII2 添加全局自定义函数/#more">more >></a>
+        
       
 
       
@@ -402,20 +566,10 @@ Yii::$app-&gt;request-&gt;getBodyParam()    //读取一个POST参数
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">临时使用: npm --registry https://registry.npm.taobao.org install express</div><div class="line">持久使用:npm config set registry https://registry.npm.taobao.org</div><div class="line">查看:npm config get registry</div></pre></td></tr></table></figure>
 <ul>
-<li>安装hexo环境</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo</div></pre></td></tr></table></figure>
-<ul>
-<li>新建文件夹 : blog 进入 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">heox init   #初始化</div><div class="line">heox g      # 生成</div><div class="line">heox s      # 启动服务</div></pre></td></tr></table></figure>
-<ul>
-<li><p>切换主题:在github选择好看的hexo主题,例:<a href="https://github.com/pinggod/hexo-theme-jekyll" target="_blank" rel="external">hexo-theme-jekyll</a>,<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">hexo-theme-yilia</a>.使用git clone 到 blog/themes文件下.</p>
-</li>
-<li><p>使用主题:在blog文件夹下_config.yml文件中配置theme为要修改的主题名称:theme: yilia.输入heox g,heox s 浏览<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>.</p>
-</li>
-</ul>
-
+<li><p>安装hexo环境</p>
+        
+          <a class="article-more-a" href="/2016/02/12/搭建hexo/#more">more >></a>
+        
       
 
       
@@ -578,6 +732,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
             
             <div class="clearfix"></div>
