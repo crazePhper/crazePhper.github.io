@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://easydo.work">
-  <title>搭建hexo | string的博客</title>
+  <title>YII2 添加全局自定义函数 | string的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前往 http://nodejs.cn/download/ 下载nodejs系统环境对应安装包,进行安装  切换npm 淘宝镜像源(Linux添加一下环境变量)   123临时使用: npm --registry https://registry.npm.taobao.org install express持久使用:npm config set registry https://registry">
-<meta name="keywords" content="node,npm,hexo">
+  <meta name="description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
+<meta name="keywords" content="php,YII2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建hexo">
-<meta property="og:url" content="http://easydo.work/2016/02/12/搭建hexo/index.html">
+<meta property="og:title" content="YII2 添加全局自定义函数">
+<meta property="og:url" content="http://easydo.work/2016/02/20/cj7lx6xsz0000fouwzrtr3fd6.html">
 <meta property="og:site_name" content="string的博客">
-<meta property="og:description" content="前往 http://nodejs.cn/download/ 下载nodejs系统环境对应安装包,进行安装  切换npm 淘宝镜像源(Linux添加一下环境变量)   123临时使用: npm --registry https://registry.npm.taobao.org install express持久使用:npm config set registry https://registry">
+<meta property="og:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://easydo.work/img/20170915214312.png">
-<meta property="og:updated_time" content="2017-09-15T16:09:52.300Z">
+<meta property="og:updated_time" content="2017-09-15T16:12:47.014Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建hexo">
-<meta name="twitter:description" content="前往 http://nodejs.cn/download/ 下载nodejs系统环境对应安装包,进行安装  切换npm 淘宝镜像源(Linux添加一下环境变量)   123临时使用: npm --registry https://registry.npm.taobao.org install express持久使用:npm config set registry https://registry">
-<meta name="twitter:image" content="http://easydo.work/img/20170915214312.png">
+<meta name="twitter:title" content="YII2 添加全局自定义函数">
+<meta name="twitter:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
   
     <link rel="alternative" href="/atom.xml" title="string的博客" type="application/atom+xml">
   
@@ -161,60 +159,36 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-搭建hexo" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-YII2 添加全局自定义函数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      搭建hexo
+      YII2 添加全局自定义函数
     </h1>
   
 
         
-        <a href="/2016/02/12/搭建hexo/" class="archive-article-date">
-  	<time datetime="2016-02-12T00:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-12</time>
+        <a href="/2016/02/20/cj7lx6xsz0000fouwzrtr3fd6.html" class="archive-article-date">
+  	<time datetime="2016-02-20T08:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p>前往 <a href="http://nodejs.cn/download/" target="_blank" rel="external">http://nodejs.cn/download/</a> 下载nodejs系统环境对应安装包,进行安装</p>
-</li>
-<li><p>切换npm 淘宝镜像源(Linux添加一下环境变量)</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">临时使用: npm --registry https://registry.npm.taobao.org install express</div><div class="line">持久使用:npm config set registry https://registry.npm.taobao.org</div><div class="line">查看:npm config get registry</div></pre></td></tr></table></figure>
-<ul>
-<li>安装hexo环境<a id="more"></a>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm config set user 0   			#Linux执行此命令</div><div class="line">npm config set unsafe-perm true		#Linux执行此命令</div><div class="line"></div><div class="line">npm install -g hexo</div></pre></td></tr></table></figure>
-<ul>
-<li>新建文件夹 : blog 进入 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">heox init   #初始化</div><div class="line">npm install #安装模块</div><div class="line">heox g      # 生成</div><div class="line">heox s      # 启动服务</div></pre></td></tr></table></figure>
-<ul>
-<li><p>切换主题:在github选择好看的hexo主题,例:<a href="https://github.com/pinggod/hexo-theme-jekyll" target="_blank" rel="external">hexo-theme-jekyll</a>,<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">hexo-theme-yilia</a>.使用git clone 到 blog/themes文件下.</p>
-</li>
-<li><p>使用主题:在blog文件夹下_config.yml文件中配置theme为要修改的主题名称:theme: yilia.输入heox g,heox s 浏览<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>.</p>
-</li>
-<li><p>展示所有文章列表 安装</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i hexo-generator-json-content --save</div></pre></td></tr></table></figure>
-<ul>
-<li>blog目录下_config.yml添加此配置项</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">jsonContent:</div><div class="line">  meta: false</div><div class="line">  pages: false</div><div class="line">  posts:</div><div class="line">    title: true</div><div class="line">    date: true</div><div class="line">    path: true</div><div class="line">    text: false</div><div class="line">    raw: false</div><div class="line">    content: false</div><div class="line">    slug: false</div><div class="line">    updated: false</div><div class="line">    comments: false</div><div class="line">    link: false</div><div class="line">    permalink: false</div><div class="line">    excerpt: false</div><div class="line">    categories: false</div><div class="line">    tags: true</div></pre></td></tr></table></figure>
-<ul>
-<li>用于生成分享插件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-helper-qrcode --save #安装即可</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><a href="/img/20170915214312.png"><img src="/img/20170915214312.png" alt=""></a></p>
+        <h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一:"></a>方法一:</h2><p>这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下：</p>
+<h5 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pr</span><span class="params">($var)</span></span>&#123;</div><div class="line">    <span class="comment">//do something</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">(<span class="keyword">new</span> yii\web\Application($config))-&gt;run();</div></pre></td></tr></table></figure>
+<p>也可以引入一个函数文件.</p>
+<hr>
+<h2 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）:"></a>方法二（推荐）:</h2><a id="more"></a>
+<p>这种方法主要是利用 composer 来实现，在 composer.json 文件里面添加如下代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">"autoload": &#123;</div><div class="line">    "files": [  </div><div class="line">        <span class="string">"common/components/GlobalFunctions.php"</span></div><div class="line">    ]</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>添加完之后,在common/components下添加文件GlobalFunctions.php,记得用终端在项目根目录下执行 composer update 命令</p>
+<p>备注:因为只添加一个文件,我用了方法二,但是只看到<code>vendor\composer\autoload_files.php</code>文件的修改;</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="keyword">array</span>(</div><div class="line">    <span class="string">'2cffec82183ee1cea088009cef9a6fc3'</span> =&gt; $vendorDir . <span class="string">'/ezyang/htmlpurifier/library/HTMLPurifier.composer.php'</span>,</div><div class="line">    <span class="string">'2f22d0f2d4e1d504c0f839c579818375'</span> =&gt; $baseDir . <span class="string">'/common/components/GlobalFunctions.php'</span>,</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>把composer update 更新的文件全部取消后手动更改 autoload_files 也是可以加载的</p>
 
       
 
@@ -249,15 +223,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YII2</a>
         		</li>
       		
 		</ul>
@@ -313,7 +283,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABz0lEQVR42u3aQY7DIBBEUd//0h5pVjOyQ37R0HGkzyoilv3YtKDo48Dj/B3Xmb/jOs9nFg+5cuWWuedwXLkpaG7+5ZLkypXbyB0XL16MxiVvPEMKqFy5cp/GTTdA/J1y5cr9Xu6YxQ9IcuXK/RYuOfykccYYsf2sJleu3AI3/fCO3xvzXbly5YbcMxzjrQ8JO3jxunmnXLlyW7irQg2OSwPZLRmMXLlyMTcNR0iEygscD1PkypXbz61vUAgifeZmiyNXrtwWbpo/zEWf5Cj1Znly5crdzEWrCYtReqwiF7H/Uhy5cuVu5s41Xc3R02NVkOLIlSt3A5e3R8wVqUoIK1eu3H4uKR98G5TOxwGrXLlyP8Q9lg7yfh61yJUr9zlc1CyFyxxv87ophXLlym3hzh11+Af4pQuJU+XKldvDnWuxqhS7uThGrly5/VxSVnggwhs14gXIlSu3kTvXSpU2V5EWrjhlkStX7gZuvVWCX5qmV7Clu2K5cuWWubx4lY4uqzZDcuXKbeTOFS/eupEuO/5brly5H+KSI0292L2xyZUr95FcXuwqm5uXy5ArV24jNw1J+VYmKFJrYxG5cuUWuGlgyp9Jt0GVUEauXLmLuD8DesgvSrFzOgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aS26EMBAFQO5/aSJllSyA125PFOxiNULIuFj0uD/HEV/n93V//+r3zzvJ81fvmnBhYGC8lnHeXlevubqTrJDsIV8ZAwNjH0YeTJNPcL9+9QNFfwAYGBgYwRYTTAeJgYGBUU1QL49o8crJmhgYGBjVFDRftPPkx3NxDAyMFzKqjYG//P3B/gYGBsZLGOfQlR/y8qJ/az8YGBhLM5JjXyf4jrUtq00CDAyMtRnVsFhtVSYtgU4h79f/BgYGxqKMWWlttXBWzUmPz10YGBj/nlF98VjAzTdaHdTAwMDYgVEt0I8B7tepJroPnVgMDIxFGbOOgEm4zD9TfygNAwNjDUZVNnaUTLZSLfBhYGDsyUiK73NLZvkzD/cxMDA2YCRBsJrKTj6f3u8QAwNjaUZ19CHfaL6havp69JfGwMB4IWOsHNbfXP+NGBgYOzCqAbRzlKwCCk0LDAyMDRhjx7I8ie00EiIwBgbG0ox8qGtu2ll9JgrxGBgY2zCSpDF/Pg/o1UG01rYwMDBey6gG1k7pf+wTPJThMDAwlmZUM8FqKKwObbSGLTAwMJZjnMUr2URSPpvbUsXAwFibUW4WBgX9frCuNlAxMDB2YCRBtjrsVd3uhICLgYGxAaPaaOwMoY5F/YcsHAMDA6MzYDqp5/iwBwwMDIzGENjchkG5p4GBgbEQozNyMXZwnFz6x8DAWJoxFhw7Y2R5izQP/RgYGIsyvgD/A507FH0XWwAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -327,15 +297,20 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2016/02/20/YII2 添加全局自定义函数/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/02/28/cj7lx6xta0003fouw0zhq5jzc.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          YII2 添加全局自定义函数
+          YII2 request文件解析
         
       </div>
     </a>
   
+  
+    <a href="/2016/02/12/cj7m5n24v0000hguw9budk7bn.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">搭建hexo</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
