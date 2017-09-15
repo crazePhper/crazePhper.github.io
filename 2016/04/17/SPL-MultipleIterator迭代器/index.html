@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://easydo.work">
-  <title>Archives: 2016/2 | string的博客</title>
+  <title>SPL-MultipleIterator迭代器 | string的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一只野生程序猿.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="string的博客">
-<meta property="og:url" content="http://easydo.work/archives/2016/02/index.html">
+  <meta name="description" content="php合并多个数组,自定义键  12345678910111213141516$idIter=new ArrayIterator([&apos;001&apos;,&apos;002&apos;,&apos;003&apos;,&apos;004&apos;]);$nameIter=new ArrayIterator([&apos;Bob&apos;,&apos;Daisy&apos;,&apos;Jasmine&apos;,&apos;Ailsa&apos;]);#MIT_KEYS_ASSOC以键排序,还有MIT_NEED_ANY,MIT_NEED_">
+<meta name="keywords" content="php,SPL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SPL-MultipleIterator迭代器">
+<meta property="og:url" content="http://easydo.work/2016/04/17/SPL-MultipleIterator迭代器/index.html">
 <meta property="og:site_name" content="string的博客">
-<meta property="og:description" content="一只野生程序猿.">
+<meta property="og:description" content="php合并多个数组,自定义键  12345678910111213141516$idIter=new ArrayIterator([&apos;001&apos;,&apos;002&apos;,&apos;003&apos;,&apos;004&apos;]);$nameIter=new ArrayIterator([&apos;Bob&apos;,&apos;Daisy&apos;,&apos;Jasmine&apos;,&apos;Ailsa&apos;]);#MIT_KEYS_ASSOC以键排序,还有MIT_NEED_ANY,MIT_NEED_">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-15T16:12:38.866Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="string的博客">
-<meta name="twitter:description" content="一只野生程序猿.">
+<meta name="twitter:title" content="SPL-MultipleIterator迭代器">
+<meta name="twitter:description" content="php合并多个数组,自定义键  12345678910111213141516$idIter=new ArrayIterator([&apos;001&apos;,&apos;002&apos;,&apos;003&apos;,&apos;004&apos;]);$nameIter=new ArrayIterator([&apos;Bob&apos;,&apos;Daisy&apos;,&apos;Jasmine&apos;,&apos;Ailsa&apos;]);#MIT_KEYS_ASSOC以键排序,还有MIT_NEED_ANY,MIT_NEED_">
   
     <link rel="alternative" href="/atom.xml" title="string的博客" type="application/atom+xml">
   
@@ -157,36 +159,64 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-SPL-MultipleIterator迭代器" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/28/yii2 request文件解析/" class="archive-article-date">
-  	<time datetime="2016-02-28T12:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/28/yii2 request文件解析/">YII2 request文件解析</a>
+    <h1 class="article-title" itemprop="name">
+      SPL-MultipleIterator迭代器
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2016/04/17/SPL-MultipleIterator迭代器/" class="archive-article-date">
+  	<time datetime="2016-04-17T14:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>php合并多个数组,自定义键</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$idIter=<span class="keyword">new</span> ArrayIterator([<span class="string">'001'</span>,<span class="string">'002'</span>,<span class="string">'003'</span>,<span class="string">'004'</span>]);</div><div class="line"></div><div class="line">$nameIter=<span class="keyword">new</span> ArrayIterator([<span class="string">'Bob'</span>,<span class="string">'Daisy'</span>,<span class="string">'Jasmine'</span>,<span class="string">'Ailsa'</span>]);</div><div class="line"></div><div class="line"><span class="comment">#MIT_KEYS_ASSOC以键排序,还有MIT_NEED_ANY,MIT_NEED_ALL,MIT_KEYS_NUMERIC选项.</span></div><div class="line">$mit = <span class="keyword">new</span> MultipleIterator(MultipleIterator::MIT_KEYS_ASSOC);</div><div class="line"></div><div class="line">$mit-&gt;attachIterator($idIter,<span class="string">"ID"</span>);</div><div class="line"></div><div class="line">$mit-&gt;attachIterator($nameIter,<span class="string">"NAME"</span>);</div><div class="line"></div><div class="line"><span class="keyword">foreach</span> ($mit <span class="keyword">as</span> $value) &#123;</div><div class="line"></div><div class="line">	print_r($value);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>打印结果</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">array</span>(<span class="number">2</span>) &#123;           </div><div class="line">  [<span class="string">"name"</span>]=&gt;         </div><div class="line">  string(<span class="number">3</span>) <span class="string">"Bob"</span>    </div><div class="line">  [<span class="string">"id"</span>]=&gt;           </div><div class="line">  string(<span class="number">3</span>) <span class="string">"001"</span>    </div><div class="line">&#125;                    </div><div class="line"><span class="keyword">array</span>(<span class="number">2</span>) &#123;           </div><div class="line">  [<span class="string">"name"</span>]=&gt;         </div><div class="line">  string(<span class="number">5</span>) <span class="string">"Daisy"</span>  </div><div class="line">  [<span class="string">"id"</span>]=&gt;           </div><div class="line">  string(<span class="number">3</span>) <span class="string">"002"</span>    </div><div class="line">&#125;                    </div><div class="line"><span class="keyword">array</span>(<span class="number">2</span>) &#123;           </div><div class="line">  [<span class="string">"name"</span>]=&gt;         </div><div class="line">  string(<span class="number">7</span>) <span class="string">"Jasmine"</span></div><div class="line">  [<span class="string">"id"</span>]=&gt;           </div><div class="line">  string(<span class="number">3</span>) <span class="string">"003"</span>    </div><div class="line">&#125;                    </div><div class="line"><span class="keyword">array</span>(<span class="number">2</span>) &#123;           </div><div class="line">  [<span class="string">"name"</span>]=&gt;         </div><div class="line">  string(<span class="number">5</span>) <span class="string">"Ailsa"</span>  </div><div class="line">  [<span class="string">"id"</span>]=&gt;           </div><div class="line">  string(<span class="number">3</span>) <span class="string">"004"</span>    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>都是码农,别客气了.<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -196,113 +226,112 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YII2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SPL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHUlEQVR42u3awY7CMAxFUf7/pzvbkRDhPjsM0/hmhYC2OV08JY4fDzyuX+PVr8//fP5+/fnVN9uGDBkybsu4liNl8Puv/8PnJkOGjDkMEqOcxCe6vjZ4cTJkyJDRXuSh0AT3lCFDhgx+Ow5bh+/XAleGDBk3ZJBNbLrU2xXom/fiMmTIuCGDV93//vNHzjdkyJBxK8YVDrKw65TnakOGDBlnM3jA8cVies/OtTJkyJjASNu80mnxLfH6Zb1pHZMhQ8YwRq1wlrZZcCRabsqQIeNoRhqd5JCgdiTAo1aGDBnTGJ8ritVaNDZ0i8iQIeM4Btk6kqmQO9QOLzlPhgwZExj9dWU/XtOjgpdFNxkyZBzE6GxQa7/y7S4JfRkyZExgpJelRTR+5NmJbxkyZExjpA8jxTgOrsWxDBkyJjD443kgplf1jxlkyJAxgdFZLHYaL/hhAwpcGTJkHMeotWSlMZoW6cjrkCFDxhwGvyC9NZ/oenLBK5YhQ8YYRhpzPGr55HgrWLwXlyFDxhEMHn+fxhf34jJkyDiawbepfEIdWNyiIUOGjEMZVzh4aay21KvFtAwZMs5m8FED9xsyZMiQIYOX9WsNGXsXl29egQwZMgYw+INrYUqOCmrRL0OGDBmdUv7eIC6WE2XIkDGS0Sn6k4NSHtatwJUhQ8YNGWQTSxog0iNSjpEhQ8ZkRm3dVZs0mQQJ9G3LRxkyZPx3xg9SuOTzzkz37gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/20/YII2 添加全局自定义函数/" class="archive-article-date">
-  	<time datetime="2016-02-20T08:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/27/yii2 队列 shmilyzxt-yii2-queue 简介/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">YII2 队列 shmilyzxt-yii2-queue 简介</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/20/YII2 添加全局自定义函数/">YII2 添加全局自定义函数</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YII2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/12/搭建hexo/" class="archive-article-date">
-  	<time datetime="2016-02-12T00:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/12/搭建hexo/">搭建hexo</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -325,8 +354,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

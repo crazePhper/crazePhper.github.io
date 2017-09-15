@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://easydo.work">
   <title>mysql自动备份数据库并上传到百度云 | string的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先写一个定时任务,每天凌晨执行:  12crontab -e 输入:2 1 * * * bash /root/mysqlBackup.sh  配置bypy(python版本大于2.6)  1234567wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gztar zvxf 1.5.5.tar.gz">
+  <meta name="description" content="先写一个定时任务,每天凌晨执行:  12crontab -e 输入:2 1 * * * bash /root/mysqlBackup.sh  配置bypy(python版本大于2.6)  123456wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gztar zvxf 1.5.5.tar.gz &amp;">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql自动备份数据库并上传到百度云">
 <meta property="og:url" content="http://easydo.work/2016/03/13/mysql自动备份数据库并上传到百度云/index.html">
 <meta property="og:site_name" content="string的博客">
-<meta property="og:description" content="先写一个定时任务,每天凌晨执行:  12crontab -e 输入:2 1 * * * bash /root/mysqlBackup.sh  配置bypy(python版本大于2.6)  1234567wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gztar zvxf 1.5.5.tar.gz">
+<meta property="og:description" content="先写一个定时任务,每天凌晨执行:  12crontab -e 输入:2 1 * * * bash /root/mysqlBackup.sh  配置bypy(python版本大于2.6)  123456wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gztar zvxf 1.5.5.tar.gz &amp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-15T09:10:46.974Z">
+<meta property="og:updated_time" content="2017-09-15T16:13:13.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql自动备份数据库并上传到百度云">
-<meta name="twitter:description" content="先写一个定时任务,每天凌晨执行:  12crontab -e 输入:2 1 * * * bash /root/mysqlBackup.sh  配置bypy(python版本大于2.6)  1234567wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gztar zvxf 1.5.5.tar.gz">
+<meta name="twitter:description" content="先写一个定时任务,每天凌晨执行:  12crontab -e 输入:2 1 * * * bash /root/mysqlBackup.sh  配置bypy(python版本大于2.6)  123456wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gztar zvxf 1.5.5.tar.gz &amp;">
   
     <link rel="alternative" href="/atom.xml" title="string的博客" type="application/atom+xml">
   
@@ -182,14 +182,14 @@ var _hmt = _hmt || [];
         <ul>
 <li>先写一个定时任务,每天凌晨执行:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">crontab -e </div><div class="line">输入:2 1 * * * bash /root/mysqlBackup.sh</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">crontab -e </div><div class="line">输入:2 1 * * * bash /root/mysqlBackup.sh</div></pre></td></tr></table></figure>
 <ul>
 <li>配置bypy(python版本大于2.6)</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gz</div><div class="line">tar zvxf 1.5.5.tar.gz &amp;&amp; cd pip-1.5.5/</div><div class="line">/usr/local/python27/bin/python2.7 setup.py install</div><div class="line">/usr/local/python27/bin/pip install requests</div><div class="line">/usr/local/python27/bin/pip install bypy</div><div class="line">/usr/local/python27/bin/bypy info</div><div class="line">//第一次运行会让你输入授权码对 pyby授权:访问提示的URL,获取授权码.pyby相关命令自行查找.</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gz</div><div class="line">tar zvxf 1.5.5.tar.gz &amp;&amp; <span class="built_in">cd</span> pip-1.5.5/</div><div class="line">/usr/<span class="built_in">local</span>/python27/bin/python2.7 setup.py install</div><div class="line">/usr/<span class="built_in">local</span>/python27/bin/pip install requests</div><div class="line">/usr/<span class="built_in">local</span>/python27/bin/pip install bypy</div><div class="line">/usr/<span class="built_in">local</span>/python27/bin/bypy info <span class="comment">#第一次运行会让你输入授权码对 pyby授权:访问提示的URL,获取授权码.pyby相关命令自行查找.</span></div></pre></td></tr></table></figure>
 <ul>
 <li>mysqlBackup.sh内容:<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#! /bin/sh</div><div class="line">#1.backup mysql data</div><div class="line">#2.auto upload to baiduCloud</div><div class="line">filePath=&apos;/root/mysqlBackup&apos;</div><div class="line">fileName=$(date &apos;+%Y%m%d&apos;)</div><div class="line">file=$filePath&quot;/&quot;$fileName&quot;.sql&quot;</div><div class="line">/www/wdlinux/mysql-5.5.49/bin/mysqldump -uroot -p***** tableName &gt; $file &amp;&amp; /usr/local/python27/bin/bypy upload $file</div></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#! /bin/sh</span></div><div class="line"><span class="comment">#1.backup mysql data</span></div><div class="line"><span class="comment">#2.auto upload to baiduCloud</span></div><div class="line">filePath=<span class="string">'/root/mysqlBackup'</span></div><div class="line">fileName=$(date <span class="string">'+%Y%m%d'</span>)</div><div class="line">file=<span class="variable">$filePath</span><span class="string">"/"</span><span class="variable">$fileName</span><span class="string">".sql"</span></div><div class="line">/www/wdlinux/mysql-5.5.49/bin/mysqldump -uroot -p***** tableName &gt; <span class="variable">$file</span> &amp;&amp; /usr/<span class="built_in">local</span>/python27/bin/bypy upload <span class="variable">$file</span></div></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -432,6 +432,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
@@ -444,7 +448,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">SPL</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://easydo.work">
   <title>YII2 添加全局自定义函数 | string的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数function pr($var){     //do something }  (new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
+  <meta name="description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
 <meta name="keywords" content="php,YII2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YII2 添加全局自定义函数">
 <meta property="og:url" content="http://easydo.work/2016/02/20/YII2 添加全局自定义函数/index.html">
 <meta property="og:site_name" content="string的博客">
-<meta property="og:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数function pr($var){     //do something }  (new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
+<meta property="og:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-15T09:04:08.087Z">
+<meta property="og:updated_time" content="2017-09-15T16:12:47.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YII2 添加全局自定义函数">
-<meta name="twitter:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数function pr($var){     //do something }  (new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
+<meta name="twitter:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
   
     <link rel="alternative" href="/atom.xml" title="string的博客" type="application/atom+xml">
   
@@ -180,27 +180,15 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一:"></a>方法一:</h2><p>这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下：</p>
-<h5 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h5><pre><code>function pr($var){
-    //do something
-}
-
-(new yii\web\Application($config))-&gt;run();
-</code></pre><p>也可以引入一个函数文件.</p>
+<h5 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pr</span><span class="params">($var)</span></span>&#123;</div><div class="line">    <span class="comment">//do something</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">(<span class="keyword">new</span> yii\web\Application($config))-&gt;run();</div></pre></td></tr></table></figure>
+<p>也可以引入一个函数文件.</p>
 <hr>
 <h2 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）:"></a>方法二（推荐）:</h2><a id="more"></a>
-<p>这种方法主要是利用 composer 来实现，在 composer.json 文件里面添加如下代码：</p>
-<pre><code>&quot;autoload&quot;: {
-    &quot;files&quot;: [  
-        &quot;common/components/GlobalFunctions.php&quot;
-    ]
-},
-</code></pre><p>添加完之后,在common/components下添加文件GlobalFunctions.php,记得用终端在项目根目录下执行 composer update 命令</p>
+<p>这种方法主要是利用 composer 来实现，在 composer.json 文件里面添加如下代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">"autoload": &#123;</div><div class="line">    "files": [  </div><div class="line">        <span class="string">"common/components/GlobalFunctions.php"</span></div><div class="line">    ]</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>添加完之后,在common/components下添加文件GlobalFunctions.php,记得用终端在项目根目录下执行 composer update 命令</p>
 <p>备注:因为只添加一个文件,我用了方法二,但是只看到<code>vendor\composer\autoload_files.php</code>文件的修改;</p>
-<pre><code>return array(
-&apos;2cffec82183ee1cea088009cef9a6fc3&apos; =&gt; $vendorDir . &apos;/ezyang/htmlpurifier/library/HTMLPurifier.composer.php&apos;,
-&apos;2f22d0f2d4e1d504c0f839c579818375&apos; =&gt; $baseDir . &apos;/common/components/GlobalFunctions.php&apos;,
-);
-</code></pre><p>把composer update 更新的文件全部取消后手动更改 autoload_files 也是可以加载的</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="keyword">array</span>(</div><div class="line">    <span class="string">'2cffec82183ee1cea088009cef9a6fc3'</span> =&gt; $vendorDir . <span class="string">'/ezyang/htmlpurifier/library/HTMLPurifier.composer.php'</span>,</div><div class="line">    <span class="string">'2f22d0f2d4e1d504c0f839c579818375'</span> =&gt; $baseDir . <span class="string">'/common/components/GlobalFunctions.php'</span>,</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>把composer update 更新的文件全部取消后手动更改 autoload_files 也是可以加载的</p>
 
       
 
@@ -446,6 +434,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
@@ -458,7 +450,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">SPL</a>
               </li>
             
             <div class="clearfix"></div>
