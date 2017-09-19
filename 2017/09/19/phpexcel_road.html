@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://easydo.work">
-  <title>Tag: YII2 | 小叮当的肚兜的博客</title>
+  <title>PHPExcel_Road | 小叮当的肚兜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一只野生程序猿.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小叮当的肚兜的博客">
-<meta property="og:url" content="http://easydo.work/tags/YII2/index.html">
+  <meta name="description" content="过去工作中使用PHPExcel较多，碰到并解决了各种大大小小的问题，总结出这样一篇文章，一方面记录自己踩过的坑，一方面与大家分享，让大家少走弯路，并不断完善之，欢迎大家去github上面star和提交pull request，不断补充和优化，打造最全面的PHPExcel开发解决方案  一、基础：小试牛刀1. 引用文件1yourpath . /phpexcel/PHPExcel.php 2. 实例">
+<meta name="keywords" content="php,Excel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHPExcel_Road">
+<meta property="og:url" content="http://easydo.work/2017/09/19/phpexcel_road.html">
 <meta property="og:site_name" content="小叮当的肚兜的博客">
-<meta property="og:description" content="一只野生程序猿.">
+<meta property="og:description" content="过去工作中使用PHPExcel较多，碰到并解决了各种大大小小的问题，总结出这样一篇文章，一方面记录自己踩过的坑，一方面与大家分享，让大家少走弯路，并不断完善之，欢迎大家去github上面star和提交pull request，不断补充和优化，打造最全面的PHPExcel开发解决方案  一、基础：小试牛刀1. 引用文件1yourpath . /phpexcel/PHPExcel.php 2. 实例">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-19T08:00:33.741Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小叮当的肚兜的博客">
-<meta name="twitter:description" content="一只野生程序猿.">
+<meta name="twitter:title" content="PHPExcel_Road">
+<meta name="twitter:description" content="过去工作中使用PHPExcel较多，碰到并解决了各种大大小小的问题，总结出这样一篇文章，一方面记录自己踩过的坑，一方面与大家分享，让大家少走弯路，并不断完善之，欢迎大家去github上面star和提交pull request，不断补充和优化，打造最全面的PHPExcel开发解决方案  一、基础：小试牛刀1. 引用文件1yourpath . /phpexcel/PHPExcel.php 2. 实例">
   
     <link rel="alternative" href="/atom.xml" title="小叮当的肚兜的博客" type="application/atom+xml">
   
@@ -157,36 +159,165 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-PHPExcel_Road" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHPExcel_Road
+    </h1>
+  
+
+        
+        <a href="/2017/09/19/phpexcel_road.html" class="archive-article-date">
+  	<time datetime="2017-09-19T07:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>过去工作中使用<code>PHPExcel</code>较多，碰到并解决了各种大大小小的问题，总结出这样一篇文章，一方面记录自己踩过的坑，一方面与大家分享，让大家少走弯路，并不断完善之，欢迎大家去<code>github</code>上面<code>star</code>和提交<code>pull request</code>，不断补充和优化，打造最全面的<code>PHPExcel</code>开发解决方案</p>
+</blockquote>
+<h2 id="一、基础：小试牛刀"><a href="#一、基础：小试牛刀" class="headerlink" title="一、基础：小试牛刀"></a>一、基础：小试牛刀</h2><h3 id="1-引用文件"><a href="#1-引用文件" class="headerlink" title="1. 引用文件"></a>1. 引用文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yourpath . /phpexcel/PHPExcel.php</div></pre></td></tr></table></figure>
+<h3 id="2-实例化phpexcel类"><a href="#2-实例化phpexcel类" class="headerlink" title="2. 实例化phpexcel类"></a>2. 实例化phpexcel类</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$excel = <span class="keyword">new</span> PHPExcel();</div></pre></td></tr></table></figure>
+<h3 id="3-获取当前单sheet（多sheet会在下面讲）"><a href="#3-获取当前单sheet（多sheet会在下面讲）" class="headerlink" title="3. 获取当前单sheet（多sheet会在下面讲）"></a>3. 获取当前单sheet（多sheet会在下面讲）</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$objexcel = $excel-&gt;getActiveSheet();</div></pre></td></tr></table></figure>
+<h3 id="4-合并单元格"><a href="#4-合并单元格" class="headerlink" title="4. 合并单元格"></a>4. 合并单元格</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$objexcel-&gt;mergeCells(<span class="string">'A1:M1'</span>);</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="5-获取一个cell的样式"><a href="#5-获取一个cell的样式" class="headerlink" title="5. 获取一个cell的样式"></a>5. 获取一个cell的样式</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$objexcel-&gt;getStyle(<span class="string">'A1'</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>获取一个cell的字体样式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$cellFont = $objexcel-&gt;getStyle(<span class="string">'A1'</span>)-&gt;getFont();</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置字体大小</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$fontStyle-&gt;setSize(<span class="number">15</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置字体是否加粗</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$fontStyle-&gt;setBold(<span class="keyword">true</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置字体颜色</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$fontStyle-&gt;getColor()-&gt;setARGB(PHPExcel_Style_Color::COLOR_RED);</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取一行样式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$rowStyle = $objexcel-&gt;getStyle(<span class="number">1</span>)-&gt;getRowDimension();</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置行高度</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$rowStyle-&gt;setRowHeight(<span class="number">2</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取一列样式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$columnStyle = $objexcel-&gt;getStyle(<span class="string">'A'</span>)-&gt;getColumnDimension();</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置列宽度</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$columnStyle-&gt;setWidth(<span class="number">10</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取一列对齐样式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$alignStyle = $objexcel-&gt;getStyle(<span class="string">'A'</span>)-&gt;getAlignment();</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置水平居中：同一水平线上居中，即为左右的中间</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$alignStyle&gt;setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置垂直居中：同一垂直线居中，即为上下的中间</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$alignStyle-&gt;setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);</div></pre></td></tr></table></figure>
+</li>
+<li><p>自动换行</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$$alignStyle-&gt;setWrapText(<span class="keyword">true</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="6-获取指定版本excel写对象"><a href="#6-获取指定版本excel写对象" class="headerlink" title="6. 获取指定版本excel写对象"></a>6. 获取指定版本excel写对象</h3><p>如需更早的版本可将<code>Excel2007</code>换成<code>Excel5</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$write = PHPExcel_IOFactory::createWriter(<span class="string">"xcel, 'Excel2007');</span></div></pre></td></tr></table></figure></p>
+<h2 id="二、进阶：一些有用的小知识"><a href="#二、进阶：一些有用的小知识" class="headerlink" title="二、进阶：一些有用的小知识"></a>二、进阶：一些有用的小知识</h2><h3 id="1-行列数字索引方法"><a href="#1-行列数字索引方法" class="headerlink" title="1.行列数字索引方法"></a>1.行列数字索引方法</h3><blockquote>
+<p>phpexcel一般获取cell或者获取列都是通过ABC这样的英文字母获取的，它也可以通过0、1、2、3这样的数字表示sheet中的列，从0开始，0对应A，1对应B，基本上大多数方法都是数字行列索引，例如getStyleByColumnAndRow($col,$row),默认列参数在前，行参数在后，更多的可以参加phpexcel源码；</p>
+</blockquote>
+<h3 id="2-单行或单列参数格式"><a href="#2-单行或单列参数格式" class="headerlink" title="2. 单行或单列参数格式"></a>2. 单行或单列参数格式</h3><blockquote>
+<p>有的时候一个方法需要行列两个参数，例如只需要某一行参数可写成(null, $row),例如只需要获得某一列参数可写成($col, null)</p>
+</blockquote>
+<h3 id="3-列的数字索引格式和字母索引格式互转"><a href="#3-列的数字索引格式和字母索引格式互转" class="headerlink" title="3. 列的数字索引格式和字母索引格式互转"></a>3. 列的数字索引格式和字母索引格式互转</h3><ul>
+<li><p>数字转字符串</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PHPExcel_Cell::columnIndexFromString(<span class="string">'A'</span>);  <span class="comment">// Return 1 not 0;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>字符串转数字</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PHPExcel_Cell::stringFromColumnIndex(<span class="number">0</span>);    <span class="comment">// Return 'A';</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-PHPExcel读取数字类型"><a href="#4-PHPExcel读取数字类型" class="headerlink" title="4.PHPExcel读取数字类型"></a>4.PHPExcel读取数字类型</h3><blockquote>
+<p>PHPExcel读取的cell数字，类型都是double型，可用gettyle()方法检测类型，当初我一直使用is_int()方法无果，搞得焦头烂额。。。</p>
+</blockquote>
+<h3 id="5-多cell边框线设置"><a href="#5-多cell边框线设置" class="headerlink" title="5. 多cell边框线设置"></a>5. 多cell边框线设置</h3><p>PHPExcel生成的表格如果你不加处理，是不会帮你生成边框线的，生成边框线的方法如下：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$borderArray = <span class="keyword">array</span>(</div><div class="line">    <span class="string">'borders'</span> =&gt; <span class="keyword">array</span>(</div><div class="line">        <span class="string">'allborders'</span> =&gt; <span class="keyword">array</span>(</div><div class="line">            <span class="string">'style'</span> =&gt; PHPExcel_Style_Border::BORDER_THIN</div><div class="line">        )</div><div class="line">    )</div><div class="line">);</div><div class="line">$objexcel-&gt;getStyle($col1, $row1,$col2, $row2)-&gt;applyFromArray($borderArray);</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注：</p>
+<ol>
+<li><code>getStyle()</code>可以看需求改为<code>getStyleByColumnAndRow()</code>方法通过数字行列索引读取style；</li>
+<li>array中<code>PHPExcel_Style_Border::</code>后面有三种格式分别是<code>BORDER_THIN</code>和<code>BORDR_MEDIUM</code>，表示边框线的粗细；</li>
+<li><code>getStyle()</code>中的索引可以是静态的，也可以是动态的，一般是在导出excel的数据set完毕后填写左上角的单元格行列索引和右下角的单元格行列索引；</li>
+</ol>
+<p>参考资料</p>
+<p><a href="http://phpexcel.codeplex.com/workitem/22160" target="_blank" rel="external">http://phpexcel.codeplex.com/workitem/22160</a><br><a href="http://phpexcel.codeplex.com/workitem/20150" target="_blank" rel="external">http://phpexcel.codeplex.com/workitem/20150</a></p>
+</blockquote>
+<h3 id="6-多cell字体加粗处理"><a href="#6-多cell字体加粗处理" class="headerlink" title="6. 多cell字体加粗处理"></a>6. 多cell字体加粗处理</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$objexcel-&gt;getStyle($pCoordinate)-&gt;applyFromArray(<span class="keyword">array</span>(</div><div class="line">    <span class="string">'font'</span> =&gt; <span class="keyword">array</span>(  </div><div class="line">        <span class="string">'bold'</span> =&gt; <span class="keyword">true</span>,                                              </div><div class="line">    ),                                                               </div><div class="line">));</div></pre></td></tr></table></figure>
+<h3 id="7-多cell字体颜色处理"><a href="#7-多cell字体颜色处理" class="headerlink" title="7. 多cell字体颜色处理"></a>7. 多cell字体颜色处理</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$objexcel-&gt;getStyle($pCoordinate)-&gt;applyFromArray(<span class="keyword">array</span>(</div><div class="line">    <span class="string">'font'</span> =&gt; <span class="keyword">array</span>(</div><div class="line">        <span class="string">'color'</span> =&gt; <span class="keyword">array</span>(</div><div class="line">            <span class="string">'rgb'</span> =&gt; <span class="string">'ff0000'</span>,</div><div class="line">        ),</div><div class="line">    ),</div><div class="line">));</div></pre></td></tr></table></figure>
+<h3 id="8-多sheet导入"><a href="#8-多sheet导入" class="headerlink" title="8. 多sheet导入"></a>8. 多sheet导入</h3><p>动态为当前sheet设置索引，然后获取当前sheet，便可循环读取每一个sheet内容<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$objexcel-&gt;setActiveSheetIndex($index);   <span class="comment">//$index = 0 1 2 3</span></div><div class="line">$objexcel-&gt;getActiveSheet();    <span class="comment">//return sheet1 sheet2 sheet 3</span></div></pre></td></tr></table></figure></p>
+<h3 id="9-固定格式excel读取在写入"><a href="#9-固定格式excel读取在写入" class="headerlink" title="9. 固定格式excel读取在写入"></a>9. 固定格式excel读取在写入</h3><blockquote>
+<p>当需求是给定一个一个模板excel，需要往里面塞数据，我们不一定要通过代码给它设定样式，如果这个模板变化不大，我们完全可以存放一个格式相同的静态文件，然后通过PHPExcel读取，再往里面塞数据，最后进行保存操作，可以达到一样的效果，并且可以节省大量的资源。</p>
+</blockquote>
+<h3 id="10-合并单元格导入问题"><a href="#10-合并单元格导入问题" class="headerlink" title="10. 合并单元格导入问题"></a>10. 合并单元格导入问题</h3><blockquote>
+<p>在特殊的表格中，合并单元格普遍存在，而多个单元格合并成的一个单元格，只能<code>setValue()</code>一次，而我们如何判断合并单元格的具体行列呢？</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$range = $start_cell-&gt;getMergeRange();  <span class="comment">// 通过合并单元格的开始单元格比如‘A1’，获取合并范围‘A1:A4’</span></div><div class="line">$cell-&gt;isInRange($range);    <span class="comment">// 遍历之后每一个单元格便可通过isInRange()方法判断当前单元格是否在合并范围内</span></div></pre></td></tr></table></figure>
+<h2 id="三、高级：特殊场景特殊手段"><a href="#三、高级：特殊场景特殊手段" class="headerlink" title="三、高级：特殊场景特殊手段"></a>三、高级：特殊场景特殊手段</h2><h3 id="1-单元格文本格式数据处理"><a href="#1-单元格文本格式数据处理" class="headerlink" title="1. 单元格文本格式数据处理"></a>1. 单元格文本格式数据处理</h3><blockquote>
+<p> 一般excel单元格中数据的格式为数据类型，而<code>PHPExcel</code>中的<code>getValue()</code>方法读取的也是数据类型，当把数据从数据类型改为文本类型后，在<code>PHPExcel</code>中读出来的是<code>PHPExcel_RichText</code>类型，<code>getValue()</code>读取返回<code>PHPExcel_RichText</code>是一个<code>object</code>类型（<code>PHPExcel_RichText</code>数据保存格式）；那如何读取这一类的数据呢？仔细查看读取出来的对象，不难发现有<code>getPlainText()</code>这样的方法可以读取文本类型数据，所以我们只要判断当当前数据为文本数据时用<code>getPlainText()</code>读取，一般数据用<code>getValue()</code>读取</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ($cell-&gt;getValue() <span class="keyword">instanceof</span> PHPExcel_RichText) &#123;</div><div class="line">    $value = $cell-&gt;getValue();</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    $value = $cell-&gt;getValue();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考资料</p>
+<p><a href="http://www.cnblogs.com/DS-CzY/p/4955655.html" target="_blank" rel="external">http://www.cnblogs.com/DS-CzY/p/4955655.html</a><br><a href="http://phpexcel.codeplex.com/discussions/34513" target="_blank" rel="external">http://phpexcel.codeplex.com/discussions/34513</a></p>
+</blockquote>
+<h3 id="2-单元格数据算法处理"><a href="#2-单元格数据算法处理" class="headerlink" title="2. 单元格数据算法处理"></a>2. 单元格数据算法处理</h3><blockquote>
+<p>excel拥有强大的算法功能，一般算法格式为<code>=A3+A4</code>这类的，复杂的更多，如果使用PHPExcel提供的默认读取方法<code>getValue()</code>读取出来的结果则为字符串’=A3+A4’,好在PHPExcel也足够强大，提供了相应的接口：<code>getCalculatedValue()</code>，这个方法专门读取算法数据，但是我们不能将这个方法作为默认读取方法，因为这样可能会将一些本来要读成字符串的读成算法数据，而且PHPExcel没有将它作为默认读取方法的另一个重要原因就是算法方式读取很耗时间和性能，一般数据读取根本没有必要这样浪费资源，所以我们可以采用以下这种方式</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (strstr($cell-&gt;getValue(), <span class="string">'='</span>)) &#123;   </div><div class="line">    <span class="comment">// 判断如果cell内容以=号开头便默认为算法数据</span></div><div class="line">    $value = $cell-&gt;getCalculatedValue(); </div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    $value = $cell-&gt;getValue();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-日期数据处理"><a href="#3-日期数据处理" class="headerlink" title="3. 日期数据处理"></a>3. 日期数据处理</h3><blockquote>
+<p>除了以上所说的文本数据和算法数据外，我还遇到过日期类型数据，比如2016-12-28输入到excel中，它会默认转换成2016/12/28，如果采用一般的<code>getValue()</code>方式读取也会读取到错误的数据，PHPExcel也提供了相应的接口<code>getFormattedValue()</code>,并提供了适配的识别方式<code>PHPExcel_Shared_Date::isDateTime($cell)</code>,所以代码就很好实现了</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (PHPExcel_Shared_Date::isDateTime($cell)) &#123;</div><div class="line">    $value = $cell-&gt;getFormattedValue(); </div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    $value = $cell-&gt;getValue();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-读取方法封装"><a href="#4-读取方法封装" class="headerlink" title="4. 读取方法封装"></a>4. 读取方法封装</h3><blockquote>
+<p>针对excel各种数据类型，我们可以写一个函数，将原有的<code>getValue()</code>封装一下，这样以后就不用每次都判别一下数据类型了，目前我只遇到上面三种特殊格式，如果有新的，欢迎大家补充，封装函数如下</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_value_of_cell</span><span class="params">($cell)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (strstr($cell-&gt;getValue(), <span class="string">'='</span>)) &#123;   </div><div class="line">        $value = $cell-&gt;getCalculatedValue(); </div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ($cell-&gt;getValue() <span class="keyword">instanceof</span> PHPExcel_RichText) &#123;</div><div class="line">        $value = $cell-&gt;getValue();</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (PHPExcel_Shared_Date::isDateTime($cell)) &#123;</div><div class="line">        $value = $cell-&gt;getFormattedValue(); </div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        $value = $cell-&gt;getValue();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5-导出文件在IE、360等浏览器中文件名中文乱码问题"><a href="#5-导出文件在IE、360等浏览器中文件名中文乱码问题" class="headerlink" title="5. 导出文件在IE、360等浏览器中文件名中文乱码问题"></a>5. 导出文件在IE、360等浏览器中文件名中文乱码问题</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$filename = <span class="string">'xxx导出表'</span>;</div><div class="line"><span class="comment">// 判断如果是IE内核形式的浏览器采用urlencode处理文件名</span></div><div class="line"><span class="keyword">if</span> (!preg_match(<span class="string">"/Firefox/"</span>, $_SERVER[<span class="string">"HTTP_USER_AGENT"</span>])) &#123;</div><div class="line">    $filename = urlencode($filename);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="转载地址"><a href="#转载地址" class="headerlink" title="转载地址:"></a>转载地址:</h4><blockquote>
+<p><a href="https://segmentfault.com/a/1190000011229370" target="_blank" rel="external">https://segmentfault.com/a/1190000011229370</a></p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>都是码农,别客气了.<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/27/YII2-shmilyzxt-yii2-queue.html" class="archive-article-date">
-  	<time datetime="2016-03-27T11:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/27/YII2-shmilyzxt-yii2-queue.html">YII2 队列 shmilyzxt-yii2-queue 简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -196,109 +327,128 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YII2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Excel</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3auW7DQAwFwPz/TyutC1t5JOUAomYrwdA1Kmge+/MTr+Nlvf5yfuan8z+dc37nCxYGBsZtGcfpSs5JHly9c/5uGBgYz2F8evD5ce/MJBDn74aBgYGRP6yaCFafi4GBgdG7XXJVtXzFwMDAmBSxSVHaSzHzYH1BLY6BgXFDRi+M/s/xV+YbGBgYt2IcxVVNH6uh/GgtDAyM3Yw8wF2VnDUL1GDzBwYGxlZGEkx7rbFqSZyPHN7cAQMDYzUjD3PV1lg+KpgMJwpTDgwMjJszJlu+esOD6lCznOFiYGCsYxSicut1e1vEkntiYGA8h/GNMFothgvdwTx7xcDAWMGoNvcnqV7vY0WhHwMDYzWjWqxWk788aFavijJcDAyMdYz5NDAJkaPZRRWAgYGxjpEXq71G2+Sq0bfHwMBYxBhNFcaB8jhd1aCMgYGxiZG3yeYDgF6aGH0UDAyM1YxJI36y5aJaJDeLWAwMjEWMI175qCCnVreRYWBgPJlRHTf2gnV1UFrYUoaBgfEAxiTVmzTRemOJN79jYGA8gFEdGSbpYPXTVOeSGBgYT2AcxZU8oFesVqkf/zEwMDDWMeb7rJKWfS+w5uEbAwPjCYzelqzJZrJ5+vhHLY6BgbGUcVXgqzbXktQzCv0YGBgYrc0WeYv/gnwWAwMDI95+kQfcajvv4oCLgYFxQ0beyu8NCSaNvKi1h4GBsZqRX9YbN171Er0tGhgYGDdn/AJ3eNsZQPB1ngAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/28/YII2-request.html" class="archive-article-date">
-  	<time datetime="2016-02-28T12:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/17/SPL-MultipleIterator.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SPL-MultipleIterator迭代器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/28/YII2-request.html">YII2 request文件解析</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YII2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/20/YII2-customize-function.html" class="archive-article-date">
-  	<time datetime="2016-02-20T08:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/20/YII2-customize-function.html">YII2 添加全局自定义函数</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YII2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://easydo.work/2017/09/19/phpexcel_road.html",
+  owner: 'crazePhper',
+  repo: 'crazePhper.github.io',
+  oauth: {
+    client_id: 'db536be4f39f1b94a13f',
+    client_secret: '8ba05293415c970f42c1c31734b720e44db51619',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -321,9 +471,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
