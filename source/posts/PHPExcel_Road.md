@@ -84,7 +84,7 @@ $alignStyle->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
 ```
 + 自动换行
 ```php
-$$alignStyle->setWrapText(true);
+$alignStyle->setWrapText(true);
 ```
 ### 6. 获取指定版本excel写对象
 如需更早的版本可将`Excel2007`换成`Excel5`
