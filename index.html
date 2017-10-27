@@ -988,16 +988,18 @@ if(true){
 
     var isIndex = $(".pageViews").length > 1 ?true:false;
 
-    function showTime() {
+    function showTime(turnOn) {
     	var Counter = AV.Object.extend("Counter");
         if(isIndex){
             $(".pageViews").each(function(){
             	showPageViewsNum($(this),Counter);
-            	addPageViewsNum($(this));
+                if(turnOn){
+                	addPageViewsNum($(this));
+                }
             });
         }else{
 			showPageViewsNum($(".pageViews"),Counter);
-			addPageViewsNum($(".pageViews"));
+            addPageViewsNum($(".pageViews"));
         }
     }
 
@@ -1021,8 +1023,8 @@ if(true){
         }).then(function (object) {});
     }
 
-	if(pageViewsLength == 1){
-        showTime();
+	if(pageViewsLength){
+        showTime(false);
 	}
 }
 </script>
@@ -1078,11 +1080,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1091,6 +1093,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">YII2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1103,10 +1109,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
               <li class="article-tag-list-item">
