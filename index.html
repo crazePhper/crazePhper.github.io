@@ -159,6 +159,96 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-码云 自动拉取 PHP 部署项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/14/auto-pull.html">码云 自动拉取 PHP 部署项目</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/14/auto-pull.html" class="pageViews">0</span>次
+  </a>
+
+        
+        <a href="/2017/11/14/auto-pull.html" class="archive-article-date">
+  	<time datetime="2017-11-14T09:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>说明:首先用root用户先去拉取项目代码后,然后更改项目所属用户和组为www.忽略项目权限:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config core.filemode <span class="literal">false</span></div></pre></td></tr></table></figure></p>
+<p>1,为www用户添加个人公钥(www是我站点文件所属用户)<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -u www ssh-keygen -t rsa -C <span class="string">"xxxxx@xxxxx.com"</span></div></pre></td></tr></table></figure></p>
+<p>在<code>/home/www/.ssh/</code>生成2个文件:<code>id_rsa</code>和<code>id_rsa.pub</code>.其中.pub是公钥,查看内容并且添加到码云 <a href="https://gitee.com/profile/sshkeys" target="_blank" rel="external">个人中心</a> SSH公钥 中去,<br><img src="https://static.oschina.net/uploads/img/201709/28152030_EgY9.png" alt="image"><br>然后输入命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -u www ssh -T git@gitee.com</div></pre></td></tr></table></figure></p>
+<p>若返回<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Welcome to Gitee.com, yourname!</div></pre></td></tr></table></figure></p>
+<p>则公钥配置成功.<br>
+        
+          <a class="article-more-a" href="/2017/11/14/auto-pull.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/14/auto-pull.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-添加 hexo yilia 主题的文章阅读量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1113,6 +1203,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>
