@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://easydo.work">
-  <title>Tag: SPL | 小叮当的肚兜的博客</title>
+  <title>多站点通行证设计原理简析 | 小叮当的肚兜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一只野生程序猿.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小叮当的肚兜的博客">
-<meta property="og:url" content="http://easydo.work/tags/SPL/index.html">
+  <meta name="description" content="在进行多站点统一账号管理时，有以下几个关键点：  设计公共登录平台—— passport 通行证 使用 cookie 跨域进行多站点登录 统一账号管理接口  设计请求流程图： 1.设计公共登录平台—— passport 通行证设计统一存储各个站点账号数据库:用户表 passport_user12345678910CREATE TABLE `passport_user` (  `id` int(11">
+<meta name="keywords" content="PassPort">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多站点通行证设计原理简析">
+<meta property="og:url" content="http://easydo.work/2017/12/05/passport-design.html">
 <meta property="og:site_name" content="小叮当的肚兜的博客">
-<meta property="og:description" content="一只野生程序猿.">
+<meta property="og:description" content="在进行多站点统一账号管理时，有以下几个关键点：  设计公共登录平台—— passport 通行证 使用 cookie 跨域进行多站点登录 统一账号管理接口  设计请求流程图： 1.设计公共登录平台—— passport 通行证设计统一存储各个站点账号数据库:用户表 passport_user12345678910CREATE TABLE `passport_user` (  `id` int(11">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://oygy5legq.bkt.clouddn.com/%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B%E5%9B%BE.png">
+<meta property="og:image" content="http://oygy5legq.bkt.clouddn.com/%E8%B4%A6%E5%8F%B7%E6%93%8D%E4%BD%9C.png">
+<meta property="og:updated_time" content="2017-12-05T08:49:27.282Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小叮当的肚兜的博客">
-<meta name="twitter:description" content="一只野生程序猿.">
+<meta name="twitter:title" content="多站点通行证设计原理简析">
+<meta name="twitter:description" content="在进行多站点统一账号管理时，有以下几个关键点：  设计公共登录平台—— passport 通行证 使用 cookie 跨域进行多站点登录 统一账号管理接口  设计请求流程图： 1.设计公共登录平台—— passport 通行证设计统一存储各个站点账号数据库:用户表 passport_user12345678910CREATE TABLE `passport_user` (  `id` int(11">
+<meta name="twitter:image" content="http://oygy5legq.bkt.clouddn.com/%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B%E5%9B%BE.png">
   
     <link rel="alternative" href="/atom.xml" title="小叮当的肚兜的博客" type="application/atom+xml">
   
@@ -157,70 +162,215 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-多站点通行证设计原理简析" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/17/SPL-MultipleIterator.html" class="archive-article-date">
-  	<time datetime="2016-04-17T14:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/17/SPL-MultipleIterator.html">SPL-MultipleIterator迭代器</a>
+    <h1 class="article-title" itemprop="name">
+      多站点通行证设计原理简析
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2016/04/17/SPL-MultipleIterator.html" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/12/05/passport-design.html" class="pageViews">0</span>次
   </a>
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/12/05/passport-design.html" class="archive-article-date">
+  	<time datetime="2017-12-05T08:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在进行多站点统一账号管理时，有以下几个关键点：</p>
+<ol>
+<li>设计公共登录平台—— <code>passport</code> 通行证</li>
+<li>使用 <code>cookie</code> 跨域进行多站点登录</li>
+<li>统一账号管理接口</li>
+</ol>
+<p>设计请求流程图：<br><img src="http://oygy5legq.bkt.clouddn.com/%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="请求流程图"></p>
+<h4 id="1-设计公共登录平台——-passport-通行证"><a href="#1-设计公共登录平台——-passport-通行证" class="headerlink" title="1.设计公共登录平台—— passport 通行证"></a>1.设计公共登录平台—— <code>passport</code> 通行证</h4><p>设计统一存储各个站点账号数据库:用户表 <code>passport_user</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`passport_user`</span> (</div><div class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</div><div class="line">  <span class="string">`username`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'用户名称'</span>,</div><div class="line">  <span class="string">`email`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'邮箱'</span>,</div><div class="line">  <span class="string">`phone`</span> <span class="built_in">char</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'手机号码'</span>,</div><div class="line">  <span class="string">`password`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'密码'</span>,</div><div class="line">  <span class="string">`bind_client`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'对应绑定的其他站点相同用户信息id'</span>,</div><div class="line">  <span class="string">`type`</span> tinyint(<span class="number">2</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'来源站点'</span>,</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</div><div class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</div></pre></td></tr></table></figure></p>
+<p>多个站点的用户信息统一到一个数据库中，进行统一管理。<br><a id="more"></a></p>
+<h4 id="2-使用-cookie-跨域进行多站点登录"><a href="#2-使用-cookie-跨域进行多站点登录" class="headerlink" title="2.使用 cookie 跨域进行多站点登录"></a>2.使用 <code>cookie</code> 跨域进行多站点登录</h4><p>关键点在于此，登录成功后，跨域生成 <code>cookie</code> ，进行多站点访问。<br>比如登录 <code>www.a.com</code> 站点时，登录地址去请求 <code>passport</code> 平台（也可以统一登陆页面，来源链接是自己的站点就重定向回去，不是就跳转的默认站点），成功返回 <code>js</code> 脚本:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"http://www.b.com/cookie.php"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p><code>http://www.b.com/cookie.php</code> 代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//cookie.php</span></div><div class="line">setcookie(<span class="string">'test'</span>,<span class="string">'test'</span>,time()+<span class="number">86400</span>,<span class="string">'/'</span>,<span class="string">'.b.com'</span>);</div></pre></td></tr></table></figure></p>
+<p>去请求其他站点生成跨域 <code>cookie</code> ,也可以在URL后面加上一些加密的参数去请求，提高安全性。</p>
+<p>然后访问 <code>www.b.com</code> 时就可以带上 <code>www.a.com</code> 生成的 <code>cookie</code></p>
+<h4 id="3-统一账号管理接口"><a href="#3-统一账号管理接口" class="headerlink" title="3. 统一账号管理接口"></a>3. 统一账号管理接口</h4><p><img src="http://oygy5legq.bkt.clouddn.com/%E8%B4%A6%E5%8F%B7%E6%93%8D%E4%BD%9C.png" alt="image"><br>每个站点设置 <code>API</code> 统一用户数据到 <code>passport</code> 平台。保证用户数据能一致性。<br>用户的注册，修改密码等操作同步到 <code>passport</code> 平台，最好设置一些加密参数进行请求。</p>
+<h4 id="备注："><a href="#备注：" class="headerlink" title="备注："></a>备注：</h4><ul>
+<li>各个平台由于密码加密方式不同，请求通行证平台时，最好把各个平台密码加密代码收集到通行证平台。现在都是框架开发，加密代码都是可以提取出来的。例：<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//yii2 密码加密方式</span></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">*$password 用户密码</span></div><div class="line"><span class="comment">*$hash 加密的用户密码</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">validatePassword</span><span class="params">($password, $hash)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">if</span> (!is_string($password) || $password === <span class="string">''</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InvalidParamException(<span class="string">'Password must be a string and cannot be empty.'</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!preg_match(<span class="string">'/^\$2[axy]\$(\d\d)\$[\.\/0-9A-Za-z]&#123;22&#125;/'</span>, $hash, $matches)</div><div class="line">        || $matches[<span class="number">1</span>] &lt; <span class="number">4</span></div><div class="line">        || $matches[<span class="number">1</span>] &gt; <span class="number">30</span></div><div class="line">    ) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InvalidParamException(<span class="string">'Hash is invalid.'</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (function_exists(<span class="string">'password_verify'</span>)) &#123;</div><div class="line">        <span class="keyword">return</span> password_verify($password, $hash);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    $test = crypt($password, $hash);</div><div class="line">    $n = strlen($test);</div><div class="line">    <span class="keyword">if</span> ($n !== <span class="number">60</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;compareString($test, $hash);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>同样 <code>Laravel</code> <code>ThinkPHP</code> <code>CI</code> 等密码加密方式也是可以提取出来的，当然 自己写的更就更方便了。</p>
+<ul>
+<li><p>关于 <code>cookie</code> 存储的有效性，只要有一个站点的 <code>cookie</code>过期那么就要重新生成有效的 <code>cookie</code> ，建议每个站点的 <code>cookie</code> 过期时间统一一下。</p>
+</li>
+<li><p>通行证平台创建的 <code>user</code> 表可以根据自己需求改动，这里只是做个案例。</p>
+</li>
+<li><p>原理了解后，其实2个以上的站点这样做更好点，例： <code>user</code> 在 <code>a</code> 站点登陆后 <code>passport</code>平台返回 <code>js</code> 脚本代码生成一个 <code>token</code> 的 <code>cookie</code> ，当用户访问 <code>b</code> 站点的时候带上 <code>token</code> 在去请求通行证去验证 <code>token</code> ，验证通过后返回 <code>b</code> 站点登录信息。同理 <code>b</code> 访问 <code>c</code> 站点也是。当然访问之前判断是否已经在跳转的站点登陆了进行判断即可。只是有个缺点：第一次新开其他站点的时候，不是在站点跳转时无法同步登陆。之所以这样是不想遍历请求每个站点生成 <code>cookie</code> ，当然还是根据自身需求具体开发。</p>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>都是码农,别客气了.<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SPL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PassPort</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3awY6rMAwFUP7/p5ntk56g1zYdDcnJqmpTyGFhYjvHEY8zGFcz//3+fs7/Mx8eGBgYr2VMFje/S4K//y8GBsY+jKsbJ+HyauY95v7K+dowMDAwnppzH0wn98XAwMDIg2/+aw7DwMDAqCaxyVZv/ji+notjYGC8kJEXy37/81f6GxgYGK9inMVxD7uak4fyszUwMDDWZuQBLi+WPRu48/VgYGCsypgHvqfKaqOHhYGBsQ2j2p6sFsuSmc01YGBgbMDoJZlJ3OslruWtJwYGxtKMJJj2KvPzgJs0TT/k4hgYGEsw8jQy3yAWnl+rwXBUIz0GBsbLGZNg10to87JauYWAgYGxKCNvFlaT1Wo6mifAH1qYGBgYyzHyottT28Re5zHaJmJgYGzASP6QLz1pIVQPYRy9p4KBgfFyRm8zVy3J5aW0PK39cNgCAwNjIUZ+/KLXzuzNz++OgYGxDyMv5VcLcHkbYB6gMTAw1mZU25N5WJyX+/NjZBgYGGszqgvqFcXyNmd+/ei9gYGBsQGj3Ep8KCUuF9owMDA2YCSLrgbiSXO0/FAwMDAWZZzFMSnu54uulv8wMDDWZswbk8kGrhdYmxtEDAyMRRlJkM23gL2r9QIuBgbGbowHCl6tAxPVN0CUi2NgYGAUS//V5miv8IeBgYFRbQxUt3dJAe7rARcDA+PPM+bHtso3bgXcB3JxDAyMFzLy1LG6TZwsYvIawMDAWIjxA68I2xmY5rLXAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/11/27/linux-delete-file.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux下删除文件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://easydo.work/2017/12/05/passport-design.html",
+  owner: 'crazePhper',
+  repo: 'crazePhper.github.io',
+  oauth: {
+    client_id: 'db536be4f39f1b94a13f',
+    client_secret: '8ba05293415c970f42c1c31734b720e44db51619',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -243,9 +393,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

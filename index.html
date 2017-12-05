@@ -159,6 +159,175 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-多站点通行证设计原理简析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/05/passport-design.html">多站点通行证设计原理简析</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/12/05/passport-design.html" class="pageViews">0</span>次
+  </a>
+
+        
+        <a href="/2017/12/05/passport-design.html" class="archive-article-date">
+  	<time datetime="2017-12-05T08:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在进行多站点统一账号管理时，有以下几个关键点：</p>
+<ol>
+<li>设计公共登录平台—— <code>passport</code> 通行证</li>
+<li>使用 <code>cookie</code> 跨域进行多站点登录</li>
+<li>统一账号管理接口</li>
+</ol>
+<p>设计请求流程图：<br><img src="http://oygy5legq.bkt.clouddn.com/%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="请求流程图"></p>
+<h4 id="1-设计公共登录平台——-passport-通行证"><a href="#1-设计公共登录平台——-passport-通行证" class="headerlink" title="1.设计公共登录平台—— passport 通行证"></a>1.设计公共登录平台—— <code>passport</code> 通行证</h4><p>设计统一存储各个站点账号数据库:用户表 <code>passport_user</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`passport_user`</span> (</div><div class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</div><div class="line">  <span class="string">`username`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'用户名称'</span>,</div><div class="line">  <span class="string">`email`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'邮箱'</span>,</div><div class="line">  <span class="string">`phone`</span> <span class="built_in">char</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'手机号码'</span>,</div><div class="line">  <span class="string">`password`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'密码'</span>,</div><div class="line">  <span class="string">`bind_client`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'对应绑定的其他站点相同用户信息id'</span>,</div><div class="line">  <span class="string">`type`</span> tinyint(<span class="number">2</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'来源站点'</span>,</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</div><div class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</div></pre></td></tr></table></figure></p>
+<p>多个站点的用户信息统一到一个数据库中，进行统一管理。<br>
+        
+          <a class="article-more-a" href="/2017/12/05/passport-design.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PassPort</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/05/passport-design.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux下删除文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/27/linux-delete-file.html">Linux下删除文件</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/27/linux-delete-file.html" class="pageViews">0</span>次
+  </a>
+
+        
+        <a href="/2017/11/27/linux-delete-file.html" class="archive-article-date">
+  	<time datetime="2017-11-27T09:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash </span></div><div class="line"><span class="comment">#例：&#123;path&#125;/deleteLogFile.sh /home/www/test/ -1 "*.zip"</span></div><div class="line"><span class="comment">#自定义函数 输出错误信息</span></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">showError</span></span>()&#123;</div><div class="line">	<span class="built_in">echo</span> <span class="variable">$1</span>;<span class="built_in">exit</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">#参数1 目录</span></div><div class="line">dirPath=<span class="variable">$1</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ ! -d <span class="variable">$dirPath</span> ]; <span class="keyword">then</span></div><div class="line">	showError <span class="string">'文件夹路径不存在'</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="comment">#参数2 天数</span></div><div class="line"><span class="comment"># - n表示文件更改时间距现在n天以内 + n表示文件更改时间距现在n天以前。</span></div><div class="line">day=<span class="variable">$2</span></div><div class="line"></div><div class="line"><span class="comment">#参数3 匹配文件后缀 默认是全部文件类型</span></div><div class="line">fileExt=<span class="variable">$3</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ ! <span class="variable">$fileExt</span> ]; <span class="keyword">then</span></div><div class="line">  fileExt=<span class="string">"*"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line">&lt;!-- more --&gt;</div><div class="line"><span class="built_in">cd</span> <span class="variable">$dirPath</span></div><div class="line"></div><div class="line"><span class="comment">#找出准备删除的文件</span></div><div class="line">find <span class="variable">$dirPath</span> -mtime <span class="variable">$day</span> -<span class="built_in">type</span> f -name <span class="string">"<span class="variable">$fileExt</span>"</span> -<span class="built_in">exec</span> rm -f &#123;&#125; \;</div><div class="line"></div><div class="line"><span class="keyword">if</span> [ $? -ne 0 ];<span class="keyword">then</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">'执行失败'</span></div><div class="line"><span class="keyword">else</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">'执行成功'</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/27/linux-delete-file.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-码云 自动拉取 PHP 部署项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -926,194 +1095,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-YII2 添加全局自定义函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/20/YII2-customize-function.html">YII2 添加全局自定义函数</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2016/02/20/YII2-customize-function.html" class="pageViews">0</span>次
-  </a>
-
-        
-        <a href="/2016/02/20/YII2-customize-function.html" class="archive-article-date">
-  	<time datetime="2016-02-20T08:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一:"></a>方法一:</h2><p>这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下：</p>
-<h5 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pr</span><span class="params">($var)</span></span>&#123;</div><div class="line">    <span class="comment">//do something</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">(<span class="keyword">new</span> yii\web\Application($config))-&gt;run();</div></pre></td></tr></table></figure>
-<p>也可以引入一个函数文件.</p>
-<hr>
-<h2 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）:"></a>方法二（推荐）:</h2>
-        
-          <a class="article-more-a" href="/2016/02/20/YII2-customize-function.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YII2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/20/YII2-customize-function.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-搭建hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/12/bulid-hexo.html">搭建hexo</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2016/02/12/bulid-hexo.html" class="pageViews">0</span>次
-  </a>
-
-        
-        <a href="/2016/02/12/bulid-hexo.html" class="archive-article-date">
-  	<time datetime="2016-02-12T00:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>前往 <a href="http://nodejs.cn/download/" target="_blank" rel="external">http://nodejs.cn/download/</a> 下载nodejs系统环境对应安装包,进行安装</p>
-</li>
-<li><p>切换npm 淘宝镜像源(Linux添加一下环境变量)</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">临时使用: npm --registry https://registry.npm.taobao.org install express</div><div class="line">持久使用:npm config set registry https://registry.npm.taobao.org</div><div class="line">查看:npm config get registry</div></pre></td></tr></table></figure>
-<ul>
-<li>安装hexo环境
-        
-          <a class="article-more-a" href="/2016/02/12/bulid-hexo.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/12/bulid-hexo.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1300,6 +1285,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">composer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PassPort</a>
               </li>
             
             <div class="clearfix"></div>
