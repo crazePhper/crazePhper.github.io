@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://easydo.work">
-  <title>YII2 添加全局自定义函数 | 小叮当的肚兜的博客</title>
+  <title>yii2 添加全局自定义函数 | 小叮当的肚兜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
-<meta name="keywords" content="php,YII2">
+<meta name="keywords" content="php,yii2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YII2 添加全局自定义函数">
-<meta property="og:url" content="http://easydo.work/2016/02/20/YII2-customize-function.html">
+<meta property="og:title" content="yii2 添加全局自定义函数">
+<meta property="og:url" content="http://easydo.work/2016/02/20/yii2-customize-function.html">
 <meta property="og:site_name" content="小叮当的肚兜的博客">
 <meta property="og:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-15T17:43:22.477Z">
+<meta property="og:updated_time" content="2018-01-02T11:03:53.787Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YII2 添加全局自定义函数">
+<meta name="twitter:title" content="yii2 添加全局自定义函数">
 <meta name="twitter:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
   
     <link rel="alternative" href="/atom.xml" title="小叮当的肚兜的博客" type="application/atom+xml">
@@ -166,18 +166,18 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      YII2 添加全局自定义函数
+      yii2 添加全局自定义函数
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2016/02/20/YII2-customize-function.html" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2016/02/20/yii2-customize-function.html" class="pageViews">0</span>次
   </a>
 
         
-        <a href="/2016/02/20/YII2-customize-function.html" class="archive-article-date">
+        <a href="/2016/02/20/yii2-customize-function.html" class="archive-article-date">
   	<time datetime="2016-02-20T08:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-20</time>
 </a>
         
@@ -233,7 +233,7 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YII2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">yii2</a>
         		</li>
       		
 		</ul>
@@ -289,7 +289,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3azU7EMAxF4Xn/ly4SKxCQnmtnkOqcrEbQSfOxMPHP64XX9bnWv/36zM/P5BnyrtaSIUPGYxnXcqXHIjv09/yFKkOGjAMY6yDLn1kfl4Ta9L0yZMiQsX4BWZxU+/PJkCFDRifJXO+cJrcyZMiQQbZOAbXw+vZcXIYMGQ9kpKHzPz+/sb8hQ4aMhzCuxuont7uWDBkyZjNq1740WU3blmmTQIYMGecweGmeBFn+lnSfP/eUIUPGUEY63JAORqSDYsVQLkOGjAMYpH7Ff95vG/D9vwVcGTJkDGXwHLD2JD80T3RvQrYMGTIOYNQSWhIueYktHcKQIUPGCYz0qpcenae4tSaoDBkyzmHUCnC10j9PfdffRX9dGTJkDGKk5S1yxBqPl+qK/zdkyJDxKAYpZnVSzf6YBXqXDBkyRjM6jYHaKBg/HC/MyZAh4xxGrfRWK/fvTW5lyJAxm5GK+SWSfDdtCQRzIjJkyBjE6DQU+6W6NHCjZ2TIkDGUURuY6ATZfhkuDrUyZMgYxCiW40vJcFqqKw5byJAhYwQj3ZRfIvsXQd5UkCFDxlTGFa5aezI9blxokyFDxmgGX+TiyFPTzthZekmVIUPGDEbaOORJLw/NGwKuDBkyDmCkQXZXupsG/ZsWpgwZMmRsCqk8iAdgGTJkyAgvi/zyx397Q5IhQ8YBDD6oWkt6edug1tqUIUPGbEZ/UiM9BGmOcrwMGTJGMz4AmxcZBiN893gAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aUarDMAwF0e5/03nQ31JnrpQ+sDz+CmlwfFIQluTXC4/rPT7vfI7P5/kz39712JAhQ8a2jGs5yLLSGVLqemYZMmScw1gHWX69Xm46A1mbDBkyZKwDIt8sEhLfJsqQIUMGmY6kmjWwDBkyZHSS2PX9b3Om4fXnubgMGTI2ZKSNgf+8/mF/Q4YMGZswrvbotw0eWIMMGTJGM9bbuE7w7bQt0yaBDBkyTmD0j1DwtgFZKP+scUYuQ4aMDRm8mFUr4vMNZa21ENQLZciQsTmDB8T02ES6Ga21H2TIkDGb0T8qQabrtDn7IVuGDBmTGGmayoNjWmJLD2HIkCFjNiMNhbWwyFPcYuFPhgwZBzB4H/DZNmTtY92U22TIkDGOkU5XK709dpBi/eFkyJAxmsGXXqvedY5ZBAFXhgwZBzDSkMeLYrUZ0pRYhgwZsxm1JJO8jCe9neRWhgwZsxl848WTUn7kK20JFP8HGTJkbM7oJ6vpk2lDolU1lCFDxjhGmrjWGpy1hgFqA8iQIeMYRho6yev5nU5bVIYMGbMZ6aRPHaSIj03w/0SGDBmDGFc40m0ln6eVGMuQIWM0gw9+VIuEYHK/016VIUPGPEbaOETJJAiL6ZYRldtkyJAxmpFmvWlBrR/1bzaaMmTIkFFKIEmK+0DzUoYMGTJKwZRv/vivNyQZMmQcwCBJbHoIjJfM0oaEDBkyTmOkjYH1fd745IG1tWWUIUPG3ow/tHGodi+UObQAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -353,7 +353,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2016/02/20/YII2-customize-function.html",
+  id: "http://easydo.work/2016/02/20/yii2-customize-function.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {

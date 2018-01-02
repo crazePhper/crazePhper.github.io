@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://easydo.work/2016/02/20/yii2-customize-function.html</loc>
+    <lastmod>2018-01-02T11:03:53.787Z</lastmod>
+    <data>
+        <display>
+        <title>yii2 添加全局自定义函数</title>
+        <pubTime>2016-02-20T08:39:00.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+        <tag>yii2</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://easydo.work/2018/01/02/yii2-LinkPager.html</loc>
     <lastmod>2018-01-02T11:00:16.594Z</lastmod>
     <data>
@@ -198,25 +217,6 @@
         <pubTime>2016-03-13T13:12:00.000Z</pubTime>
         
         <tag>mysql</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://easydo.work/2016/02/20/YII2-customize-function.html</loc>
-    <lastmod>2017-09-15T17:43:22.477Z</lastmod>
-    <data>
-        <display>
-        <title>YII2 添加全局自定义函数</title>
-        <pubTime>2016-02-20T08:39:00.000Z</pubTime>
-        
-        <tag>php</tag>
-         
-        <tag>YII2</tag>
          
          
            
