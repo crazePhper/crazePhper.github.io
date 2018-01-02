@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://easydo.work">
-  <title>YII2 request文件解析 | 小叮当的肚兜的博客</title>
+  <title>yii2 request文件解析 | 小叮当的肚兜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1. 在YII2项目中经常用到下面这些方法:   方法 解释     Yii::$app-&amp;gt;request-&amp;gt;get($key,$defaultValue) GET方式获取key的值,若key空,则key为$defaultValue   Yii::$app-&amp;gt;request-&amp;gt;post($key,$defaultValue) POST方式获取key的值,若key空,则key">
-<meta name="keywords" content="php,YII2">
+<meta name="keywords" content="php,yii2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YII2 request文件解析">
-<meta property="og:url" content="http://easydo.work/2016/02/28/YII2-request.html">
+<meta property="og:title" content="yii2 request文件解析">
+<meta property="og:url" content="http://easydo.work/2016/02/28/yii2-request.html">
 <meta property="og:site_name" content="小叮当的肚兜的博客">
 <meta property="og:description" content="1. 在YII2项目中经常用到下面这些方法:   方法 解释     Yii::$app-&amp;gt;request-&amp;gt;get($key,$defaultValue) GET方式获取key的值,若key空,则key为$defaultValue   Yii::$app-&amp;gt;request-&amp;gt;post($key,$defaultValue) POST方式获取key的值,若key空,则key">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://easydo.work/img/2032996154.jpg">
-<meta property="og:updated_time" content="2017-09-15T17:43:22.482Z">
+<meta property="og:updated_time" content="2018-01-02T11:07:03.639Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YII2 request文件解析">
+<meta name="twitter:title" content="yii2 request文件解析">
 <meta name="twitter:description" content="1. 在YII2项目中经常用到下面这些方法:   方法 解释     Yii::$app-&amp;gt;request-&amp;gt;get($key,$defaultValue) GET方式获取key的值,若key空,则key为$defaultValue   Yii::$app-&amp;gt;request-&amp;gt;post($key,$defaultValue) POST方式获取key的值,若key空,则key">
 <meta name="twitter:image" content="http://easydo.work/img/2032996154.jpg">
   
@@ -168,18 +168,18 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      YII2 request文件解析
+      yii2 request文件解析
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2016/02/28/YII2-request.html" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2016/02/28/yii2-request.html" class="pageViews">0</span>次
   </a>
 
         
-        <a href="/2016/02/28/YII2-request.html" class="archive-article-date">
+        <a href="/2016/02/28/yii2-request.html" class="archive-article-date">
   	<time datetime="2016-02-28T12:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-28</time>
 </a>
         
@@ -266,7 +266,7 @@ Yii::$app-&gt;request-&gt;getBodyParam()    //读取一个POST参数
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YII2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">yii2</a>
         		</li>
       		
 		</ul>
@@ -322,7 +322,7 @@ Yii::$app-&gt;request-&gt;getBodyParam()    //读取一个POST参数
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aS27DMAxF0ex/0+4CAsn3kXEBU9ejwE1sHQ1YfvT54OtaXOQ7399ffV7d+dklQ4aM1zL4i/lfv++v7vAn7DdRhgwZJzBWEYyHyDQEr568f9fyvgwZMmSAdK0WuPfbIUOGDBmdgHuTqIVpnwwZMmQQBk/g0mQxDayP1+IyZMh4IYN33f//8yPzDRkyZLyKcYUXb7eRYQBJENGqZMiQMZrRb6WlxWdaPJP1yJAhYzaDN9rSNK4WgvnhjGK/UIYMGa9l7FtpaSgk20HeGGyEDBkyDmN0Slmy3HTRZDgqQ4aM2QyeZfUzsTTF5OmjDBkyzmHwcjRdXFoS84RShgwZ5zDSRK12pqMTcFF6KkOGjKGMTiHaD6CkPYeeI0OGjNGMuI0VtuT4QtNMr5XtypAh44WMfeOMjx7TX/EwippuMmTIOJJRC46cmo4wb3gyZMgYyqglcySwpoVrbeIqQ4aMExidgw61Vn4nBN/wZMiQMZrRD7KdEcITv5IhQ8Y8BllK2larjTb324RSQxkyZIxm9JOzWhGblsfx3FWGDBkHMNIjF7UWG1ro/psyZMgYyrjCq58spkj0BBkyZIxm8IuHyFrhyp/A/yXIkCFjEoMEWbITaZssHZTKkCFDBg98/MBE2m6rhX4ZMmTI+FVLjg8vixsnQ4YMGY2DEWljjg8hWqmhDBkyXshIR5K8yOwcCAsSRBkyZIxmpEccSCuNh84nhhMyZMgYxPgD/S1qmBJFmAoAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3a0W7DMAgF0P7/T3evk7qsF3ArxT55mro68ckkBpjHI76eL9fvz6++k696fdbjExcGBsZtGfmDr377+p38k+Q1JU/HwMA4gXEVwZIgmG8uD9n53jAwMDB6KWAeQJOQjYGBgTEJuJeJWjHtw8DAwEgYvQQu4VUD68drcQwMjBsy8q7793/+yPkGBgbGrRirCtFqEy0/Toh2hYGBsTUjD3D5YWT1npO1GBgYJzDWtvWrZWpvXGOUGmJgYGzBqFaL1dL3f0DzRWBgYBzGSB686thgHmoxMDBOYPSCabX4zFtyyRjHmx1iYGAcwMgfkJSmk2DdS0YxMDD2Y1STv7xl1mvA5a3ANxkuBgbGRoxVQTNpsfXWFu6DgYGxNWOeLOajEpP7lLNdDAyMLRi9Y4A8OCYts166iYGBcQ4j/1Lz1nGQrTbm3vxNMDAwNmLkh47VsYxq4Vo+qsTAwDiG0VtQbbTlaeWIh4GBcQAjL0HzYa9q8jdahYGBcQxjVSnbG//qvUoMDIxzGNUxi7yfNw+shaEKDAyMrRnVsYlJsyxPKAu7wsDA2JTxLF4TRu+oIBpNw8DA2JqRX3k62Ctck2ODfLwDAwNjP0Y+TjEpgJNVk1IZAwPjBEY18M3Tx95/gNERJgYGxvGM3qhELxHEwMDAWFsT568jP2T9YxUGBsYBjKSITQrOfFxjFQwDA+MERm/EoVrKVje6dkQDAwPjtowflvtgvlIbdvMAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -386,7 +386,7 @@ Yii::$app-&gt;request-&gt;getBodyParam()    //读取一个POST参数
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2016/02/28/YII2-request.html",
+  id: "http://easydo.work/2016/02/28/yii2-request.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {

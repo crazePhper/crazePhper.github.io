@@ -876,18 +876,18 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/27/YII2-shmilyzxt-yii2-queue.html">YII2 队列 shmilyzxt-yii2-queue 简介</a>
+      <a class="article-title" href="/2016/03/27/yii2-shmilyzxt-yii2-queue.html">yii2 队列 shmilyzxt-yii2-queue 简介</a>
     </h1>
   
 
 
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2016/03/27/YII2-shmilyzxt-yii2-queue.html" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2016/03/27/yii2-shmilyzxt-yii2-queue.html" class="pageViews">0</span>次
   </a>
 
         
-        <a href="/2016/03/27/YII2-shmilyzxt-yii2-queue.html" class="archive-article-date">
+        <a href="/2016/03/27/yii2-shmilyzxt-yii2-queue.html" class="archive-article-date">
   	<time datetime="2016-03-27T11:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-27</time>
 </a>
         
@@ -912,7 +912,7 @@ var _hmt = _hmt || [];
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//入队列</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">pushOn</span><span class="params">($job, $data = <span class="string">''</span>, $queue = null)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">		<span class="comment">//canPush 检查队列是否已达最大任务量</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;canPush()) &#123;  </div><div class="line">			<span class="comment">//beforePush 入队列前的事件</span></div><div class="line">            <span class="keyword">$this</span>-&gt;trigger(<span class="keyword">self</span>::EVENT_BEFORE_PUSH); </div><div class="line">			<span class="comment">//入队列</span></div><div class="line">            $ret = <span class="keyword">$this</span>-&gt;push($job, $data, $queue);</div><div class="line">			<span class="comment">//afterPush 入队列后的事件</span></div><div class="line">            <span class="keyword">$this</span>-&gt;trigger(<span class="keyword">self</span>::EVENT_AFTER_PUSH);</div><div class="line">            <span class="keyword">return</span> $ret;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> \<span class="keyword">Exception</span>(<span class="string">"max jobs number exceed! the max jobs number is &#123;$this-&gt;maxJob&#125;"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>注释:这里最好去看看yii2 event事件类,<a href="http://www.digpage.com/event.html" title="http://www.digpage.com/event.html" target="_blank" rel="external">http://www.digpage.com/event.html</a><br>
         
-          <a class="article-more-a" href="/2016/03/27/YII2-shmilyzxt-yii2-queue.html#more">more >></a>
+          <a class="article-more-a" href="/2016/03/27/yii2-shmilyzxt-yii2-queue.html#more">more >></a>
         
       
 
@@ -930,7 +930,7 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">YII2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">yii2</a>
         		</li>
       		
 		</ul>
@@ -940,7 +940,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/27/YII2-shmilyzxt-yii2-queue.html">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/27/yii2-shmilyzxt-yii2-queue.html">展开全文 >></a>
         </p>
       
 

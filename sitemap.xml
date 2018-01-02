@@ -4,6 +4,44 @@
 
     
   <url>
+    <loc>http://easydo.work/2016/03/27/yii2-shmilyzxt-yii2-queue.html</loc>
+    <lastmod>2018-01-02T11:07:09.737Z</lastmod>
+    <data>
+        <display>
+        <title>yii2 队列 shmilyzxt-yii2-queue 简介</title>
+        <pubTime>2016-03-27T11:53:00.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+        <tag>yii2</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://easydo.work/2016/02/28/yii2-request.html</loc>
+    <lastmod>2018-01-02T11:07:03.639Z</lastmod>
+    <data>
+        <display>
+        <title>yii2 request文件解析</title>
+        <pubTime>2016-02-28T12:37:00.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+        <tag>yii2</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://easydo.work/2016/02/20/yii2-customize-function.html</loc>
     <lastmod>2018-01-02T11:03:53.787Z</lastmod>
     <data>
@@ -162,44 +200,6 @@
         <tag>php</tag>
          
         <tag>SPL</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://easydo.work/2016/03/27/YII2-shmilyzxt-yii2-queue.html</loc>
-    <lastmod>2017-09-15T17:43:22.483Z</lastmod>
-    <data>
-        <display>
-        <title>YII2 队列 shmilyzxt-yii2-queue 简介</title>
-        <pubTime>2016-03-27T11:53:00.000Z</pubTime>
-        
-        <tag>php</tag>
-         
-        <tag>YII2</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://easydo.work/2016/02/28/YII2-request.html</loc>
-    <lastmod>2017-09-15T17:43:22.482Z</lastmod>
-    <data>
-        <display>
-        <title>YII2 request文件解析</title>
-        <pubTime>2016-02-28T12:37:00.000Z</pubTime>
-        
-        <tag>php</tag>
-         
-        <tag>YII2</tag>
          
          
            
