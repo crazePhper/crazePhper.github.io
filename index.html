@@ -426,6 +426,102 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-Yii2 负载均衡找不到JS,CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/27/yii2-loadbalancing.html">Yii2 负载均衡找不到JS,CSS</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/27/yii2-loadbalancing.html" class="pageViews">0</span>次
+  </a>
+
+        
+        <a href="/2017/11/27/yii2-loadbalancing.html" class="archive-article-date">
+  	<time datetime="2017-11-27T09:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>在部署项目的时候,用了2台服务器.请求的时候用了负载均衡,导致 YII2 的静态文件(js,css…)报 404 ,原因是: 请求一个页面时 A服务器 去处理,但是静态资源缺请求到了 B服务器 ,B服务器的 YII2资源管理器 还没有在 web\assets 生成目录和静态文件.  </p>
+</li>
+<li><p>仔细看了下 YII2 的静态资源管理代码:<code>yii\web\AssetManager</code>(定义资源文件包),<code>`yii\web\AssetBundle</code>(资源包之间的文件依赖,加载和创建).有以下几个解决思路:</p>
+</li>
+</ol>
+<ul>
+<li>更改 生成缓存目录的命名方式,保持一致的文件夹,缺点就是访问其中一台服务器时,还没有生成 静态文件目录.需自己访问,直到 2台服务器 有相同的目录即可.  </li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="string">'assetManager'</span>=&gt;[</div><div class="line">    <span class="comment">//缓存相同的文件到相同的一个文件夹</span></div><div class="line">    <span class="string">'hashCallback'</span>=&gt;<span class="function"><span class="keyword">function</span><span class="params">($path)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> hash(<span class="string">'md4'</span>, $path);</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">//添加文件时间戳</span></div><div class="line">    <span class="string">'appendTimestamp'</span> =&gt; <span class="keyword">true</span>,</div><div class="line">],</div></pre></td></tr></table></figure>
+<ul>
+<li><p>同步缓存目录,这个相对来说是很简单.就是保持2个服务器的有相同的一份静态资源,手动同步就是 FTP 上传,自动同步就是2个服务器之间相互请求保持一致即可.有工具可以使用:Linux rsync目录同步</p>
+</li>
+<li><p>使用 CDN ,在配置CDN时要把 ‘sourcePath’赋值为 NULL,而不是空字符串.每一个资源包的CDN地址可以去CDN平台找,也可以自己上传到云空间去访问.个人推荐这种方式.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="string">'assetManager'</span>=&gt;[</div><div class="line">    <span class="string">'bundles'</span>=&gt;[</div><div class="line">        <span class="comment">//jquery.js</span></div><div class="line">        <span class="string">'yii\web\JqueryAsset'</span> =&gt; [</div><div class="line">            <span class="string">'sourcePath'</span> =&gt; <span class="keyword">null</span>,</div><div class="line">            <span class="string">'baseUrl'</span> =&gt; <span class="string">'https://cdn.bootcss.com/jquery/2.2.4/'</span>,</div><div class="line">        ],</div><div class="line">        <span class="comment">//Yii.js</span></div><div class="line">        <span class="string">'yii\web\YiiAsset'</span> =&gt; [</div><div class="line">            <span class="string">'sourcePath'</span> =&gt; <span class="keyword">null</span>,</div><div class="line">            <span class="string">'baseUrl'</span> =&gt; <span class="string">'http://p8mo8fh1z.bkt.clouddn.com/'</span>,</div><div class="line">        ],</div><div class="line">        <span class="comment">//bootstrap.css</span></div><div class="line">        <span class="string">'yii\bootstrap\BootstrapAsset'</span> =&gt; [</div><div class="line">            <span class="string">'sourcePath'</span> =&gt; <span class="keyword">null</span>,</div><div class="line">            <span class="string">'baseUrl'</span> =&gt; <span class="string">'https://cdn.bootcss.com/bootstrap/3.3.7/'</span>,</div><div class="line">        ],</div><div class="line">        <span class="comment">//bootstrap.js</span></div><div class="line">        <span class="string">'yii\bootstrap\BootstrapPluginAsset'</span> =&gt; [</div><div class="line">            <span class="string">'sourcePath'</span> =&gt; <span class="keyword">null</span>,</div><div class="line">            <span class="string">'baseUrl'</span> =&gt; <span class="string">'https://cdn.bootcss.com/bootstrap/3.3.7/'</span>,</div><div class="line">        ],</div><div class="line">    ]</div><div class="line">],</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Yii2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/27/yii2-loadbalancing.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux下删除文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -963,107 +1059,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-yii2 队列 shmilyzxt-yii2-queue 简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/27/yii2-shmilyzxt-yii2-queue.html">yii2 队列 shmilyzxt-yii2-queue 简介</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2016/03/27/yii2-shmilyzxt-yii2-queue.html" class="pageViews">0</span>次
-  </a>
-
-        
-        <a href="/2016/03/27/yii2-shmilyzxt-yii2-queue.html" class="archive-article-date">
-  	<time datetime="2016-03-27T11:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>在yii2论坛中看到一个关于队列的帖子,感觉不错.<a href="http://www.yiichina.com/extension/1084" target="_blank" rel="external">http://www.yiichina.com/extension/1084</a><br>(注:SendMail 错写为 SendMial,粘贴时要注意了.)</p>
-</li>
-<li><p>在使用的过程中觉得挺好的,建议看一下关于队列的原理.</p>
-</li>
-<li><p><code>shmilyzxt/yii2-queue</code> 简单解释:</p>
-</li>
-</ul>
-<ol>
-<li><p>我用的yii2高级版,我们从配置开始看代码,这里我用的是mysql队列,首先配置文件,我把<code>queue</code>配置项写在根目录<code>common\config\main-local.php</code>下的 <code>components</code>数组下,更改一下数据库配置.复制<code>composer</code>安装后复制<br><code>vendor\shmilyzxt\yii2-queue\jobs\jobs.sql</code><br><code>vendor\shmilyzxt\yii2-queue\failed\failed.sql</code><br>2个sql文件到数据库中建立队列数据表和执行任务失败时的数据表.</p>
-</li>
-<li><p>推送任务开始语法:<code>\Yii::$app-&gt;queue-&gt;pushOn(new SendMial(),[&#39;email&#39;=&gt;&#39;49783121@qq.com&#39;,&#39;title&#39;=&gt;&#39;test&#39;,&#39;content&#39;=&gt;&#39;email test&#39;],&#39;email&#39;);</code> 我们到<code>vendor\shmilyzxt\queue\queues\DatabaseQueue.php</code>去看看代码,<code>pushOn()</code>方法写在了<code>DatabaseQueue</code>类的父类<code>vendor\shmilyzxt\queue\base\Queue.php</code>中:</p>
-</li>
-</ol>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//入队列</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">pushOn</span><span class="params">($job, $data = <span class="string">''</span>, $queue = null)</span></span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">		<span class="comment">//canPush 检查队列是否已达最大任务量</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;canPush()) &#123;  </div><div class="line">			<span class="comment">//beforePush 入队列前的事件</span></div><div class="line">            <span class="keyword">$this</span>-&gt;trigger(<span class="keyword">self</span>::EVENT_BEFORE_PUSH); </div><div class="line">			<span class="comment">//入队列</span></div><div class="line">            $ret = <span class="keyword">$this</span>-&gt;push($job, $data, $queue);</div><div class="line">			<span class="comment">//afterPush 入队列后的事件</span></div><div class="line">            <span class="keyword">$this</span>-&gt;trigger(<span class="keyword">self</span>::EVENT_AFTER_PUSH);</div><div class="line">            <span class="keyword">return</span> $ret;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> \<span class="keyword">Exception</span>(<span class="string">"max jobs number exceed! the max jobs number is &#123;$this-&gt;maxJob&#125;"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>注释:这里最好去看看yii2 event事件类,<a href="http://www.digpage.com/event.html" title="http://www.digpage.com/event.html" target="_blank" rel="external">http://www.digpage.com/event.html</a><br>
-        
-          <a class="article-more-a" href="/2016/03/27/yii2-shmilyzxt-yii2-queue.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">yii2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/27/yii2-shmilyzxt-yii2-queue.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1274,6 +1269,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Yii2</a>
               </li>
             
             <div class="clearfix"></div>
