@@ -159,6 +159,98 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Yii2 负载均衡找不到JS,CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/14/yii2-loadbalancing.html">Yii2 负载均衡找不到JS,CSS</a>
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2018/05/14/yii2-loadbalancing.html" class="pageViews">0</span>次
+  </a>
+
+        
+        <a href="/2018/05/14/yii2-loadbalancing.html" class="archive-article-date">
+  	<time datetime="2018-05-14T14:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.在部署项目的时候,用了2台服务器.请求的时候用了负载均衡,导致 YII2 的静态文件(js,css…)报 404 ,原因是: 请求一个页面时 A服务器 去处理,但是静态资源缺请求到了 B服务器 ,B服务器的 YII2资源管理器 还没有在 web\assets 生成目录和静态文件.  </p>
+<p>2.仔细看了下 YII2 的静态资源管理代码:<code>yii\web\AssetManager</code>(定义资源文件包),<code>`yii\web\AssetBundle</code>(资源包之间的文件依赖,加载和创建).有以下几个解决方式:</p>
+<ul>
+<li>更改 生成缓存目录的命名方式,保持一致的文件夹,缺点就是访问其中一台服务器时,还没有生成 静态文件目录.需自己访问,直到 2台服务器 有相同的目录即可.  </li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//配置 main.php components数组下assetManager</span></div><div class="line"><span class="string">'assetManager'</span>=&gt;[</div><div class="line">    <span class="comment">//缓存相同的文件到相同的一个文件夹</span></div><div class="line">    <span class="string">'hashCallback'</span>=&gt;<span class="function"><span class="keyword">function</span><span class="params">($path)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> hash(<span class="string">'md4'</span>, $path);</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">//添加文件时间戳</span></div><div class="line">    <span class="string">'appendTimestamp'</span> =&gt; <span class="keyword">true</span>,</div><div class="line">],</div></pre></td></tr></table></figure>
+<ul>
+<li><p>同步缓存目录,这个相对来说是很简单.就是保持2个服务器的有相同的一份静态资源,手动同步就是 FTP 上传,自动同步就是2个服务器之间相互请求保持一致即可.有工具可以使用:Linux rsync目录同步</p>
+</li>
+<li><p>使用 CDN ,在配置CDN时要把 ‘sourcePath’赋值为 NULL,而不是空字符串.每一个资源包的CDN地址可以去CDN平台找,也可以自己上传到云空间去访问.个人推荐这种方式.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="string">'assetManager'</span>=&gt;[</div><div class="line">    <span class="string">'bundles'</span>=&gt;[</div><div class="line">        <span class="comment">//jquery.js</span></div><div class="line">        <span class="string">'yii\web\JqueryAsset'</span> =&gt; [</div><div class="line">            <span class="string">'sourcePath'</span> =&gt; <span class="keyword">null</span>,</div><div class="line">            <span class="string">'baseUrl'</span> =&gt; <span class="string">'https://cdn.bootcss.com/jquery/2.2.4/'</span>,</div><div class="line">        ],</div><div class="line">        <span class="comment">//Yii.js</span></div><div class="line">        <span class="string">'yii\web\YiiAsset'</span> =&gt; [</div><div class="line">            <span class="string">'sourcePath'</span> =&gt; <span class="keyword">null</span>,</div><div class="line">            <span class="string">'baseUrl'</span> =&gt; <span class="string">'http://p8mo8fh1z.bkt.clouddn.com/'</span>,</div><div class="line">        ],</div><div class="line">        <span class="comment">//bootstrap.css</span></div><div class="line">        <span class="string">'yii\bootstrap\BootstrapAsset'</span> =&gt; [</div><div class="line">            <span class="string">'sourcePath'</span> =&gt; <span class="keyword">null</span>,</div><div class="line">            <span class="string">'baseUrl'</span> =&gt; <span class="string">'https://cdn.bootcss.com/bootstrap/3.3.7/'</span>,</div><div class="line">        ],</div><div class="line">        <span class="comment">//bootstrap.js</span></div><div class="line">        <span class="string">'yii\bootstrap\BootstrapPluginAsset'</span> =&gt; [</div><div class="line">            <span class="string">'sourcePath'</span> =&gt; <span class="keyword">null</span>,</div><div class="line">            <span class="string">'baseUrl'</span> =&gt; <span class="string">'https://cdn.bootcss.com/bootstrap/3.3.7/'</span>,</div><div class="line">        ],</div><div class="line">    ]</div><div class="line">],</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Yii2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/14/yii2-loadbalancing.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ubuntu 17.10 作为开发系统使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -397,102 +489,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/12/05/passport-design.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Yii2 负载均衡找不到JS,CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/27/yii2-loadbalancing.html">Yii2 负载均衡找不到JS,CSS</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/27/yii2-loadbalancing.html" class="pageViews">0</span>次
-  </a>
-
-        
-        <a href="/2017/11/27/yii2-loadbalancing.html" class="archive-article-date">
-  	<time datetime="2017-11-27T09:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>在部署项目的时候,用了2台服务器.请求的时候用了负载均衡,导致 YII2 的静态文件(js,css…)报 404 ,原因是: 请求一个页面时 A服务器 去处理,但是静态资源缺请求到了 B服务器 ,B服务器的 YII2资源管理器 还没有在 web\assets 生成目录和静态文件.  </p>
-</li>
-<li><p>仔细看了下 YII2 的静态资源管理代码:<code>yii\web\AssetManager</code>(定义资源文件包),<code>`yii\web\AssetBundle</code>(资源包之间的文件依赖,加载和创建).有以下几个解决思路:</p>
-</li>
-</ol>
-<ul>
-<li>更改 生成缓存目录的命名方式,保持一致的文件夹,缺点就是访问其中一台服务器时,还没有生成 静态文件目录.需自己访问,直到 2台服务器 有相同的目录即可.  </li>
-</ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="string">'assetManager'</span>=&gt;[</div><div class="line">    <span class="comment">//缓存相同的文件到相同的一个文件夹</span></div><div class="line">    <span class="string">'hashCallback'</span>=&gt;<span class="function"><span class="keyword">function</span><span class="params">($path)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> hash(<span class="string">'md4'</span>, $path);</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">//添加文件时间戳</span></div><div class="line">    <span class="string">'appendTimestamp'</span> =&gt; <span class="keyword">true</span>,</div><div class="line">],</div></pre></td></tr></table></figure>
-<ul>
-<li><p>同步缓存目录,这个相对来说是很简单.就是保持2个服务器的有相同的一份静态资源,手动同步就是 FTP 上传,自动同步就是2个服务器之间相互请求保持一致即可.有工具可以使用:Linux rsync目录同步</p>
-</li>
-<li><p>使用 CDN ,在配置CDN时要把 ‘sourcePath’赋值为 NULL,而不是空字符串.每一个资源包的CDN地址可以去CDN平台找,也可以自己上传到云空间去访问.个人推荐这种方式.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="string">'assetManager'</span>=&gt;[</div><div class="line">    <span class="string">'bundles'</span>=&gt;[</div><div class="line">        <span class="comment">//jquery.js</span></div><div class="line">        <span class="string">'yii\web\JqueryAsset'</span> =&gt; [</div><div class="line">            <span class="string">'sourcePath'</span> =&gt; <span class="keyword">null</span>,</div><div class="line">            <span class="string">'baseUrl'</span> =&gt; <span class="string">'https://cdn.bootcss.com/jquery/2.2.4/'</span>,</div><div class="line">        ],</div><div class="line">        <span class="comment">//Yii.js</span></div><div class="line">        <span class="string">'yii\web\YiiAsset'</span> =&gt; [</div><div class="line">            <span class="string">'sourcePath'</span> =&gt; <span class="keyword">null</span>,</div><div class="line">            <span class="string">'baseUrl'</span> =&gt; <span class="string">'http://p8mo8fh1z.bkt.clouddn.com/'</span>,</div><div class="line">        ],</div><div class="line">        <span class="comment">//bootstrap.css</span></div><div class="line">        <span class="string">'yii\bootstrap\BootstrapAsset'</span> =&gt; [</div><div class="line">            <span class="string">'sourcePath'</span> =&gt; <span class="keyword">null</span>,</div><div class="line">            <span class="string">'baseUrl'</span> =&gt; <span class="string">'https://cdn.bootcss.com/bootstrap/3.3.7/'</span>,</div><div class="line">        ],</div><div class="line">        <span class="comment">//bootstrap.js</span></div><div class="line">        <span class="string">'yii\bootstrap\BootstrapPluginAsset'</span> =&gt; [</div><div class="line">            <span class="string">'sourcePath'</span> =&gt; <span class="keyword">null</span>,</div><div class="line">            <span class="string">'baseUrl'</span> =&gt; <span class="string">'https://cdn.bootcss.com/bootstrap/3.3.7/'</span>,</div><div class="line">        ],</div><div class="line">    ]</div><div class="line">],</div></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Yii2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/27/yii2-loadbalancing.html">展开全文 >></a>
         </p>
       
 
