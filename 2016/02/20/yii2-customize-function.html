@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://easydo.work">
-  <title>Archives: 2017 | 小叮当的肚兜</title>
+  <title>yii2 添加全局自定义函数 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="小叮当的肚兜,一只野生程序猿.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小叮当的肚兜">
-<meta property="og:url" content="http://easydo.work/archives/2017/index.html">
+  <meta name="description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
+<meta name="keywords" content="php,yii2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yii2 添加全局自定义函数">
+<meta property="og:url" content="http://easydo.work/2016/02/20/yii2-customize-function.html">
 <meta property="og:site_name" content="小叮当的肚兜">
-<meta property="og:description" content="小叮当的肚兜,一只野生程序猿.">
+<meta property="og:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-02T12:26:15.278Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小叮当的肚兜">
-<meta name="twitter:description" content="小叮当的肚兜,一只野生程序猿.">
+<meta name="twitter:title" content="yii2 添加全局自定义函数">
+<meta name="twitter:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
   
     <link rel="alternative" href="/atom.xml" title="小叮当的肚兜" type="application/atom+xml">
   
@@ -168,130 +170,71 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-YII2 添加全局自定义函数" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      yii2 添加全局自定义函数
+    </h1>
+  
+
+
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2016/02/20/yii2-customize-function.html" class="pageViews">0</span>次
+  </a>
+
+        
+        <a href="/2016/02/20/yii2-customize-function.html" class="archive-article-date">
+  	<time datetime="2016-02-20T08:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-20</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一:"></a>方法一:</h2><p>这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下：</p>
+<h5 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pr</span><span class="params">($var)</span></span>&#123;</div><div class="line">    <span class="comment">//do something</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">(<span class="keyword">new</span> yii\web\Application($config))-&gt;run();</div></pre></td></tr></table></figure>
+<p>也可以引入一个函数文件.</p>
+<hr>
+<h2 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）:"></a>方法二（推荐）:</h2><a id="more"></a>
+<p>这种方法主要是利用 composer 来实现，在 composer.json 文件里面添加如下代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">"autoload": &#123;</div><div class="line">    "files": [  </div><div class="line">        <span class="string">"common/components/GlobalFunctions.php"</span></div><div class="line">    ]</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>添加完之后,在common/components下添加文件GlobalFunctions.php,记得用终端在项目根目录下执行 composer update 命令</p>
+<p>备注:因为只添加一个文件,我用了方法二,但是只看到<code>vendor\composer\autoload_files.php</code>文件的修改;</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="keyword">array</span>(</div><div class="line">    <span class="string">'2cffec82183ee1cea088009cef9a6fc3'</span> =&gt; $vendorDir . <span class="string">'/ezyang/htmlpurifier/library/HTMLPurifier.composer.php'</span>,</div><div class="line">    <span class="string">'2f22d0f2d4e1d504c0f839c579818375'</span> =&gt; $baseDir . <span class="string">'/common/components/GlobalFunctions.php'</span>,</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>把composer update 更新的文件全部取消后手动更改 autoload_files 也是可以加载的</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>都是码农,别客气了.<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/05/passport-design.html" class="archive-article-date">
-  	<time datetime="2017-12-05T08:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/05/passport-design.html">多站点通行证设计原理简析</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/12/05/passport-design.html" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PassPort</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/27/linux-delete-file.html" class="archive-article-date">
-  	<time datetime="2017-11-27T09:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/27/linux-delete-file.html">linux下删除文件</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/27/linux-delete-file.html" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/14/auto-pull.html" class="archive-article-date">
-  	<time datetime="2017-11-14T09:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/14/auto-pull.html">码云 自动拉取 PHP 部署项目</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/14/auto-pull.html" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -301,169 +244,137 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">yii2</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aUarDMAwF0e5/03nQ31JnrpQ+sDz+CmlwfFIQluTXC4/rPT7vfI7P5/kz39712JAhQ8a2jGs5yLLSGVLqemYZMmScw1gHWX69Xm46A1mbDBkyZKwDIt8sEhLfJsqQIUMGmY6kmjWwDBkyZHSS2PX9b3Om4fXnubgMGTI2ZKSNgf+8/mF/Q4YMGZswrvbotw0eWIMMGTJGM9bbuE7w7bQt0yaBDBkyTmD0j1DwtgFZKP+scUYuQ4aMDRm8mFUr4vMNZa21ENQLZciQsTmDB8T02ES6Ga21H2TIkDGb0T8qQabrtDn7IVuGDBmTGGmayoNjWmJLD2HIkCFjNiMNhbWwyFPcYuFPhgwZBzB4H/DZNmTtY92U22TIkDGOkU5XK709dpBi/eFkyJAxmsGXXqvedY5ZBAFXhgwZBzDSkMeLYrUZ0pRYhgwZsxm1JJO8jCe9neRWhgwZsxl848WTUn7kK20JFP8HGTJkbM7oJ6vpk2lDolU1lCFDxjhGmrjWGpy1hgFqA8iQIeMYRho6yev5nU5bVIYMGbMZ6aRPHaSIj03w/0SGDBmDGFc40m0ln6eVGMuQIWM0gw9+VIuEYHK/016VIUPGPEbaOETJJAiL6ZYRldtkyJAxmpFmvWlBrR/1bzaaMmTIkFFKIEmK+0DzUoYMGTJKwZRv/vivNyQZMmQcwCBJbHoIjJfM0oaEDBkyTmOkjYH1fd745IG1tWWUIUPG3ow/tHGodi+UObQAAAAASUVORK5CYII=" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/08/composer.html" class="archive-article-date">
-  	<time datetime="2017-11-08T02:23:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-08</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2016/02/28/yii2-request.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          yii2 request文件解析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/12/bulid-hexo.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">搭建hexo</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/08/composer.html">发布一个composer包</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
 
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/11/08/composer.html" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">composer</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/26/hexo-yilia-page-view.html" class="archive-article-date">
-  	<time datetime="2017-10-26T09:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/26/hexo-yilia-page-view.html">添加 hexo yilia 主题的文章阅读量</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/10/26/hexo-yilia-page-view.html" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/19/phpexcel_road.html" class="archive-article-date">
-  	<time datetime="2017-09-19T07:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/19/phpexcel_road.html">PHPExcel_Road</a>
-    </h1>
-  
-
-
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2017/09/19/phpexcel_road.html" class="pageViews">0</span>次
-  </a>
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Excel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://easydo.work/2016/02/20/yii2-customize-function.html",
+  owner: 'crazePhper',
+  repo: 'crazePhper.github.io',
+  oauth: {
+    client_id: 'db536be4f39f1b94a13f',
+    client_secret: '8ba05293415c970f42c1c31734b720e44db51619',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -486,8 +397,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
