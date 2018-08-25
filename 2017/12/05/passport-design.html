@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://easydo.work">
+  <link rel="dns-prefetch" href="https://easydo.work">
   <title>多站点通行证设计原理简析 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在进行多站点统一账号管理时，有以下几个关键点：  设计公共登录平台—— passport 通行证 使用 cookie 跨域进行多站点登录 统一账号管理接口  设计请求流程图： 1.设计公共登录平台—— passport 通行证设计统一存储各个站点账号数据库:用户表 passport_user12345678910CREATE TABLE `passport_user` (  `id` int(11">
 <meta name="keywords" content="PassPort">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多站点通行证设计原理简析">
-<meta property="og:url" content="http://easydo.work/2017/12/05/passport-design.html">
+<meta property="og:url" content="https://easydo.work/2017/12/05/passport-design.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="在进行多站点统一账号管理时，有以下几个关键点：  设计公共登录平台—— passport 通行证 使用 cookie 跨域进行多站点登录 统一账号管理接口  设计请求流程图： 1.设计公共登录平台—— passport 通行证设计统一存储各个站点账号数据库:用户表 passport_user12345678910CREATE TABLE `passport_user` (  `id` int(11">
 <meta property="og:locale" content="zh-CN">
@@ -316,7 +316,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3awY6rMAwFUP7/p5ntk56g1zYdDcnJqmpTyGFhYjvHEY8zGFcz//3+fs7/Mx8eGBgYr2VMFje/S4K//y8GBsY+jKsbJ+HyauY95v7K+dowMDAwnppzH0wn98XAwMDIg2/+aw7DwMDAqCaxyVZv/ji+notjYGC8kJEXy37/81f6GxgYGK9inMVxD7uak4fyszUwMDDWZuQBLi+WPRu48/VgYGCsypgHvqfKaqOHhYGBsQ2j2p6sFsuSmc01YGBgbMDoJZlJ3OslruWtJwYGxtKMJJj2KvPzgJs0TT/k4hgYGEsw8jQy3yAWnl+rwXBUIz0GBsbLGZNg10to87JauYWAgYGxKCNvFlaT1Wo6mifAH1qYGBgYyzHyottT28Re5zHaJmJgYGzASP6QLz1pIVQPYRy9p4KBgfFyRm8zVy3J5aW0PK39cNgCAwNjIUZ+/KLXzuzNz++OgYGxDyMv5VcLcHkbYB6gMTAw1mZU25N5WJyX+/NjZBgYGGszqgvqFcXyNmd+/ei9gYGBsQGj3Ep8KCUuF9owMDA2YCSLrgbiSXO0/FAwMDAWZZzFMSnu54uulv8wMDDWZswbk8kGrhdYmxtEDAyMRRlJkM23gL2r9QIuBgbGbowHCl6tAxPVN0CUi2NgYGAUS//V5miv8IeBgYFRbQxUt3dJAe7rARcDA+PPM+bHtso3bgXcB3JxDAyMFzLy1LG6TZwsYvIawMDAWIjxA68I2xmY5rLXAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aQU7EMAwF0Ln/pYvEFtr5tjuIJi+rCtJJXhdWYvv1isfxPfI5x8k4m/nzrdcnBgYGxmMZx+XIF7uek2zx+q2zvWFgYOzDyANoEo6TT1ANx2/2jIGBgREH08lMDAwMjHsDbn5lzQ9/GBgYGNeM5LjWS431fvmDd3EMDIwHMqqFgb98/mB9AwMD4yGMoziSwsAkeXe0BgYGxtqMJK2ft1z0Cp+TK26hOoGBgfFwRq/ZK28Iq87JPysGBsY+jPzl/Ao6Cbv5Z8XAwNiNUc1iXc+c86rBGgMDY21G9VCYJNp6zWHz/2JgYKzHmBQAemmyybunzxgYGNsw8jJkddP3Hhl/+TsGBsZmjLwhbNKvVU36Y2BgYPQKA9X0XK8YEAViDAyMbRh5oEye83aNPNyfzsfAwFiaUW2A6JUwey0aZRIGBsaijGqozVsrJkfJchkVAwNjA8YkoZYAqoXSfFdv6hsYGBhLMCZX1gSTl0XzUmh0I8fAwFiI0WsFy5P+1WaOaljHwMDYh1FdeN7UNU/SFe7iGBgYD2fcla2qtlZMVvxg0g0DA+NfMo7iqJYh81+ICgBnq2NgYCzN6F0g80vvXQm4XljHwMBYidELsnkIzjeaBNzy+RQDA2MhRq+4WF2+VxJIWjowMDAw3vxEq6qYHP4KZ1sMDAyMQaBMtpKH8kI9FgMDYzlGskxv3HBBTd7FwMBYmvE3hYFJGSBfFwMDYznGFwYrQc8ZfQ0HAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -380,7 +380,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2017/12/05/passport-design.html",
+  id: "https://easydo.work/2017/12/05/passport-design.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {

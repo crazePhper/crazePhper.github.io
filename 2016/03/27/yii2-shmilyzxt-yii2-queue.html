@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://easydo.work">
+  <link rel="dns-prefetch" href="https://easydo.work">
   <title>yii2 队列 shmilyzxt-yii2-queue 简介 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在yii2论坛中看到一个关于队列的帖子,感觉不错.http://www.yiichina.com/extension/1084(注:SendMail 错写为 SendMial,粘贴时要注意了.)  在使用的过程中觉得挺好的,建议看一下关于队列的原理.  shmilyzxt/yii2-queue 简单解释:    我用的yii2高级版,我们从配置开始看代码,这里我用的是mysql队列,首先配置文件">
 <meta name="keywords" content="php,yii2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yii2 队列 shmilyzxt-yii2-queue 简介">
-<meta property="og:url" content="http://easydo.work/2016/03/27/yii2-shmilyzxt-yii2-queue.html">
+<meta property="og:url" content="https://easydo.work/2016/03/27/yii2-shmilyzxt-yii2-queue.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="在yii2论坛中看到一个关于队列的帖子,感觉不错.http://www.yiichina.com/extension/1084(注:SendMail 错写为 SendMial,粘贴时要注意了.)  在使用的过程中觉得挺好的,建议看一下关于队列的原理.  shmilyzxt/yii2-queue 简单解释:    我用的yii2高级版,我们从配置开始看代码,这里我用的是mysql队列,首先配置文件">
 <meta property="og:locale" content="zh-CN">
@@ -311,7 +311,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aSw7DIAxF0e5/0+kCoiT32bRSzGVUNT8OA8sYfz54HKdxvnp15/kp/rbFQ4YMGa9ldD58NRXyfrJMZG4yZMjYh3H1+at7OAxN4vbZ+7nJkCFDRu03TxnT5ZMhQ4aM9HXkqXSzKkOGDBmdTWzKq73n53txGTJkvJBRC6P/+f2T8w0ZMmS8inGE4/4wgBTRSNkunpUMGTJGM3iAS1O0VSU8nnTKkCFjKoMfUpJQy48Bau+J81YZMmSMYPCH12LSb6E5yJAhYyiDbEc7TRLkmKETamXIkLEDg5fGCCYN0/zqwy5chgwZ2zB44YyXw3hDBk8ug7NWGTJkDGLwYBeXwEotYrVmNRkyZMxmpGki34impbpOoilDhozZjH5RjKeDtZQRpYkyZMgYyuDFdx4o+VNpE8blPzJkyBjNqB0WkqDcJ8XfkiFDxlBG7cjwwKOzTHHPiAwZMkYz+jF7VVNXsdlChgwZoxlk67hq41rrjggWSIYMGRsweEGfTI4H5fTOh724DBkytmTcB9A0mastR5DnypAhYwNGmrTFB414ixvzZMiQMZRxhINPqNNFS9rUHqqGMmTIGMRIw1w/UKZhOg36MmTImMrgDRO8uF9re+UBV4YMGXsyaiX+NInk1DRwy5AhQ0an9JaW4Yr5rAwZMmSEzalp4rigEV+GDBkbMMgmttbqmhbUagskQ4aM2YxOp0atjSwNsrwFRIYMGeMYX3e9LLqhQSPGAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQW7DMAwEwP7/0+61QBBnl3IKWB6dAkeJNToQosifn3gcf8brk9fn579tZ142MDAwbss4TsfrK9/NeffP7fPzd719LwYGxgMY5y874pEsLt+aYiMwMDAwghCc/GrGw8DAwMgZ7Zw8fU02CwMDAyNJYpNv84Q2YX8lF8fAwLghI791///PX6lvYGBg3IpxjMas6Jgf+Or1YGBgbM1YuThrl94eIpMDKAYGxtMYM0Ce6K4kpdFMDAyMTRlXFRdnbRmzRrQormNgYGzHyENqC8g3ri0/fMjFMTAwtmOslxjzJrC2JJBgMDAwnsPIMXk9cYapG8swMDC2ZszCX9vylVzerRRHMTAwMPLL/fUAnRcJ6kosBgbGbRkrV2xJqXIlTl6Qi2NgYGzNWLqmL4P1rGAw3AkMDIwbMmYFgHxZbWtFPh8DA+M5jPwi7KqWi1liXDdbYGBgbMrIj25tijsL2Rc0W2BgYGzHyJeSJ5ztITL5t7rNAgMD4+aMtj1r5XnLW7puw8DA2IiRB9zksDibMzuYDo+GGBgYN2QkobBtV21nfqha5MdEDAyMTRlHOdpGsVnhoS4tYGBgbM3Ix+yYuFIqyBNsDAyMJzDacJmE2tml20ogxsDAeAJjFvhmBYO2LBqVMTAwMDBGCe0sVc4PoMOAi4GBsTWjXfqsLSwvdmJgYDyN0V7r56S2tNle5GFgYDyB0aaOSWp6bSifNWdgYGBswfgFf7CjiepZu/sAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -375,7 +375,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2016/03/27/yii2-shmilyzxt-yii2-queue.html",
+  id: "https://easydo.work/2016/03/27/yii2-shmilyzxt-yii2-queue.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {

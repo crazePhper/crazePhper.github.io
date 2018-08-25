@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://easydo.work">
+  <link rel="dns-prefetch" href="https://easydo.work">
   <title>mysql自动备份数据库并上传到百度云 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="先写一个定时任务,每天凌晨执行:  12crontab -e 输入:2 1 * * * bash /root/mysqlBackup.sh  配置bypy(python版本大于2.6)  123456wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gztar zvxf 1.5.5.tar.gz &amp;">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql自动备份数据库并上传到百度云">
-<meta property="og:url" content="http://easydo.work/2016/03/13/mysql-backup-to-updalod-baidu.html">
+<meta property="og:url" content="https://easydo.work/2016/03/13/mysql-backup-to-updalod-baidu.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="先写一个定时任务,每天凌晨执行:  12crontab -e 输入:2 1 * * * bash /root/mysqlBackup.sh  配置bypy(python版本大于2.6)  123456wget --no-check-certificate https://github.com/pypa/pip/archive/1.5.5.tar.gztar zvxf 1.5.5.tar.gz &amp;">
 <meta property="og:locale" content="zh-CN">
@@ -298,7 +298,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3aQQ7iMAwFUO5/aUaa1Wza/u8kwEgvK1QhmpdFbGy/XvF6/13tk3+fX33/fiW/v2Hh4eHhjbZ+/4KrJ/eMHLayn/tfw8PDwzvHuw8Gs4s7OYKrdyUHlwQwPDw8vO/yEvz91Z98TtJ6PDw8vP+RN9vuQ/obhxk8PDy8X+Alf/5nl36eoOfljyO1Fjw8PLyY1zbAfuHzwf4eHh4e3kJXfaX5NLvi2wDwsBM8PDy8A7w8Rc7bY7Ohq3b4IH8LHh4e3jne7NLPSxWzUYANJWA8PDy8w7z2yl5pm7WBp02y8fDw8D7DS6hJpTRq6pdBpU2v8fDw8M7xZs2wIqn9fAFivdeHh4eHd/HNWburLRC0qXlycNFO8PDw8I7x2kJqvq02ALTB5iHtxsPDwzvAazvsecKdvH5WqM2DBB4eHt453uZzChg5Ly8BFxMHeHh4eAu89m9/st31g2iP7NKFh4eHd5jXbig5iHZQ4D5U1AUOPDw8vI/w2le2JYyVYm7blsPDw8P7DG9XkMjLuysDWMP+Hh4eHt5hXtGeL2unsyMrQgseHh7esemmlTAwu+jzhtysgIuHh4d3mjdLkWeJcn7pJwURPDw8vM/z3sFqRwR2DWAlJYmHQIWHh4d3gJdf3MkF3QaDPBFf2SceHh7eXt6sILuOnJWA22CDh4eH9y3ebABrdli7Bgvw8PDwzvFmTf1ZI6ot47ah4uH7eHh4eJt473LNzq8NIe0AQZRS4+Hh4W3irceT2VhA+2RWBMHDw8M7x2tHB5IwkF/9bfmjLnzg4eHhHePlja7ZkNYsLW6P6bKAi4eHh/clXj561Q5RzcJMVDTBw8PD+wFeW2adNbdy2MNzPDw8vGO8NkWetc32hpakpIuHh4d3gtc2wGYvnoWfvOD7Wll4eHh4Ke8PV8EDJ0iqSC0AAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACu0lEQVR42u3a0W7bMAwF0Pz/T3fAngpsXu4lpbYYjp6MxHV0VECiSb5e8fj4PT5ff/7kz3tmd+ZzODzw8PDwRlN/Gk8TzaeefJvPIb8fDw8P7zYvPwySh+abeLJkT3dGy4eHh4f3rbz8un1+EpTj4eHh/R+8fFpvAt/REYKHh4f3vbw8EdCmYmd/mydHjuVa8PDw8E7uyavw+sb19foeHh4e3qiqniRqZ4mJTXGrmC0eHh7eBd4mVZrj/z31pAyWt2RFbwx4eHh4h3h5IT957W+fs1myN8cSHh4e3lFesvW3n88WJf82SS7j4eHh3ePNtul8a24XaBbKR6U4PDw8vAu8NrxuUwZ5iStvCKjbBfDw8PCO8vJjIDkA2l/J0xnDowUPDw/vEK8IRkcJhU0pa3YAvMm14OHh4V3j7Y+BpF3gVOD+eD8eHh7eF/Je8WhTBm0DVpLYffwcDw8P7wLv1NQ34DbUbhMZeHh4eGd5SVGqLWLlG/eNBoLHkBoPDw/vEK+dRHs9C39npbjHZ+Lh4eEd5bXtTZsUQ5uE3YTmeHh4eLd5ecDahsV5iattX0jmjIeHh3ePN0uhzkLtTUtWXpzDw8PDu8drg9qzU9mkIfKjCA8PD+8sry38t9/OGq32KZJhXwMeHh5e/Ka/CXw3SYrk1/ftXHh4eHhnebONe9YQMMO0xwYeHh7e1/M2E82Ph7YA1v4b8PDw8O7xkgnlDVLtErRHRV36wsPDw7vA+yhHHvLmC7QJpt8cNnh4eHgXeLMNd5gaiPGz1q7koMLDw8M7xZuV/GeT3rd5Det7eHh4eBd4s8Ng1nyQh8ibxAQeHh7eT+Dl5askkdGChylgPDw8vB/AO5V4bffwYesAHh4e3jXePiGbL0HSYjVL79YNBHh4eHgj3uyNvk1AbBLESfvC4YQFHh4e3t/HLwxVnHFMPDM2AAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -362,7 +362,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2016/03/13/mysql-backup-to-updalod-baidu.html",
+  id: "https://easydo.work/2016/03/13/mysql-backup-to-updalod-baidu.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {

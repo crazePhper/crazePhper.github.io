@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://easydo.work">
+  <link rel="dns-prefetch" href="https://easydo.work">
   <title>yii2 分页小部件简析 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445//yii\widgets\LinkPager &amp;lt;?=LinkPager::widget([    //$pages = new Pagination([&apos;totalCount&apos; =&amp;gt; $total, &apos;pageSize&apos; =">
 <meta name="keywords" content="php,yii2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yii2 分页小部件简析">
-<meta property="og:url" content="http://easydo.work/2018/01/02/yii2-LinkPager.html">
+<meta property="og:url" content="https://easydo.work/2018/01/02/yii2-LinkPager.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445//yii\widgets\LinkPager &amp;lt;?=LinkPager::widget([    //$pages = new Pagination([&apos;totalCount&apos; =&amp;gt; $total, &apos;pageSize&apos; =">
 <meta property="og:locale" content="zh-CN">
@@ -290,7 +290,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aQY6EMAwFUe5/aWY70giob8NIiSurVtMNeSwsO/Zx4HX+WvdX79fV7//e7fhiyZAhY1lG+mBO5QD+/eVOZMiQMYBxtS3ym/TxV3e+v/qwZxkyZMgIk8I04NaeK0OGDBn3t+OlZppuypAhQ0aniCWbS6/eb/2TWlyGDBkLMnjQ/P/Pn/Q3ZMiQsRTjDFfaEuDtz9auZMiQsTWDBziezKX3rAVcGTJkzGG8BaiVqfxfD/uUIUPG1oxaMzJNGdP2QHoMJ0OGjL0Z6VbSpJA3R0k78/I+MmTIGMBI/0ZSOj5sQcJuXIXLkCFjIwbfYm0MogYmqepRe9MyZMhYllEbz+LHYbXaOj3CkyFDxt6MTuAjJehbLYFW30OGDBnbMdIBCN5i7IxrxNmuDBkytmPwYNp/ZG0IA704GTJkbMpI07J0/CI97i++PhkyZIxk8HGK2m/SQP+QksqQIWMMIw2d5PgsbWQWhy1kyJAxhpGG1LcCa+cbGTJkTGPwgMsbn/wq38lrqaEMGTKWYpDErjP+RdqcwciXDBkyxjNIycrDJU8TU6QMGTImMM5wkdZjpzDm4T7IbWXIkLE4g68vWpW1FJMX1TJkyNiJkY5k8SMwdExWCrgyZMiYyegffpHDu04Ri1qYMmTIkFFKHNPithisZciQIaNRB3daCPx1yJAhYwKDNyl5WcsL0T5MhgwZezP6pWl6O77R/oiGDBkyFmf8AN8B2xltN0WvAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aQW6EMAwF0Ln/padSty3pt81UEF5WaDQEHgvLjv16xev9vX5er/9/dNf6Otm/uTAwMG7LeC/X0asfPbK3zxq/3hMDA+M5jCTI5rAJLwnuGBgYGKdtveT1Aj0GBgbGPOAmSV6v3MXAwMBIAl+e8EVlZ8w4uRbHwMC4IWPSGPj09T/1NzAwMC7M6IXLPL2rJpfNt8LAwNiakZSjk7ZlHkbzlPRwHwwMjE0ZeZma/FIN2dVS+fAXDAyMBzPycYr5KEa1IfqRqRAMDIxLMs464p8c+q9DbdIqwMDAeAKjYB1EuaQYnhTSGBgYezN6J1fJSEQegictBAwMjL0Z8zK1Gl5HHYyjN8TAwNiaMT90y3fIC9RmvoeBgbEpIy9fe6/SK4mrO2NgYOzN6LUM8+P+aqtgMrKGgYGxK2NdWCYBt9c8yEvciISBgfEYRrUcze899xjuj4CLgYHxMMZ8wGveYCiMVmBgYGzKyIfD8hGKXorZ+xwYGBhPYFSLxt6YV/Ksaun76n0bDAyM2zLyoJkcuvVgeUL5R9sSAwNjO0YVUy1Qz2pkRkd4GBgYmzLexZUUrr1xsTy8/rInBgbG1oxqMTlvfE5edNQwwMDAuDkjT/uqB2r5btVQXsgcMTAwNmL0zq96QfbVWuvQjIGBgVEtJpO0bz600Qy4GBgYj2RMStnJs04OuBgYGJdnVNuTveSv2k4o3IuBgbE1o9cYmJx0VdsAH+xvYGBgXJ3xBeZGVuQw5jThAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -354,7 +354,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2018/01/02/yii2-LinkPager.html",
+  id: "https://easydo.work/2018/01/02/yii2-LinkPager.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {

@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://easydo.work">
+  <link rel="dns-prefetch" href="https://easydo.work">
   <title>发布一个composer包 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1，在github上创建一个仓库,然后拉去到本地,在仓库目录中执行命令:1composer init 填写包的信息,创建composer.json文件. 更多配置信息可查阅其他资料 2,push创建的composer.json到github上去. 3,登录 https://packagist.org 点击网页顶部submit按钮:填写自己刚刚创建的github项目地址并提交.">
 <meta name="keywords" content="php,composer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="发布一个composer包">
-<meta property="og:url" content="http://easydo.work/2017/11/08/composer.html">
+<meta property="og:url" content="https://easydo.work/2017/11/08/composer.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="1，在github上创建一个仓库,然后拉去到本地,在仓库目录中执行命令:1composer init 填写包的信息,创建composer.json文件. 更多配置信息可查阅其他资料 2,push创建的composer.json到github上去. 3,登录 https://packagist.org 点击网页顶部submit按钮:填写自己刚刚创建的github项目地址并提交.">
 <meta property="og:locale" content="zh-CN">
@@ -303,7 +303,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQW7DMAwEwPz/0ynQU4G2zi7lFog0OgWGIXt8YEiRj0e8np/r+5WvK7//ev/f7rlhYWBgvC3jebmuH3P9WsmrJ8+9vgcDA+McRh4E24DYfpT8M2FgYGC0D7jrc2BgYGCsB9y23L1O8vLQjIGBgXFbMVlSk8Tx5locAwPjDRmzB//P7z/sb2BgYLwJ4zlabTKX7zl8HwwMjK0ZyRhEftB/fSVJCmcFLQYGxgmMtq2YH7GttB+Ge2JgYGzHSALidZKXf4I2gBZ/AxgYGFsz2qP5lTSxbXPm1zEwMPZmzIYb2gZk2wZoD+wwMDBOYOQBdGVIIuk8Jq/+w9MxMDC2ZswO1NpCdFYS140HDAyMAxgr51ftCEUSUvNUFQMD40zG+mhX26ScjXq8CLgYGBhbMNZbj3WjcVQqv0g0MTAwDmDM2pBtY+DeETEMDIxzGPlGbbVYNCDL1DAK9BgYGNsxVo698sK1bUIUzUsMDIwDGO2x2krpOyxT4xENDAyMXRnrJWWbCCbth/zPAAMD4zRGsnVe4rY7561QDAyM0xgrp3Sz9LEN4m27AgMDYyfGs1wrX2u2TxSCMTAwtma0ATcvONeTzvUGAwYGxk6MlWGIYYvxLwIuBgbGAYz8GK4NrPk9Mx4GBgZGG3BnoxL5cMav+2NgYGAER28zzKwJEdXZGBgY2zHa8dM8pN7V/qwzRwwMjI0YbWPgroI2D98rjVUMDIw3Z3wA+rXbGW8ohdkAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3awVLrMAwFUP7/p8sMW2h6r2x4r87xqkNTJycLIVn6+IjX42s9+/x9XV95vfP3a7YtDAyMt2U8Lldyg3yHXa/ph90wMDBuwEi2vg6X139pX0r+bBgYGBi/QcpfFgYGBsaMkdzyRRpX7oOBgYHRlqBJWMy//Qe1OAYGxhsy1hsDv/f5T/sbGBgY/yXjUa7rtK9tHiRJZ/RUGBgYRzPaG+TF6qxh2UbX4XvCwMB4W8bKQVubs+06sPsh4GJgYNyGkbct87C7F4+BgYExC5QrD53s82JPDAyM2zBmB2ErgxQrRezTgIuBgXEQIz9cm1Hz4Yy2wYmBgXEfRhSPF4Jp206YJY4YGBhnM1YOv9qkcNc42ov/GxgYGIcyVoYkVsJuG8Sf7o+BgXE0I0nUZof7s8O1DcMWGBgYRzNmN7v+1d7xi2LYAgMD41DGLO3Lk7l2qKI+CsTAwLgNoy1B82ZkMmq2VAZjYGAczdgbZPMWQouJSBgYGMcx8oO2WWLXFrHDxgMGBsbNGHlK145fFBNqQTH8dNgCAwPjOMaGkaxkDKIc/2oH1DAwMM5mzILp3iQybwMURSwGBsZBjJWAOBuSmBXMu8I6BgbG+zLyINs2Jltee3gXZY4YGBgHMdqx0Vl6Vw975b/CwMDAWAipbWaaf4uBgYFRpGWjQrRN/l5ciYGBcQPG3iJ21/hFsT8GBsbRjPXGQJv2zUrW2Q4YGBhvzvgEXccd87SNHmIAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -367,7 +367,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2017/11/08/composer.html",
+  id: "https://easydo.work/2017/11/08/composer.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {

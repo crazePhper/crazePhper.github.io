@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://easydo.work">
+  <link rel="dns-prefetch" href="https://easydo.work">
   <title>yii2 添加全局自定义函数 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
 <meta name="keywords" content="php,yii2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yii2 添加全局自定义函数">
-<meta property="og:url" content="http://easydo.work/2016/02/20/yii2-customize-function.html">
+<meta property="og:url" content="https://easydo.work/2016/02/20/yii2-customize-function.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="方法一:这种方法就是直接在入口文件web/index.php里面写函数，示例代码如下： 全局函数12345function pr($var)&amp;#123;    //do something&amp;#125;(new yii\web\Application($config))-&amp;gt;run(); 也可以引入一个函数文件.  方法二（推荐）:">
 <meta property="og:locale" content="zh-CN">
@@ -300,7 +300,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aUarDMAwF0e5/03nQ31JnrpQ+sDz+CmlwfFIQluTXC4/rPT7vfI7P5/kz39712JAhQ8a2jGs5yLLSGVLqemYZMmScw1gHWX69Xm46A1mbDBkyZKwDIt8sEhLfJsqQIUMGmY6kmjWwDBkyZHSS2PX9b3Om4fXnubgMGTI2ZKSNgf+8/mF/Q4YMGZswrvbotw0eWIMMGTJGM9bbuE7w7bQt0yaBDBkyTmD0j1DwtgFZKP+scUYuQ4aMDRm8mFUr4vMNZa21ENQLZciQsTmDB8T02ES6Ga21H2TIkDGb0T8qQabrtDn7IVuGDBmTGGmayoNjWmJLD2HIkCFjNiMNhbWwyFPcYuFPhgwZBzB4H/DZNmTtY92U22TIkDGOkU5XK709dpBi/eFkyJAxmsGXXqvedY5ZBAFXhgwZBzDSkMeLYrUZ0pRYhgwZsxm1JJO8jCe9neRWhgwZsxl848WTUn7kK20JFP8HGTJkbM7oJ6vpk2lDolU1lCFDxjhGmrjWGpy1hgFqA8iQIeMYRho6yev5nU5bVIYMGbMZ6aRPHaSIj03w/0SGDBmDGFc40m0ln6eVGMuQIWM0gw9+VIuEYHK/016VIUPGPEbaOETJJAiL6ZYRldtkyJAxmpFmvWlBrR/1bzaaMmTIkFFKIEmK+0DzUoYMGTJKwZRv/vivNyQZMmQcwCBJbHoIjJfM0oaEDBkyTmOkjYH1fd745IG1tWWUIUPG3ow/tHGodi+UObQAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3a0U7DMAwFUP7/p4fEK7S7djJgzslTNbVNTidZsZ2Pj3g8vsb36/t7rp66v756/4aBgYHxtozH7agu4uqdyee4uv9+bRgYGOcwqgE0eUPCq1Ivf8fAwMC4DY75gjAwMDD+KuDebweriSsGBgbGShK7KzVNZn9hLo6BgfGGjJXGwKuvf6m/gYGB8Y8Zj+JIyvfJXL0U93JVGBgYoxn3m7l8KdVyW5UahWMMDIzRjITUC8e9oxjJZ32CwcDAGMSopotJ2asH6B3dwMDAOIHR2/Ctl/WrRf/oQ2BgYAxl5IGvd50nw/kbov8BAwNjHKN38KJ6jKwKLsyIgYExmtFLTdcbnCul/2iHi4GBMYhR3Zz1pq+W55JnMTAwTmMkZbXqwdZe2a6aSGNgYJzDyNPRJCldb4KWT4tgYGAcwKimkfk0ezeal79gYGCMZlSTzJXguN6EeLIGDAyMoYykfbirJfmKcxEYGBgnMKotw11luHyuAgwDA2MoI3+sGnybu9TewMDAOICRF/GrpbHqyOf9IeBiYGAMZSRht7cF7B0Rq7Y/MTAwTmCsB8ReiOwF3MuPhYGBMZqxK0/sbSWrC60eKcPAwJjEWDn0kB/UWK+PlXeOGBgY4xhJgrpSYmtu5oKDGhgYGBgr5bNdoTZ6DwYGBka8oF4KWp2r0I/FwMAYxFgp1ieJa++eZicWAwNjHKOaQK4kvUkbIAnEG/obGBgY78H4BFjKqHb2//GyAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -364,7 +364,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2016/02/20/yii2-customize-function.html",
+  id: "https://easydo.work/2016/02/20/yii2-customize-function.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {

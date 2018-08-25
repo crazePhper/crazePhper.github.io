@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://easydo.work">
+  <link rel="dns-prefetch" href="https://easydo.work">
   <title>PHPExcel_Road | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="过去工作中使用PHPExcel较多，碰到并解决了各种大大小小的问题，总结出这样一篇文章，一方面记录自己踩过的坑，一方面与大家分享，让大家少走弯路，并不断完善之，欢迎大家去github上面star和提交pull request，不断补充和优化，打造最全面的PHPExcel开发解决方案  一、基础：小试牛刀1. 引用文件1yourpath . /phpexcel/PHPExcel.php 2. 实例">
 <meta name="keywords" content="php,Excel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHPExcel_Road">
-<meta property="og:url" content="http://easydo.work/2017/09/19/phpexcel_road.html">
+<meta property="og:url" content="https://easydo.work/2017/09/19/phpexcel_road.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="过去工作中使用PHPExcel较多，碰到并解决了各种大大小小的问题，总结出这样一篇文章，一方面记录自己踩过的坑，一方面与大家分享，让大家少走弯路，并不断完善之，欢迎大家去github上面star和提交pull request，不断补充和优化，打造最全面的PHPExcel开发解决方案  一、基础：小试牛刀1. 引用文件1yourpath . /phpexcel/PHPExcel.php 2. 实例">
 <meta property="og:locale" content="zh-CN">
@@ -400,7 +400,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3auW7DQAwFwPz/TyutC1t5JOUAomYrwdA1Kmge+/MTr+Nlvf5yfuan8z+dc37nCxYGBsZtGcfpSs5JHly9c/5uGBgYz2F8evD5ce/MJBDn74aBgYGRP6yaCFafi4GBgdG7XXJVtXzFwMDAmBSxSVHaSzHzYH1BLY6BgXFDRi+M/s/xV+YbGBgYt2IcxVVNH6uh/GgtDAyM3Yw8wF2VnDUL1GDzBwYGxlZGEkx7rbFqSZyPHN7cAQMDYzUjD3PV1lg+KpgMJwpTDgwMjJszJlu+esOD6lCznOFiYGCsYxSicut1e1vEkntiYGA8h/GNMFothgvdwTx7xcDAWMGoNvcnqV7vY0WhHwMDYzWjWqxWk788aFavijJcDAyMdYz5NDAJkaPZRRWAgYGxjpEXq71G2+Sq0bfHwMBYxBhNFcaB8jhd1aCMgYGxiZG3yeYDgF6aGH0UDAyM1YxJI36y5aJaJDeLWAwMjEWMI175qCCnVreRYWBgPJlRHTf2gnV1UFrYUoaBgfEAxiTVmzTRemOJN79jYGA8gFEdGSbpYPXTVOeSGBgYT2AcxZU8oFesVqkf/zEwMDDWMeb7rJKWfS+w5uEbAwPjCYzelqzJZrJ5+vhHLY6BgbGUcVXgqzbXktQzCv0YGBgYrc0WeYv/gnwWAwMDI95+kQfcajvv4oCLgYFxQ0beyu8NCSaNvKi1h4GBsZqRX9YbN171Er0tGhgYGDdn/AJ3eNsZQPB1ngAAAABJRU5ErkJggg==" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACH0lEQVR42u3aQW7DMAwEwPz/0+m5SOssSaeF6dGpMNRIowNBino84vH8ZbzOSeYn3x+fGBgYGJdlPA/H8QKTOa/f8+P4gYqBgXEDxm8R7HjO8e/km05mvtkzBgYGxiCMzgMuBgYGRpVxTEqqy2oqiYGBgZEXscn8/GLu32pxDAyMCzLyW/e///sj/Q0MDIxLMeZBs5dKznfybVcYGBirGb1l8mZAdeuj/WBgYCxlVJ9Z5Bdh1TK4elij1yIYGBgXZFQfPZwW6Q9JhYYEBgbGakZeQObNy+rFfR7iowwXAwNjKaPXAMhDcC/hawIwMDDWMZJgVy1r8y9JIhg9sMDAwFjNqKZrvQV6QbzKxsDA2MqYh9rJ/CRjTXgYGBh3YOTxuLeJvMGZXO1FRSwGBsYiRjUtO6sE7YXXNweNgYGxlFFtVfYalhNAhMHAwFjNqKZr88v9HFZ+ZIaBgbGU0Ss+q8skv9YrpDEwMO7AqG49Sd3mAbpX1mJgYOxmTJ5z9UJqdcWorMXAwLgNIy9Kk9Rw/l9JmoiBgYFxbpOyVxKXX45gYGAsYjyLo3oRdm7R+6b+xsDAWMqYdD6r7clJWK82DzAwMPYx5kG22kjIA3HhvDEwMG7AmF9+feKYCkeAgYGBEV/r548njkNquamJgYGBMa6J84CbP934oYjFwMBYzUiWmVz95+G1F44xMDB2M6qlY7LAWfdjJzc1MTAwrsf4ArlliYcvo+BvAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -464,7 +464,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2017/09/19/phpexcel_road.html",
+  id: "https://easydo.work/2017/09/19/phpexcel_road.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {

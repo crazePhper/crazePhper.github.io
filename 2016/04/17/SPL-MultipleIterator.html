@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://easydo.work">
+  <link rel="dns-prefetch" href="https://easydo.work">
   <title>SPL-MultipleIterator迭代器 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="php合并多个数组,自定义键  12345678910111213141516$idIter=new ArrayIterator([&apos;001&apos;,&apos;002&apos;,&apos;003&apos;,&apos;004&apos;]);$nameIter=new ArrayIterator([&apos;Bob&apos;,&apos;Daisy&apos;,&apos;Jasmine&apos;,&apos;Ailsa&apos;]);#MIT_KEYS_ASSOC以键排序,还有MIT_NEED_ANY,MIT_NEED_">
 <meta name="keywords" content="php,SPL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SPL-MultipleIterator迭代器">
-<meta property="og:url" content="http://easydo.work/2016/04/17/SPL-MultipleIterator.html">
+<meta property="og:url" content="https://easydo.work/2016/04/17/SPL-MultipleIterator.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="php合并多个数组,自定义键  12345678910111213141516$idIter=new ArrayIterator([&apos;001&apos;,&apos;002&apos;,&apos;003&apos;,&apos;004&apos;]);$nameIter=new ArrayIterator([&apos;Bob&apos;,&apos;Daisy&apos;,&apos;Jasmine&apos;,&apos;Ailsa&apos;]);#MIT_KEYS_ASSOC以键排序,还有MIT_NEED_ANY,MIT_NEED_">
 <meta property="og:locale" content="zh-CN">
@@ -299,7 +299,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACN0lEQVR42u3a0Q7CIBBEUf//p2viU40BZgZq2uXyZJoInJqsuyyvlzyOzzh/Pj/5fd4ardlaay0eMGDAeCwjW1h5orwO/ZW19gYDBox9GG6Q1TfUZ/cDrrI3GDBgwFCCoE69IijDgAEDhhIiW0FW31wWymHAgLEbQyli9VDbh2UzL6vFYcCA8UBG1hj4z+fL+xswYMC4PeMwhz7b1a3Qr+/CgAGjNMO97qA0OFdt2j2kgwEDRlWGAlDCbv9bWctTP7yDAQNGbYYeRvVQm4HdVwYDBozdGBkmo65aZVnYhQEDxkMY+qG8G0yvqLmlWhwGDBhFGVmcXhWa9ZRxUJHDgAGjKCNrN7rJnzuz3kiAAQPGDgw9jOps/fpF1pCAAQPGngw9UXMXnmkn2AEXBgwY5RhZijYTjt38VPozgAEDRmlGdnDvXoNwi1L3YgcMGDD2YbitxJky1ShNs/NCGDBgFGK4xaQSiPWQqjcVBg0GGDBglGasCn8zBW12VDfIbWHAgFGIkZWL8xcpsiRS+h1gwIBRlKGkX3pQdpsNbstzUMTCgAGjHENPv9wnWTHsXj4bFLEwYMAowTjM4dbHbhKph3ip+woDBowSDH30l1Suc7mXM8KCFgYMGEUZ7pWsmcROeRFh+ggDBowNGNkRf7Zklt4N5ocBAwYMuW3gXqTQ55QaAzBgwIARHa5lx2r9HQ76sTBgwCjKyIKmvowLcPcAAwaM2oysgFSOydwE0S2SF/Q3YMCAcXfGGwL+8C5wH7VkAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aS27DMAwFwNz/0inQVYvCwiPpFLA0WhWOf+PFqyTy9YrH+3sk5/wc6+PJtTcPDAyMxzLey/GXsX7F9bVXn2ZyfwwMjHMY+WPWR9Znrs/pfQIMDAyM3iuuJ4hJ3GNgYGBMAje/dW/Ch4GBgTFZxFYByfH1Uz6yFsfAwHggo1oY+M+/P1jfwMDAeAjj3Rp51OblzOrE8dcdMDAwtmYk075q+OblhPUT8wUtBgbG3oy82atX1MyLCklYX16LgYFxDGOy7ZVEdvnl8gUtBgbGAYzqK/YawqpBnH9WDAyMExjVwO0tdO/dervh/wYGBsZDGNXH5AXIanmyd//LwgAGBsZ2jOrWWzWa8221fImLgYFxJiOZ5M036fLXqn4aDAyMvRmTyOstXCdlgMIMFwMDYyNGvsnVa4/oFUSbbAwMjAMY+YZXPpXMl6A3RDMGBsZ2jGoIJl+lWqrMMZdPwcDA2JqRLw6rW2mTzbhR9GNgYGzKuGuqV/11HrUYGBgnM3rx2mutGJUB7pqlYmBgPISRNDpUR6/JrFoixcDAOIGRtztUSwXVD/QqDgwMjBMY8wCdlA3yBo5oow0DA2NTRi+hq7dYv1Av1psxjYGB8VhGErK9SWGvYaK5tYeBgXEAoxp81SaJjwc3BgYGRtw8US0S5I0XzWIABgbGYYxJMSBvDkvCGgMD40xGsojNJ4VV2KSQiYGBcQJjUhjowXqBe0OLBgYGxvMYX3UUiYduwwuIAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -363,7 +363,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2016/04/17/SPL-MultipleIterator.html",
+  id: "https://easydo.work/2016/04/17/SPL-MultipleIterator.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {

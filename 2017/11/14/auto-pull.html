@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://easydo.work">
+  <link rel="dns-prefetch" href="https://easydo.work">
   <title>码云 自动拉取 PHP 部署项目 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="说明:首先用root用户先去拉取项目代码后,然后更改项目所属用户和组为www.忽略项目权限:1git config core.filemode false 1,为www用户添加个人公钥(www是我站点文件所属用户)1sudo -u www ssh-keygen -t rsa -C &quot;xxxxx@xxxxx.com&quot; 在/home/www/.ssh/生成2个文件:id_rsa和id_rsa.pub.">
 <meta name="keywords" content="php,git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="码云 自动拉取 PHP 部署项目">
-<meta property="og:url" content="http://easydo.work/2017/11/14/auto-pull.html">
+<meta property="og:url" content="https://easydo.work/2017/11/14/auto-pull.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="说明:首先用root用户先去拉取项目代码后,然后更改项目所属用户和组为www.忽略项目权限:1git config core.filemode false 1,为www用户添加个人公钥(www是我站点文件所属用户)1sudo -u www ssh-keygen -t rsa -C &quot;xxxxx@xxxxx.com&quot; 在/home/www/.ssh/生成2个文件:id_rsa和id_rsa.pub.">
 <meta property="og:locale" content="zh-CN">
@@ -301,7 +301,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aQW7DMAwF0dz/0u42QBJhPikXMDVaBY7r6HnBkiJfL7yut7W+fn2s9+vrez7v3LxkyJDxWMa1XJ0fXj+B49d/K0OGjHMYZBNrPAmXHMP3JkOGDBlrBn/Oz0AZ/q4MGTJkkMetN0QCKAm7MmTIkFErYvcGUP55cy0uQ4aMBzL4qfv/f76lvyFDhoxHMa5wcWqn5RDvSoYMGaMZPMDtGowoFqhkPzJkyBjKWG+LNBRrwZG0EILXJ0OGjNEMfujPr9RezYY2qgwZMg5m1ALluoVQK3eDDFeGDBnjGLXjs1piV7uSlsEyZMiYxODb6gQ+3mDgyFft7cqQIWMQo3+sxgfL0pQ0CLgyZMgYwSA39QvaO0ItqsVlyJAxmsGHtzpVMoEFKaYMGTIOYKSYXcf6xdGKNGbLkCHjsQyyrXQgI00Z00GNL9/KkCFjNKPTHuBhOm0Y8BRThgwZJzDSMnJvQlkrcX/2N2TIkDGU0Una0hEucmzXGhqTIUPGwYxg3KHU2iTNCfSaZMiQcQCjFhY7d9YSTTRsIUOGjNEMctSVMtIjtuKIhgwZMoYyrnDxYbKU16LKkCFjNCM9po8Ly1LR2y+YZciQMY/RSfL4oNgdAVeGDBmnMdLiNmWkryBFypAhQ0b/HrLdWhtVhgwZMngyx8tdXhIHIV6GDBkHMNKxiXTki78skibKkCHjNEZnUiMd1OCw/r8BGTJkjGD8AdmtiYeBustNAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGUlEQVR42u3aQW4jMQwEwPz/097rBtmddItKAEulkxHDMyodGIrkx0e8Xn+t5798/fb5t8/P3LwwMDDelvF6XM8vzr993mh7HP+gYmBgXMD4XwRLttLy2tD8vDcMDAyMltGCEyQGBgZGy8gTvl1IDAwMjPwS215Ek5Qxp267i2NgYLwhI6+6//7nH+lvYGBgvBXjVa5J0Ny7k09vwcDAOJoxf017oX0+iLX9YGBg3MB4fkRb/FprW85hGBgYNzDa0n97QrtKeHWXAwMD4zjGpGQ/SQ3zpgIGBsZtjNaaj3CtwRZHQDAwMC5gTEa11n47GRQrsk4MDIxDGW2hbVKwywt531xxMTAwjmZMWox5sSwPssm76nQTAwPjCEZe3mrPI4HljYdv9omBgXEoY62glrcb25HWxRQQAwPjAkZ+sfy5gYlJ+MbAwLiB0Y5ErLHz4l07roGBgXE2Y1KIb8ttbRKZl/AwMDDuZLQFsjyAtqF2NH6BgYFxEGPtArn2+rYNUIxoYGBgXMnI07W1xDEqpeUNAwwMjGsYdZjbFKA3jHdgYGAcyniVa14sy4txRRMCAwPjaMY82LXtxnmKmYd1DAyMkxi7gmweFjc0KfNzwsDAOIixVj6bb7r9D1AMWGBgYGDEI1yTBLFIRjEwMDDG9+BJ4yHCYGBgXMBIrqZr41x5aM4PCwMD4zZGe3VMtr72nPb5GBgYFzD+AFXOIuCzHns2AAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -365,7 +365,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2017/11/14/auto-pull.html",
+  id: "https://easydo.work/2017/11/14/auto-pull.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {

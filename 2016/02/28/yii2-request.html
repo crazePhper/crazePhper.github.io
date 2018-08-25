@@ -5,23 +5,23 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://easydo.work">
+  <link rel="dns-prefetch" href="https://easydo.work">
   <title>yii2 request文件解析 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1. 在yii2项目中经常用到下面这些方法:   方法 解释     Yii::$app-&amp;gt;request-&amp;gt;get($key,$defaultValue) GET方式获取key的值,若key空,则key为$defaultValue   Yii::$app-&amp;gt;request-&amp;gt;post($key,$defaultValue) POST方式获取key的值,若key空,则key">
 <meta name="keywords" content="php,yii2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yii2 request文件解析">
-<meta property="og:url" content="http://easydo.work/2016/02/28/yii2-request.html">
+<meta property="og:url" content="https://easydo.work/2016/02/28/yii2-request.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="1. 在yii2项目中经常用到下面这些方法:   方法 解释     Yii::$app-&amp;gt;request-&amp;gt;get($key,$defaultValue) GET方式获取key的值,若key空,则key为$defaultValue   Yii::$app-&amp;gt;request-&amp;gt;post($key,$defaultValue) POST方式获取key的值,若key空,则key">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://easydo.work/img/2032996154.jpg">
+<meta property="og:image" content="https://easydo.work/img/2032996154.jpg">
 <meta property="og:updated_time" content="2018-01-02T12:26:15.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yii2 request文件解析">
 <meta name="twitter:description" content="1. 在yii2项目中经常用到下面这些方法:   方法 解释     Yii::$app-&amp;gt;request-&amp;gt;get($key,$defaultValue) GET方式获取key的值,若key空,则key为$defaultValue   Yii::$app-&amp;gt;request-&amp;gt;post($key,$defaultValue) POST方式获取key的值,若key空,则key">
-<meta name="twitter:image" content="http://easydo.work/img/2032996154.jpg">
+<meta name="twitter:image" content="https://easydo.work/img/2032996154.jpg">
   
     <link rel="alternative" href="/atom.xml" title="小叮当的肚兜" type="application/atom+xml">
   
@@ -333,7 +333,7 @@ Yii::$app-&gt;request-&gt;getBodyParam()    //读取一个POST参数
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3a0W7DMAgF0P7/T3evk7qsF3ArxT55mro68ckkBpjHI76eL9fvz6++k696fdbjExcGBsZtGfmDr377+p38k+Q1JU/HwMA4gXEVwZIgmG8uD9n53jAwMDB6KWAeQJOQjYGBgTEJuJeJWjHtw8DAwEgYvQQu4VUD68drcQwMjBsy8q7793/+yPkGBgbGrRirCtFqEy0/Toh2hYGBsTUjD3D5YWT1npO1GBgYJzDWtvWrZWpvXGOUGmJgYGzBqFaL1dL3f0DzRWBgYBzGSB686thgHmoxMDBOYPSCabX4zFtyyRjHmx1iYGAcwMgfkJSmk2DdS0YxMDD2Y1STv7xl1mvA5a3ANxkuBgbGRoxVQTNpsfXWFu6DgYGxNWOeLOajEpP7lLNdDAyMLRi9Y4A8OCYts166iYGBcQ4j/1Lz1nGQrTbm3vxNMDAwNmLkh47VsYxq4Vo+qsTAwDiG0VtQbbTlaeWIh4GBcQAjL0HzYa9q8jdahYGBcQxjVSnbG//qvUoMDIxzGNUxi7yfNw+shaEKDAyMrRnVsYlJsyxPKAu7wsDA2JTxLF4TRu+oIBpNw8DA2JqRX3k62Ctck2ODfLwDAwNjP0Y+TjEpgJNVk1IZAwPjBEY18M3Tx95/gNERJgYGxvGM3qhELxHEwMDAWFsT568jP2T9YxUGBsYBjKSITQrOfFxjFQwDA+MERm/EoVrKVje6dkQDAwPjtowflvtgvlIbdvMAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3awY7CMAxFUf7/pztbpKrtfXYYqc7NCkEhPiwsJ/bng9dxWuf3r57/fqf2a8uWDBkyXss4blca7vnTNPT7b13uKEOGjA0YJIj7gMinPFAemwwZMmS0kiBItfy1DBkyZHBGDZwmaxkyZMioHWL5HRdHLkvuMmTIGM3gt+7///on/Q0ZMmS8inGEq9a25E3Ko7RkyJAxm8ETXK344y0Bcqh+aJ3KkCFjNCPdjB8yay0BAkPlowwZMgYxeILrB1ErChFGhgwZQxmkxZg2IDkvPRJf/rkyZMjYgLHqsMrbjTxE9F0ZMmSMZqTH1HR46/6vSTEPz8uQIWMoIz0u1pqX/Pm0AXDZiZUhQ8YgBrl8r/E6AxatZC1DhoyhDH747F/J9cvNoECUIUPGIEY6NsHTdK3Z2ZoZkSFDxjgGrxxbLcZSIzPAyJAhYxtG2hjoD1jwQbRgZkSGDBnjGDx1po3JtOBbfBaXIUPGBgx+oZZu2RnseNhRhgwZ2zDS5Muf7xSg6BkZMmRswEgDXZVwa1d1l8MWMmTIGM3g12r8Oqxz9E2HPGTIkDGVcYRr1YgGH7lAVBkyZIxm1BIlKeM6peEPk74MGTJeyyCJsjOKUSs648aqDBkyNmDwxNe/7q9dwKE6V4YMGTJCZKdJQBoSMmTIkNEpDTujFST0oBMrQ4aMQQw+tJqOX6wasJAhQ8bOjPToSDZLg+6kexkyZIxm/AE/84mHGikB7QAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -397,7 +397,7 @@ Yii::$app-&gt;request-&gt;getBodyParam()    //读取一个POST参数
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2016/02/28/yii2-request.html",
+  id: "https://easydo.work/2016/02/28/yii2-request.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {

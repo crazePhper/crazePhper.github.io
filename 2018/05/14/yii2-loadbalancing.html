@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://easydo.work">
+  <link rel="dns-prefetch" href="https://easydo.work">
   <title>Yii2 负载均衡找不到JS,CSS | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1.在部署项目的时候,用了2台服务器.请求的时候用了负载均衡,导致 YII2 的静态文件(js,css…)报 404 ,原因是: 请求一个页面时 A服务器 去处理,但是静态资源缺请求到了 B服务器 ,B服务器的 YII2资源管理器 还没有在 web\assets 生成目录和静态文件.   2.仔细看了下 YII2 的静态资源管理代码:yii\web\AssetManager(定义资源文件包),`y">
 <meta name="keywords" content="Yii2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Yii2 负载均衡找不到JS,CSS">
-<meta property="og:url" content="http://easydo.work/2018/05/14/yii2-loadbalancing.html">
+<meta property="og:url" content="https://easydo.work/2018/05/14/yii2-loadbalancing.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="1.在部署项目的时候,用了2台服务器.请求的时候用了负载均衡,导致 YII2 的静态文件(js,css…)报 404 ,原因是: 请求一个页面时 A服务器 去处理,但是静态资源缺请求到了 B服务器 ,B服务器的 YII2资源管理器 还没有在 web\assets 生成目录和静态文件.   2.仔细看了下 YII2 的静态资源管理代码:yii\web\AssetManager(定义资源文件包),`y">
 <meta property="og:locale" content="zh-CN">
@@ -299,7 +299,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQW7DQAgF0Nz/0um2UmT3A0mlMG9WkeXY87xADPB4xOv5sn5fv7rn/s7X31dX3rYwMDC+lvG8Xa/33L8+gSUr3xsGBsY5jKsIlofI/Dn3d96/6/I6BgYGRpCu5WG6ysbAwMDoBdxkQ8nzqwkoBgbGyYy8WJYkhZOi28fP4hgYGF/IyKvu///7I/0NDAyMr2L0ivU93n1onjQSMDAwdjMmpbTkeh7Ee//FwMA4gVENf9XifhKCqwW46HtgYGCsZkyGJKonzR4pCrgYGBiLGPnRcRLf8kA/ao5iYGAsZVS3W21kTlqkhXdhYGAcwEhe2Sv9V4tuvQMzBgbGbkZ16GESIqtH2XKYxsDAOICRJ3ZJsE5KZr0WRZTnYmBgLGIkqeF8i/P87Y80EQMDYzWjV9zPA2jSnszbmdWmKQYGxg5Gb4RicrjNC3aF5gEGBsZqRj6AlQ9s9UbK8rdjYGCcycjHJqqb7gX0yWAHBgbGbsbkYFkttFVLeHn4xsDA2MoolNqDfyWfI0kHy6EfAwPjGEav7JW0FvJWQTNJxcDAOIBRHYxIqKPzdLEwh4GBsZXxLK7qgMWk3F94AgYGxmpGL9jNkZNAn7cWMDAwNjGqm+uVxqrNy9FYGAYGxlLGJPD1Dp+TT3DZwsTAwMAYNCPzFkK+KwwMDIxJY6DazsyTxcsPhIGBcQAjb0l+YmBiDsPAwNjNqBbI3lVuK4x8FVsLGBgYixg/5t3bGf5PbhkAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3awa6DMAxE0f7/T1OpKyREmBmHCpybVfUepTksjB3785HX9lv7z/t1dv3xW+M7jO85YcGAAeO1jG24jpuobGW8xfHdLh4fDBgwFmC4QdaFudfoe4MBAwaM8VayYAoDBgwYdwfccbKoF7HulTBgwIChBET9OMwNr3oqOaEWhwEDxgsZWWPgP59v72/AgAHj8YzNXFmArhzYSbuCAQNGa4ZSjrptS70JmjVET+8DAwaMBRhuyeqG1OzozXjQMGDAWIahH6XpwxMK3m2FGjEbBgwYL2cot6schFWKYb1VAAMGjN4M46Ib2o3Z++GiEwsDBoymjMqQRFaI6i0EezgMBgwYizFm/TcL09krAQYMGP0Ybkmph0W3YVAK0zBgwGjNcNuEbmmqtxz0u8GAAWM1Rr1A1RufWbPBGLOAAQPGMgw3mOoYpcR1hzCkDBcGDBiNGG46mBWxlfGyW7JaGDBgPJ6RJW2Vg/5sOMwYR4MBA0ZThhJk5452KWHXTRxhwIDRleE2LCvB2n4DZOkgDBgwmjLcNqRejuplcGUgAwYMGL0ZegI3LThGjUzpWzBgwGjK2MyltBPmDnBIvwUDBozWDDeYZgFUb3bq4KwkhgEDxnsZs4Jsdqyvj3cYmSkMGDCaMiqHbi6pUiSf/gUGDBgwotTQbWRm4R4GDBgwstRQgWVl7enjgAEDxgIMdxOVkzwl7OrhGAYMGCsw6mdZleSy3iSAAQNGa8YX+z2odn+X2XEAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -354,7 +354,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://easydo.work/2018/05/14/yii2-loadbalancing.html",
+  id: "https://easydo.work/2018/05/14/yii2-loadbalancing.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {
