@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="1，在github上创建一个仓库,然后拉去到本地,在仓库目录中执行命令:1composer init 填写包的信息,创建composer.json文件. 更多配置信息可查阅其他资料 2,push创建的composer.json到github上去. 3,登录 https://packagist.org 点击网页顶部submit按钮:填写自己刚刚创建的github项目地址并提交.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://blog.image.easydo.work//composer_submit.png">
-<meta property="og:image" content="http://blog.image.easydo.work//composer_API_Token.png">
-<meta property="og:image" content="http://blog.image.easydo.work//github_services.png">
-<meta property="og:image" content="http://blog.image.easydo.work//github_services_config.png">
+<meta property="og:image" content="http://blog.image.easydo.work/composer_submit.png">
+<meta property="og:image" content="http://blog.image.easydo.work/composer_API_Token.png">
+<meta property="og:image" content="http://blog.image.easydo.work/github_services.png">
+<meta property="og:image" content="http://blog.image.easydo.work/github_services_config.png">
 <meta property="og:updated_time" content="2018-12-20T14:23:06.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="发布一个composer包">
 <meta name="twitter:description" content="1，在github上创建一个仓库,然后拉去到本地,在仓库目录中执行命令:1composer init 填写包的信息,创建composer.json文件. 更多配置信息可查阅其他资料 2,push创建的composer.json到github上去. 3,登录 https://packagist.org 点击网页顶部submit按钮:填写自己刚刚创建的github项目地址并提交.">
-<meta name="twitter:image" content="http://blog.image.easydo.work//composer_submit.png">
+<meta name="twitter:image" content="http://blog.image.easydo.work/composer_submit.png">
   
     <link rel="alternative" href="/atom.xml" title="小叮当的肚兜" type="application/atom+xml">
   
@@ -204,9 +204,9 @@ var _hmt = _hmt || [];
         <p>1，在<code>github</code>上创建一个仓库,然后拉去到本地,在仓库目录中执行命令:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer init</div></pre></td></tr></table></figure></p>
 <p>填写包的信息,创建<code>composer.json</code>文件. <a href="http://note.youdao.com/" target="_blank" rel="external">更多配置</a>信息可查阅其他资料</p>
 <p>2,<code>push</code>创建的<code>composer.json</code>到<code>github</code>上去.</p>
-<p>3,登录 <a href="https://packagist.org/" target="_blank" rel="external">https://packagist.org</a> 点击网页顶部<code>submit</code>按钮:<br><img src="http://blog.image.easydo.work//composer_submit.png" alt="image"><br>填写自己刚刚创建的<code>github</code>项目地址并提交.<br><a id="more"></a><br>4,配置项目自动更新到<code>composer</code>仓库中,</p>
-<p>a.打开 <a href="https://packagist.org/profile/" target="_blank" rel="external">https://packagist.org/profile</a>:<br><img src="http://blog.image.easydo.work//composer_API_Token.png" alt="image"><br>点击<code>Your API Token</code>按钮复制<code>API Token</code>.</p>
-<p>b.打开刚刚<code>github</code>项目地址, 点击 <code>Settings</code><br><img src="http://blog.image.easydo.work//github_services.png" alt="image"><br><code>Services</code> 添加 <code>packagist</code>,页面跳转如下:<br><img src="http://blog.image.easydo.work//github_services_config.png" alt="image"><br><code>user</code> 输入 <a href="https://packagist.org/profile/" target="_blank" rel="external">https://packagist.org/profile</a> 的用户名即可, <code>Token</code> 填写上一步复制的 <code>API Token</code>, <code>Domain</code>可留空,点击 <code>Add service</code>提交.</p>
+<p>3,登录 <a href="https://packagist.org/" target="_blank" rel="external">https://packagist.org</a> 点击网页顶部<code>submit</code>按钮:<br><img src="http://blog.image.easydo.work/composer_submit.png" alt="image"><br>填写自己刚刚创建的<code>github</code>项目地址并提交.<br><a id="more"></a><br>4,配置项目自动更新到<code>composer</code>仓库中,</p>
+<p>a.打开 <a href="https://packagist.org/profile/" target="_blank" rel="external">https://packagist.org/profile</a>:<br><img src="http://blog.image.easydo.work/composer_API_Token.png" alt="image"><br>点击<code>Your API Token</code>按钮复制<code>API Token</code>.</p>
+<p>b.打开刚刚<code>github</code>项目地址, 点击 <code>Settings</code><br><img src="http://blog.image.easydo.work/github_services.png" alt="image"><br><code>Services</code> 添加 <code>packagist</code>,页面跳转如下:<br><img src="http://blog.image.easydo.work/github_services_config.png" alt="image"><br><code>user</code> 输入 <a href="https://packagist.org/profile/" target="_blank" rel="external">https://packagist.org/profile</a> 的用户名即可, <code>Token</code> 填写上一步复制的 <code>API Token</code>, <code>Domain</code>可留空,点击 <code>Add service</code>提交.</p>
 <p>5,包创建好了,但是没有书写代码.因为命名空间的原因,在测试环境中拉取后书写,然后提交到<code>github</code>.</p>
 <p>注:拉取时会报错,提示没有 <code>stable</code> 版本,可指定 <code>dev-master</code> 版本进行拉取.代码完成后可以在去打上 <code>tag</code> 创建版本.</p>
 
