@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://easydo.work/2017/12/05/passport-design.html</loc>
-    <lastmod>2018-12-06T13:23:47.292Z</lastmod>
+    <lastmod>2018-12-20T14:23:06.447Z</lastmod>
     <data>
         <display>
         <title>多站点通行证设计原理简析</title>
@@ -21,16 +21,16 @@
 
     
   <url>
-    <loc>https://easydo.work/2017/11/08/composer.html</loc>
-    <lastmod>2018-12-06T13:23:43.145Z</lastmod>
+    <loc>https://easydo.work/2018/02/08/ubuntu.html</loc>
+    <lastmod>2018-12-20T14:23:06.408Z</lastmod>
     <data>
         <display>
-        <title>发布一个composer包</title>
-        <pubTime>2017-11-08T02:23:00.000Z</pubTime>
+        <title>ubuntu 17.10 作为开发系统使用</title>
+        <pubTime>2018-02-08T10:30:00.000Z</pubTime>
         
-        <tag>php</tag>
+        <tag>Linux</tag>
          
-        <tag>composer</tag>
+        <tag>ubuntu</tag>
          
          
            
@@ -40,16 +40,16 @@
 
     
   <url>
-    <loc>https://easydo.work/2018/02/08/ubuntu.html</loc>
-    <lastmod>2018-12-06T13:22:43.523Z</lastmod>
+    <loc>https://easydo.work/2017/11/08/composer.html</loc>
+    <lastmod>2018-12-20T14:23:06.366Z</lastmod>
     <data>
         <display>
-        <title>ubuntu 17.10 作为开发系统使用</title>
-        <pubTime>2018-02-08T10:30:00.000Z</pubTime>
+        <title>发布一个composer包</title>
+        <pubTime>2017-11-08T02:23:00.000Z</pubTime>
         
-        <tag>Linux</tag>
+        <tag>php</tag>
          
-        <tag>ubuntu</tag>
+        <tag>composer</tag>
          
          
            
