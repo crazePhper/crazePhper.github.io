@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://easydo.work">
+  <link rel="dns-prefetch" href="https://blog.easydo.work">
   <title>yii2 队列 shmilyzxt-yii2-queue 简介 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在yii2论坛中看到一个关于队列的帖子,感觉不错.http://www.yiichina.com/extension/1084(注:SendMail 错写为 SendMial,粘贴时要注意了.)  在使用的过程中觉得挺好的,建议看一下关于队列的原理.  shmilyzxt/yii2-queue 简单解释:    我用的yii2高级版,我们从配置开始看代码,这里我用的是mysql队列,首先配置文件">
 <meta name="keywords" content="php,yii2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yii2 队列 shmilyzxt-yii2-queue 简介">
-<meta property="og:url" content="https://easydo.work/2016/03/27/yii2-shmilyzxt-yii2-queue.html">
+<meta property="og:url" content="https://blog.easydo.work/2016/03/27/yii2-shmilyzxt-yii2-queue.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="在yii2论坛中看到一个关于队列的帖子,感觉不错.http://www.yiichina.com/extension/1084(注:SendMail 错写为 SendMial,粘贴时要注意了.)  在使用的过程中觉得挺好的,建议看一下关于队列的原理.  shmilyzxt/yii2-queue 简单解释:    我用的yii2高级版,我们从配置开始看代码,这里我用的是mysql队列,首先配置文件">
 <meta property="og:locale" content="zh-CN">
@@ -311,7 +311,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQW7DMAwEwP7/0+61QBBnl3IKWB6dAkeJNToQosifn3gcf8brk9fn579tZ142MDAwbss4TsfrK9/NeffP7fPzd719LwYGxgMY5y874pEsLt+aYiMwMDAwghCc/GrGw8DAwMgZ7Zw8fU02CwMDAyNJYpNv84Q2YX8lF8fAwLghI791///PX6lvYGBg3IpxjMas6Jgf+Or1YGBgbM1YuThrl94eIpMDKAYGxtMYM0Ce6K4kpdFMDAyMTRlXFRdnbRmzRrQormNgYGzHyENqC8g3ri0/fMjFMTAwtmOslxjzJrC2JJBgMDAwnsPIMXk9cYapG8swMDC2ZszCX9vylVzerRRHMTAwMPLL/fUAnRcJ6kosBgbGbRkrV2xJqXIlTl6Qi2NgYGzNWLqmL4P1rGAw3AkMDIwbMmYFgHxZbWtFPh8DA+M5jPwi7KqWi1liXDdbYGBgbMrIj25tijsL2Rc0W2BgYGzHyJeSJ5ztITL5t7rNAgMD4+aMtj1r5XnLW7puw8DA2IiRB9zksDibMzuYDo+GGBgYN2QkobBtV21nfqha5MdEDAyMTRlHOdpGsVnhoS4tYGBgbM3Ix+yYuFIqyBNsDAyMJzDacJmE2tml20ogxsDAeAJjFvhmBYO2LBqVMTAwMDBGCe0sVc4PoMOAi4GBsTWjXfqsLSwvdmJgYDyN0V7r56S2tNle5GFgYDyB0aaOSWp6bSifNWdgYGBswfgFf7CjiepZu/sAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrUlEQVR42u3aQW4bMRAEQP3/0841gJNN9wwpK0DtyZC0qykaIKnmvF7x9fXtSj75t3vb6/fnvG5ceHh4eOvSn0v8fm8+EHm5yb3PNePh4eHd5j1/walCn5eW5N28Zjw8PLzP4SXs/Jn5RhkPDw/v/+Xtv3j2NDw8PLxP4+URarIhzheMKFB4T9aCh4eHF/M229mf+vvK+R4eHh7e+lQ9XyTaSCIfyk3zAR4eHt4NXj7hJi1Q+RDMpvtZnXh4eHhneflBfv7jP4e1UXId5uLh4eFd4+Uh7KygPIRNtul5cIyHh4d3g9cGtUnQkA9ZfgC2eRcPDw/vBi9vIU1KnJ1MzYLd4dkdHh4e3pqXBxCzZeNUA9bzK8Xqh4eHh7fmbSLUZHI/1Vw1W7Tw8PDwbvCey82XirysNjKuuyHw8PDwLvPyJoD8ICrZju9JUVSBh4eHd5Q3K3S/PDwP3GaJwsPDw3sPbxYKtE0As+h2NkxRooyHh4c34u0fsTmmGk73i6HBw8PDO8XbT8dJRJu/ss9go6wFDw8Pb82bTf0t5tSmvDhUw8PDw3sL71RI0S4YeWAx7CnDw8PDO8TbBA37T+axcrvdx8PDw7vBKzamZWzRbpSH/5PnMAIPDw/vAq9te0om6yTaaAvdHMjh4eHhvZ/XthTkR/6zxSZvNcDDw8O7zctJs2n6RmtCtJjh4eHhXeO1U3m7aW7xSYAbHc7h4eHhHeV9lVd+WDWLgzfLzB/excPDw7vAy692y9suKi24bS/Aw8PDO8ubBQ1tRNu2am224MXGGg8PD2/BqzOMRaHJE9pFq8ha8PDw8N7Om21t27aDZ3DxOh4eHt7H8PIAdzM0bbj8mo0EHh4e3oiXlLWPaGdNVLPX8fDw8O7x2h/8+7n3Rlh84HwPDw8P7993/QJmUrtgGk7S4AAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -375,7 +375,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://easydo.work/2016/03/27/yii2-shmilyzxt-yii2-queue.html",
+  id: "https://blog.easydo.work/2016/03/27/yii2-shmilyzxt-yii2-queue.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {
@@ -395,7 +395,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 小叮当的肚兜
+    		&copy; 2019 小叮当的肚兜
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

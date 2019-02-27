@@ -5,23 +5,23 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://easydo.work">
+  <link rel="dns-prefetch" href="https://blog.easydo.work">
   <title>搭建hexo | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前往 http://nodejs.cn/download/ 下载nodejs系统环境对应安装包,进行安装  切换npm 淘宝镜像源(Linux添加一下环境变量)   123临时使用: npm --registry https://registry.npm.taobao.org install express持久使用:npm config set registry https://registry">
 <meta name="keywords" content="node,npm,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建hexo">
-<meta property="og:url" content="https://easydo.work/2016/02/12/bulid-hexo.html">
+<meta property="og:url" content="https://blog.easydo.work/2016/02/12/bulid-hexo.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="前往 http://nodejs.cn/download/ 下载nodejs系统环境对应安装包,进行安装  切换npm 淘宝镜像源(Linux添加一下环境变量)   123临时使用: npm --registry https://registry.npm.taobao.org install express持久使用:npm config set registry https://registry">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://easydo.work/img/20170915214312.png">
+<meta property="og:image" content="https://blog.easydo.work/img/20170915214312.png">
 <meta property="og:updated_time" content="2017-10-26T12:18:36.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建hexo">
 <meta name="twitter:description" content="前往 http://nodejs.cn/download/ 下载nodejs系统环境对应安装包,进行安装  切换npm 淘宝镜像源(Linux添加一下环境变量)   123临时使用: npm --registry https://registry.npm.taobao.org install express持久使用:npm config set registry https://registry">
-<meta name="twitter:image" content="https://easydo.work/img/20170915214312.png">
+<meta name="twitter:image" content="https://blog.easydo.work/img/20170915214312.png">
   
     <link rel="alternative" href="/atom.xml" title="小叮当的肚兜" type="application/atom+xml">
   
@@ -330,7 +330,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aQW7EMAgF0N7/0um2Upv4g2cqDX5ZjdTU8fMCgeHrK36uH0/v/d+/797Jv1J+MDAwPpZxPT6vOqe7le+Q+d4wMDDOYdx9+O6d5w/nKychOFkBAwMDI/nw8zpJsrhzEBgYGBj50s8JZTUBxcDAwKgWsVV8L7C+vRbHwMD4QEZ+Wfb/v9/S38DAwPgoxlV8epdlSYPh2ngwMDBmM/IAV91QHrjzwnUx/IGBgTGakYTRfIvV0Y3e0dzuBAMDYxyjN/SQNwbe0VT4Y2UMDIxjGElA7DUS8lGMKPnDwMA4ktFrE+aDFPtNzcX/YmBgHMPIN9cb4dpJ/hZfwcDAGM2ohrzqX/O0rxrcF5duGBgYBzDyBHGn2ZkXq+VOLAYGxiBGtdTcD5E7LYTFQBgGBsZQRnW7+WBEr1XQGzXDwMCYzagmhc1hiPiAkjAddWIxMDDGMXoBtxeOe5dxCxIGBsYxjHy70dI726o2RDEwMEYzqhdbveKzlyA+J6yL6zYMDIxjGL3r/mprs9kGeB62wMDAGMroXX7lW6keRPnIMDAwjmHkpeZOofuyiTYMDIwDGFfxqRa6OxdthVQSAwNjNGM/2PXSx522aDXEY2BgzGAkQbY3kJG3SF+QPmJgYBzAyEvW/GIuD7j5dhe1OAYGBkZcfPYaCVvtUgwMDIxi0/FVyWUhTGNgYBzASDax0+zshdf8IDAwMGYzqqVjtanZG92oNjUxMDCGMr4Bu2eTYapuXcsAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3a0W6DMAxGYd7/pdn11DY9vw3TcE6uJkpKPia5tpPjwON8GetP1/e/zvp05eIhQ4aMxzLI49NP1wslGL42GTJk7MP4FMHW96RLIU8hz5UhQ4aMNSMNr2SuDBkyZNwRcEmZul7iv/jdkCFDxqMYpEzlaR//Bh7EL6vFZciQ8UAG77r//d+37G/IkCHjUYwzHB0qb9jFq5IhQ8ZoBg9wneb+Oh2sBVwZMmTsw0jL1E5zjRS6BNzKW2XIkDGCQbYYUZseJ3/ptgEKuDJkyBjEqG0i8vvTxllrA0CGDBnbMNLlkkfW5sbBXYYMGUMZaTBNi1WSAqYvC/0fZMiQMY7Bp/GjYymbB+s3L12GDBmbMfjRB57GESr5hi9dQxkyZAxlpAGOP6Z2IKP2amTIkLEPg4fCfhuudv2y3qEMGTIGMdINA7IsfvisGLJlyJAxjlE7WsFTw9riSPPuzYEwGTJkjGbw9lZa+qbX07m/Aq4MGTKGMjrpHT8WVks049cqQ4aMDRhHaXQ2O2tzP2JkyJCxDaP/1Z1WWieVlCFDxp4MUlh2mmVpoP/yWmXIkDGUcYajVtzyCFls+cmQIWM0oxPsrkoQ+aYp/2GQIUPGPAYJsumDCax2gEOGDBk7M3jqlpav6Wsqhn4ZMmTIKG0e1IpYnm4WT3PIkCFjA0atMuZJZzH1lCFDxgYMEjprxW2tKL2xFpchQ8YDGbx0TI9cXBV2L9vUlCFDxvMYP2ZcQc8M3Ml+AAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -389,7 +389,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://easydo.work/2016/02/12/bulid-hexo.html",
+  id: "https://blog.easydo.work/2016/02/12/bulid-hexo.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {
@@ -409,7 +409,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 小叮当的肚兜
+    		&copy; 2019 小叮当的肚兜
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

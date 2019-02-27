@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://easydo.work">
+  <link rel="dns-prefetch" href="https://blog.easydo.work">
   <title>yii2 分页小部件简析 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445//yii\widgets\LinkPager &amp;lt;?=LinkPager::widget([    //$pages = new Pagination([&apos;totalCount&apos; =&amp;gt; $total, &apos;pageSize&apos; =">
 <meta name="keywords" content="php,yii2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yii2 分页小部件简析">
-<meta property="og:url" content="https://easydo.work/2018/01/02/yii2-LinkPager.html">
+<meta property="og:url" content="https://blog.easydo.work/2018/01/02/yii2-LinkPager.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445//yii\widgets\LinkPager &amp;lt;?=LinkPager::widget([    //$pages = new Pagination([&apos;totalCount&apos; =&amp;gt; $total, &apos;pageSize&apos; =">
 <meta property="og:locale" content="zh-CN">
@@ -290,7 +290,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aQW6EMAwF0Ln/padSty3pt81UEF5WaDQEHgvLjv16xev9vX5er/9/dNf6Otm/uTAwMG7LeC/X0asfPbK3zxq/3hMDA+M5jCTI5rAJLwnuGBgYGKdtveT1Aj0GBgbGPOAmSV6v3MXAwMBIAl+e8EVlZ8w4uRbHwMC4IWPSGPj09T/1NzAwMC7M6IXLPL2rJpfNt8LAwNiakZSjk7ZlHkbzlPRwHwwMjE0ZeZma/FIN2dVS+fAXDAyMBzPycYr5KEa1IfqRqRAMDIxLMs464p8c+q9DbdIqwMDAeAKjYB1EuaQYnhTSGBgYezN6J1fJSEQegictBAwMjL0Z8zK1Gl5HHYyjN8TAwNiaMT90y3fIC9RmvoeBgbEpIy9fe6/SK4mrO2NgYOzN6LUM8+P+aqtgMrKGgYGxK2NdWCYBt9c8yEvciISBgfEYRrUcze899xjuj4CLgYHxMMZ8wGveYCiMVmBgYGzKyIfD8hGKXorZ+xwYGBhPYFSLxt6YV/Ksaun76n0bDAyM2zLyoJkcuvVgeUL5R9sSAwNjO0YVUy1Qz2pkRkd4GBgYmzLexZUUrr1xsTy8/rInBgbG1oxqMTlvfE5edNQwwMDAuDkjT/uqB2r5btVQXsgcMTAwNmL0zq96QfbVWuvQjIGBgVEtJpO0bz600Qy4GBgYj2RMStnJs04OuBgYGJdnVNuTveSv2k4o3IuBgbE1o9cYmJx0VdsAH+xvYGBgXJ3xBeZGVuQw5jThAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3ay27CMBAFUP7/p6nUVSWU9F47VGVyvIogmJwsRvPw4xGv5/f6ef3zk9fPX9fRnsnOly0MDIyPZSR/nzNyavKr4tVgYGDcgNEG2aPr89+uvY7zZ8PAwMA4vycJ3G3ah4GBgXFVwG1D81r4xsDAwGiL2LU0ru2Mvb0Wx8DA+EDG2mDgb67fPt/AwMD494xnuXbSx5ZRPBUGBsZoRtLWzxPB89K0HSHke2JgYMxmtEVjchSjfYst9ZfUEAMDYygjT+N2GnN5Kpns8EtSiIGBcQPG2kAxCcftbhEeAwNjNKMFtAliW6y2IRsDA+MOjCQ5e0cRmwweipCNgYExmnH+6Mm3eSHaBtw2AcXAwJjKyIPmebjcOX6R562HO2NgYIxmJEnb2jGIvLhNAjcGBgZG22jLC9e8MM4D8WUjAQwMjA9kXHtUom2rrTXgDkkYGBiDGDspYP5wOyPMIh3EwMAYytgJo1cNLFvMYZqIgYFxG0ZSfK5VjmtNtLyExsDAmMpoW2l5CN45/rXYKcTAwBjNyNte+4/Vjgei+zEwMEYzdg5yJaF2J9FMUs+6FsfAwPhAxrNcedjdafG3AR0DA2M2ow12yWAgb8y15XHUO8TAwBjKyIPsTos/f39tKMfAwLgPoz1n1Q4S1orkIinEwMDA2Ai+a4Vr/ZowMDAwgqNabVt/LaGM5rEYGBhDGfkwIBkrJve3Tf/osAUGBsZQxk4BmTPy68V2GwYGxkzGF8BTqHb/AhAxAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -354,7 +354,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://easydo.work/2018/01/02/yii2-LinkPager.html",
+  id: "https://blog.easydo.work/2018/01/02/yii2-LinkPager.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {
@@ -374,7 +374,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 小叮当的肚兜
+    		&copy; 2019 小叮当的肚兜
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

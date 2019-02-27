@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://easydo.work">
+  <link rel="dns-prefetch" href="https://blog.easydo.work">
   <title>发布一个composer包 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1，在github上创建一个仓库,然后拉去到本地,在仓库目录中执行命令:1composer init 填写包的信息,创建composer.json文件. 更多配置信息可查阅其他资料 2,push创建的composer.json到github上去. 3,登录 https://packagist.org 点击网页顶部submit按钮:填写自己刚刚创建的github项目地址并提交.">
 <meta name="keywords" content="php,composer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="发布一个composer包">
-<meta property="og:url" content="https://easydo.work/2017/11/08/composer.html">
+<meta property="og:url" content="https://blog.easydo.work/2017/11/08/composer.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="1，在github上创建一个仓库,然后拉去到本地,在仓库目录中执行命令:1composer init 填写包的信息,创建composer.json文件. 更多配置信息可查阅其他资料 2,push创建的composer.json到github上去. 3,登录 https://packagist.org 点击网页顶部submit按钮:填写自己刚刚创建的github项目地址并提交.">
 <meta property="og:locale" content="zh-CN">
@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://blog.image.easydo.work/composer_API_Token.png">
 <meta property="og:image" content="http://blog.image.easydo.work/github_services.png">
 <meta property="og:image" content="http://blog.image.easydo.work/github_services_config.png">
-<meta property="og:updated_time" content="2018-12-20T14:23:06.366Z">
+<meta property="og:updated_time" content="2018-12-20T14:34:28.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="发布一个composer包">
 <meta name="twitter:description" content="1，在github上创建一个仓库,然后拉去到本地,在仓库目录中执行命令:1composer init 填写包的信息,创建composer.json文件. 更多配置信息可查阅其他资料 2,push创建的composer.json到github上去. 3,登录 https://packagist.org 点击网页顶部submit按钮:填写自己刚刚创建的github项目地址并提交.">
@@ -303,7 +303,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3awVLrMAwFUP7/p8sMW2h6r2x4r87xqkNTJycLIVn6+IjX42s9+/x9XV95vfP3a7YtDAyMt2U8Lldyg3yHXa/ph90wMDBuwEi2vg6X139pX0r+bBgYGBi/QcpfFgYGBsaMkdzyRRpX7oOBgYHRlqBJWMy//Qe1OAYGxhsy1hsDv/f5T/sbGBgY/yXjUa7rtK9tHiRJZ/RUGBgYRzPaG+TF6qxh2UbX4XvCwMB4W8bKQVubs+06sPsh4GJgYNyGkbct87C7F4+BgYExC5QrD53s82JPDAyM2zBmB2ErgxQrRezTgIuBgXEQIz9cm1Hz4Yy2wYmBgXEfRhSPF4Jp206YJY4YGBhnM1YOv9qkcNc42ov/GxgYGIcyVoYkVsJuG8Sf7o+BgXE0I0nUZof7s8O1DcMWGBgYRzNmN7v+1d7xi2LYAgMD41DGLO3Lk7l2qKI+CsTAwLgNoy1B82ZkMmq2VAZjYGAczdgbZPMWQouJSBgYGMcx8oO2WWLXFrHDxgMGBsbNGHlK145fFBNqQTH8dNgCAwPjOMaGkaxkDKIc/2oH1DAwMM5mzILp3iQybwMURSwGBsZBjJWAOBuSmBXMu8I6BgbG+zLyINs2Jltee3gXZY4YGBgHMdqx0Vl6Vw975b/CwMDAWAipbWaaf4uBgYFRpGWjQrRN/l5ciYGBcQPG3iJ21/hFsT8GBsbRjPXGQJv2zUrW2Q4YGBhvzvgEXccd87SNHmIAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3azW7DIBBF4bz/S7tSd5ViOHcgUT0cVlVETD4vpszP64XX9bvInrs13n/3yeYlQ4aMxzLI8XeHjfeMT0lhkyfIkCHjAMY4yNaCY0qt7ZEhQ4YMEkBrn8iQIUPGpwNuyiNXvfF3ZciQIYM8bhwu10tyX8rFZciQ8UBG2hj45t8f7G/IkCHjIYwrXPxb/NzaL/nzBBkyZLRmjBPRXRc7nvTygh2aB5EhQ0YLBi9s8WP48WkJL763ypAhowUjPTi95JFkNSj9kyEPGTJkHMMgDYB0kCJtT9bwMmTI6MrgxTJOSq+AS2MWMmTIaM0gDyKBj3+Xty2DZqcMGTJaM3iRK72opU0CXpibhHgZMmS0Y5CLYFrcT8Nuen18s1+GDBlHMtIhCd4crSXJMmTIOJmx0oxE3QY8TFaDbeipypAh498z0nGHtDFQa1vGjQQZMmQcwCAXu3RojDc1N4yRyZAh4wBGra1YK7rVdk5etwwZMlozeJKZppp7h8OCHqwMGTLaMdIkkySuPMWt1QXjq6EMGTJaMHjqyJPYlVEM/vrelNtkyJDRjpE2L8n1rlaMS1+KDBkyzmFc4Urz4/WmAhoUkyFDRmsGX3yQYj25XblKypAhoyuDB9naOMVKCyEovcmQIeMABm8G7NqZrsl/DBkyZMjACSov8fOKIArcMmTIkAGugLXElQRrlCrLkCHjAMZKM4CnuCshdfLKZMiQ0ZpRSyDTclst4KahWYYMGe0YP7868C4mcpwyAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -367,7 +367,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://easydo.work/2017/11/08/composer.html",
+  id: "https://blog.easydo.work/2017/11/08/composer.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {
@@ -387,7 +387,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 小叮当的肚兜
+    		&copy; 2019 小叮当的肚兜
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

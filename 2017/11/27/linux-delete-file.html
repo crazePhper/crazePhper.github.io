@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://easydo.work">
+  <link rel="dns-prefetch" href="https://blog.easydo.work">
   <title>linux下删除文件 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435#!/bin/bash #例：&amp;#123;path&amp;#125;/deleteLogFile.sh /home/www/test/ -1 &quot;*.zip&quot;#自定义函数 输出错误信息function showError()&amp;#123;	echo $1;exit;&amp;#125;#参数1">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下删除文件">
-<meta property="og:url" content="https://easydo.work/2017/11/27/linux-delete-file.html">
+<meta property="og:url" content="https://blog.easydo.work/2017/11/27/linux-delete-file.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435#!/bin/bash #例：&amp;#123;path&amp;#125;/deleteLogFile.sh /home/www/test/ -1 &quot;*.zip&quot;#自定义函数 输出错误信息function showError()&amp;#123;	echo $1;exit;&amp;#125;#参数1">
 <meta property="og:locale" content="zh-CN">
@@ -286,7 +286,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3azY7CMAxFYd7/pTvSrBgh2nPtgibOyQqhQvJ1Yfknjwdex+96/vy8Xp/kz/NnblgyZMhYlnGcrldGiiGHe7cXOZsMGTL2YfC/5ozzY5F/I2eTIUOGDLLN+fb8dZDnZciQIaOWrp0H07TelCFDhoxOEUvCJW/bkcTxI7W4DBkyFmTUBgPf+fzx+YYMGTL+PeNoLFKCpoVr8SQyZMgYzaild2nc48MG3oZDP5AhQ8YgRu2SVrpBpw1XfPUyZMgYwehc2yIhlRwuTSuLb12GDBnLMmoDxTT5q8V+PpaQIUPGbEatUCRBkzfmeMPu7ZMyZMjYhpFea+hsnF78usDLkCFjA0atTZ+Wu7V6ExXDMmTIGM3ojCHTVK9/aSNow8mQIWMog7fgefv+3jEACrgyZMgYzei01VI8HzbwVyBDhowdGLy5xtv6N7TS0tAsQ4aMoYz0sgUPzWnh2qlJZciQsQMjDZf8WHddy7jAy5AhYzSDt7R4ulYLtbyV1hphypAhY0FGrYnGw2KaaNZgMmTI2I1RG0/yF1QbA1ycTYYMGaMZtfDXKXQ7Q1CU28qQIWMQ4wgXHyfwwWdtOPrnGxkyZIxm8MWDZudz+isZMmTsw+i3xkgY5WVwOh6QIUPGPoxOp51sXLsWFpTQMmTIkFG62pU28tLdUb9QhgwZmzHScSZvq9UGFTJkyNiNwa+cpolgbdgQw2TIkDGa0QnK/YSPY2pNPRkyZCzO+AFMAbJQbA5AVAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aQXLDIAwFUN//0um2M62dL+R2YvFYdRpi81gokuA44vE6Gd8/TWaePfPsPzcPDAyMxzJel6P/ypyUb8ovz8HAwNiAUX10zqsCzt71Zs0YGBgYP+bkr7wr+GJgYGB0Am51ER/6u4GBgfHxjLyhlofOfH5SPN9Wi2NgYDyQkXfd///vPznfwMDAeBTjVRz9MJo/p7AqDAyM0Yy1Nlm5vCyWu2vrwcDAmM24/qB/SaLDKyeLGBgY4xhJe6t6waKfRJa3CQMDYzQjCYXVJebBupOAHtWcFAMDYxCjQ0rCdL7capGMgYExldFfXGv/4oL2TeDGwMAYzVhLAa8DaLIp1XZedFkNAwNjNKPztX6rLi93k+dgYGDMY+RhMS968xZ/p4g9/cXAwMAYyqg22vLm/lq5W75+gYGBMZqRT0pK1s6RZCcNxcDAmM1Yu/5VDaxriWYe3DEwMPZh5FdU88OAatOtmj5iYGDswMhTtM5y86sYa807DAyMHRhrDbXqEUKyKZ1twsDA2JORvyC5CpaAFwEYGBibMY54VC+QrQX3wncxMDCGMtYStbVgXU03863BwMCYzegHuzwpzGF3HS1gYGBMYlQbXn12K5M9a+dhYGBswLgr8CUzqyG4UMpiYGBgFEvQTmAt3xbBwMDAiA8gq3OSLYjKZgwMjA0Ya5cqOocHnaIXAwNjN0ZeOl4/qBOgk8L4hkNNDAyM5zG+AHVKS6l76GHOAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -350,7 +350,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://easydo.work/2017/11/27/linux-delete-file.html",
+  id: "https://blog.easydo.work/2017/11/27/linux-delete-file.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {
@@ -370,7 +370,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 小叮当的肚兜
+    		&copy; 2019 小叮当的肚兜
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

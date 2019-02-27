@@ -5,20 +5,20 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://easydo.work">
+  <link rel="dns-prefetch" href="https://blog.easydo.work">
   <title>多站点通行证设计原理简析 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在进行多站点统一账号管理时，有以下几个关键点：  设计公共登录平台—— passport 通行证 使用 cookie 跨域进行多站点登录 统一账号管理接口  设计请求流程图： 1.设计公共登录平台—— passport 通行证设计统一存储各个站点账号数据库:用户表 passport_user12345678910CREATE TABLE `passport_user` (  `id` int(11">
 <meta name="keywords" content="PassPort">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多站点通行证设计原理简析">
-<meta property="og:url" content="https://easydo.work/2017/12/05/passport-design.html">
+<meta property="og:url" content="https://blog.easydo.work/2017/12/05/passport-design.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="在进行多站点统一账号管理时，有以下几个关键点：  设计公共登录平台—— passport 通行证 使用 cookie 跨域进行多站点登录 统一账号管理接口  设计请求流程图： 1.设计公共登录平台—— passport 通行证设计统一存储各个站点账号数据库:用户表 passport_user12345678910CREATE TABLE `passport_user` (  `id` int(11">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://blog.image.easydo.work/%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B%E5%9B%BE.png">
 <meta property="og:image" content="http://blog.image.easydo.work/%E8%B4%A6%E5%8F%B7%E6%93%8D%E4%BD%9C.png">
-<meta property="og:updated_time" content="2018-12-20T14:23:06.447Z">
+<meta property="og:updated_time" content="2018-12-20T14:34:28.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多站点通行证设计原理简析">
 <meta name="twitter:description" content="在进行多站点统一账号管理时，有以下几个关键点：  设计公共登录平台—— passport 通行证 使用 cookie 跨域进行多站点登录 统一账号管理接口  设计请求流程图： 1.设计公共登录平台—— passport 通行证设计统一存储各个站点账号数据库:用户表 passport_user12345678910CREATE TABLE `passport_user` (  `id` int(11">
@@ -316,7 +316,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aQU7EMAwF0Ln/pYvEFtr5tjuIJi+rCtJJXhdWYvv1isfxPfI5x8k4m/nzrdcnBgYGxmMZx+XIF7uek2zx+q2zvWFgYOzDyANoEo6TT1ANx2/2jIGBgREH08lMDAwMjHsDbn5lzQ9/GBgYGNeM5LjWS431fvmDd3EMDIwHMqqFgb98/mB9AwMD4yGMoziSwsAkeXe0BgYGxtqMJK2ft1z0Cp+TK26hOoGBgfFwRq/ZK28Iq87JPysGBsY+jPzl/Ao6Cbv5Z8XAwNiNUc1iXc+c86rBGgMDY21G9VCYJNp6zWHz/2JgYKzHmBQAemmyybunzxgYGNsw8jJkddP3Hhl/+TsGBsZmjLwhbNKvVU36Y2BgYPQKA9X0XK8YEAViDAyMbRh5oEye83aNPNyfzsfAwFiaUW2A6JUwey0aZRIGBsaijGqozVsrJkfJchkVAwNjA8YkoZYAqoXSfFdv6hsYGBhLMCZX1gSTl0XzUmh0I8fAwFiI0WsFy5P+1WaOaljHwMDYh1FdeN7UNU/SFe7iGBgYD2fcla2qtlZMVvxg0g0DA+NfMo7iqJYh81+ICgBnq2NgYCzN6F0g80vvXQm4XljHwMBYidELsnkIzjeaBNzy+RQDA2MhRq+4WF2+VxJIWjowMDAw3vxEq6qYHP4KZ1sMDAyMQaBMtpKH8kI9FgMDYzlGskxv3HBBTd7FwMBYmvE3hYFJGSBfFwMDYznGFwYrQc8ZfQ0HAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aS47jMAwFwL7/pTPArGZj9SOp7oGl0soIElvlBcOPvr7i9fm78u+sr/9d6883LwwMjNcyPsu1ZuRbfHpilf1IxcDAuICxK4BWX8fT3fK9YWBgYFRTuuSb66djYGBgzAPuelvrpLMaZDEwMDCqRWzeFPsUVx7oN9TiGBgYL2RUBwO/ef2D8w0MDIyXMD6b1jzUjp6OgYFxNCMvR6txLy9Wk9cRBWIMDIxDGdWBYl5kJhtat9LyUhkDA+Mexi7SJKw3D1tgYGAczeild0moTRLNXgjelqViYGC8llE9NjH5bfWTDYNMDAyMFzImYbHa9J804L75BAMD4wJG0iCrlpRRm2x8mAMDA+NmRp4OVlO96p0TEgYGxg2M6lGJKrsavvNi+HGEiYGBcRCj17LPG/rrRHBeAEduDAyMlzN67f7eoHHyjgtHKzAwMI5m5Eco8qNd1TlqNfl7bLdhYGBcxpg0zvLxZ/L0x2sMDIyjGZPDWHkiWG3MVe+AgYFxG6NXUq5/NU89C2MADAyMoxn5kCDf0GQ8UG7tYWBgHM3ote+TcNk7nFEdr2JgYJzNmBerySSxV74WDnlgYGAczchXnhRWz0L0gn7hjBsGBsYRjGoxmY8te6+glzJiYGDcwOg12nqpYS/qf8PDwMDAiMPoKGjGYXpDwMXAwDiUkSdzCXLSqsPAwLiTkW9lPjDY1ujHwMC4hvETg4FeaM7/Bn5phImBgfH/GX8ARd439SDyZEYAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -380,7 +380,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://easydo.work/2017/12/05/passport-design.html",
+  id: "https://blog.easydo.work/2017/12/05/passport-design.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {
@@ -400,7 +400,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 小叮当的肚兜
+    		&copy; 2019 小叮当的肚兜
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

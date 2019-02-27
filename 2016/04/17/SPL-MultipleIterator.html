@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://easydo.work">
+  <link rel="dns-prefetch" href="https://blog.easydo.work">
   <title>SPL-MultipleIterator迭代器 | 小叮当的肚兜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="php合并多个数组,自定义键  12345678910111213141516$idIter=new ArrayIterator([&apos;001&apos;,&apos;002&apos;,&apos;003&apos;,&apos;004&apos;]);$nameIter=new ArrayIterator([&apos;Bob&apos;,&apos;Daisy&apos;,&apos;Jasmine&apos;,&apos;Ailsa&apos;]);#MIT_KEYS_ASSOC以键排序,还有MIT_NEED_ANY,MIT_NEED_">
 <meta name="keywords" content="php,SPL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SPL-MultipleIterator迭代器">
-<meta property="og:url" content="https://easydo.work/2016/04/17/SPL-MultipleIterator.html">
+<meta property="og:url" content="https://blog.easydo.work/2016/04/17/SPL-MultipleIterator.html">
 <meta property="og:site_name" content="小叮当的肚兜">
 <meta property="og:description" content="php合并多个数组,自定义键  12345678910111213141516$idIter=new ArrayIterator([&apos;001&apos;,&apos;002&apos;,&apos;003&apos;,&apos;004&apos;]);$nameIter=new ArrayIterator([&apos;Bob&apos;,&apos;Daisy&apos;,&apos;Jasmine&apos;,&apos;Ailsa&apos;]);#MIT_KEYS_ASSOC以键排序,还有MIT_NEED_ANY,MIT_NEED_">
 <meta property="og:locale" content="zh-CN">
@@ -299,7 +299,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aS27DMAwFwNz/0inQVYvCwiPpFLA0WhWOf+PFqyTy9YrH+3sk5/wc6+PJtTcPDAyMxzLey/GXsX7F9bVXn2ZyfwwMjHMY+WPWR9Znrs/pfQIMDAyM3iuuJ4hJ3GNgYGBMAje/dW/Ch4GBgTFZxFYByfH1Uz6yFsfAwHggo1oY+M+/P1jfwMDAeAjj3Rp51OblzOrE8dcdMDAwtmYk075q+OblhPUT8wUtBgbG3oy82atX1MyLCklYX16LgYFxDGOy7ZVEdvnl8gUtBgbGAYzqK/YawqpBnH9WDAyMExjVwO0tdO/dervh/wYGBsZDGNXH5AXIanmyd//LwgAGBsZ2jOrWWzWa8221fImLgYFxJiOZ5M036fLXqn4aDAyMvRmTyOstXCdlgMIMFwMDYyNGvsnVa4/oFUSbbAwMjAMY+YZXPpXMl6A3RDMGBsZ2jGoIJl+lWqrMMZdPwcDA2JqRLw6rW2mTzbhR9GNgYGzKuGuqV/11HrUYGBgnM3rx2mutGJUB7pqlYmBgPISRNDpUR6/JrFoixcDAOIGRtztUSwXVD/QqDgwMjBMY8wCdlA3yBo5oow0DA2NTRi+hq7dYv1Av1psxjYGB8VhGErK9SWGvYaK5tYeBgXEAoxp81SaJjwc3BgYGRtw8US0S5I0XzWIABgbGYYxJMSBvDkvCGgMD40xGsojNJ4VV2KSQiYGBcQJjUhjowXqBe0OLBgYGxvMYX3UUiYduwwuIAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aQW7DMAwF0dz/0u62QGFnPqkmEDVaFYEr82XBSCRfL7yuX+v58+tmkT2fn1+wZMiQsS3jelzPr/y7DwmUP0NikyFDxjmMuwz2/AxJsjyNEvbt5zJkyJCBk2D6X7WvT4YMGTLIdvxqSlL21343ZMiQsRUjTZ08uLu39JO7DBkyzmHwID7/97/0N2TIkLEV4wpXfFwrtQfiqGTIkDGa0b9ekpYkb1V24pEhQ8ZURu1KSRqTtTZAWtoLKnwyZMjYlpEWxfgXURvFqJXhZMiQcQKDXClryZEj0zT94plbhgwZmzN4iGlAnf35dVeGDBlnMtKXkX1qCTc4qsqQIWM0o1/26hwcO6kcJV8ZMmQMYqwth6XUtM3wptwmQ4aMoYz+8Y4nR37Uq4FlyJAxlVEbLSVJNg2FpOxW7VCGDBkjGGmvcFVrodPslCFDxgkMkl75SCsZ2iDpno+ayZAh4wQGCZ2nPx5uOvb6hipDhozRjPTKWhuMSHm13WTIkDGVkV5iayNfJNAU0LqLy5AhY0MGSbLpAAQ/bpLQ36RdGTJkHMYghbC0qcnftaxSKEOGjBGMzhEt3aHWHG0V12TIkDGCwRe/XvKmJifVWgsyZMiYxFg1YJHukzYvFwxbyJAhY3NGmvjSAQv+riJShgwZMhYlysXNgNo0hwwZMg5g1BIuH57gz3zhd0OGDBlfZfDGJEmRnzlKypAh4xwGvzqS7Xjpv9YeqF19ZciQsS3jB+qYvCoGgKbbAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -363,7 +363,7 @@ var _hmt = _hmt || [];
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://easydo.work/2016/04/17/SPL-MultipleIterator.html",
+  id: "https://blog.easydo.work/2016/04/17/SPL-MultipleIterator.html",
   owner: 'crazePhper',
   repo: 'crazePhper.github.io',
   oauth: {
@@ -383,7 +383,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 小叮当的肚兜
+    		&copy; 2019 小叮当的肚兜
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
